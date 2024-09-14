@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Layout, Menu, Typography, Avatar } from "antd";
 import {
   HomeOutlined,
@@ -7,11 +7,9 @@ import {
   FileTextOutlined,
   UserOutlined,
   CalendarOutlined,
-  QuestionCircleOutlined,
   BarChartOutlined,
   PieChartOutlined,
   LineChartOutlined,
-  GlobalOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
@@ -20,68 +18,51 @@ import { useNavigate, useLocation } from "react-router-dom";
 const { Sider } = Layout;
 const { Title, Text } = Typography;
 
-interface MenuItem {
-  key: string;
-  icon: React.ReactNode;
-  label: string;
-  to: string;
-}
-
-const items: MenuItem[] = [
-  { key: "1", icon: <HomeOutlined />, label: "Bảng Thống Kê", to: "" },
+const menuConfig = [
   {
-    key: "2",
+    key: "1",
+    icon: <HomeOutlined />,
+    label: "Bảng Thống Kê",
+    path: "",
+  },
+  {
+    key: "sub1",
     icon: <TeamOutlined />,
-    label: "Thông Tin Khách Hàng",
-    to: "customers",
+    title: "Thông Tin",
+    items: [
+      { key: "2", label: "Thông Tin Khách Hàng", path: "customers" },
+      { key: "3", label: "Thông Tin Nhà Cung Cấp", path: "suppliers" },
+      { key: "4", label: "Ghi Nợ Khách Hàng", path: "dept" },
+    ],
   },
   {
-    key: "3",
+    key: "sub2",
     icon: <ContactsOutlined />,
-    label: "Thông Tin Nhà Cung Cấp",
-    to: "suppliers",
-  },
-
-  {
-    key: "4",
-    icon: <ContactsOutlined />,
-    label: "Quản Lý Sản Phẩm",
-    to: "products",
-  },
-
-  {
-    key: "5",
-    icon: <FileTextOutlined />,
-    label: "Ghi Nợ Khách Hàng",
-    to: "dept",
+    title: "Quản Lý",
+    items: [
+      { key: "5", label: "Quản Lý Sản Phẩm", path: "products" },
+      { key: "6", label: "Lịch Trình", path: "calendar" },
+    ],
   },
   {
-    key: "6",
-    icon: <UserOutlined />,
-    label: "Thêm Khách Hàng Mới",
-    to: "create-customer",
-  },
-  {
-    key: "7",
-    icon: <CalendarOutlined />,
-    label: "Lịch Trình",
-    to: "calendar",
-  },
-  { key: "8", icon: <BarChartOutlined />, label: "An Ninh", to: "security" },
-  { key: "9", icon: <PieChartOutlined />, label: "Cảnh Báo", to: "warning" },
-  {
-    key: "10",
-    icon: <LineChartOutlined />,
-    label: "Xem Lại Camera",
-    to: "record",
+    key: "sub3",
+    icon: <BarChartOutlined />,
+    title: "An Ninh & Cảnh Báo",
+    items: [
+      { key: "7", label: "An Ninh", path: "security" },
+      { key: "8", label: "Cảnh Báo", path: "warning" },
+      { key: "9", label: "Xem Lại Camera", path: "record" },
+    ],
   },
 ];
 
 const Sidebar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const [collapsed, setCollapsed] = useState(false);
+  const [openKeys, setOpenKeys] = useState<string[]>([]);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -90,8 +71,58 @@ const Sidebar: React.FC = () => {
   const handleMenuClick = (path: string) => {
     navigate(`/admin/${path}`);
   };
+
+  // Extract current path from location
   const currentPath = location.pathname.split("/admin/")[1] || "";
-  console.log(currentPath, "currentPath");
+
+  // Determine the selected keys and open keys based on the current path
+  const getSelectedAndOpenKeys = () => {
+    if (currentPath === "") {
+      return { selectedKeys: ["1"], openKeys: [] };
+    }
+
+    for (const menu of menuConfig) {
+      if (menu.items) {
+        const item = menu.items.find((item) => item.path === currentPath);
+        if (item) {
+          return { selectedKeys: [item.key], openKeys: [menu.key] };
+        }
+      } else if (menu.path === currentPath) {
+        return { selectedKeys: [menu.key], openKeys: [] };
+      }
+    }
+    return { selectedKeys: [], openKeys: [] };
+  };
+
+  useEffect(() => {
+    const { selectedKeys: newSelectedKeys, openKeys: newOpenKeys } =
+      getSelectedAndOpenKeys();
+    setSelectedKeys(newSelectedKeys);
+
+    // Only set openKeys on initial load or page reload
+    if (isInitialLoad) {
+      setOpenKeys(newOpenKeys);
+      setIsInitialLoad(false);
+    }
+  }, [currentPath, isInitialLoad]);
+
+  useEffect(() => {
+    // Reset isInitialLoad when the page is reloaded
+    const handleBeforeUnload = () => {
+      setIsInitialLoad(true);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  const onOpenChange = (keys: string[]) => {
+    setOpenKeys(keys);
+  };
+
   return (
     <Sider
       collapsed={collapsed}
@@ -99,14 +130,9 @@ const Sidebar: React.FC = () => {
       width={250}
     >
       <div className="p-4">
-        <div className="flex items-center  justify-between mb-4">
+        <div className="flex items-center justify-between mb-4">
           {!collapsed && (
-            <Title
-              level={3}
-              style={{
-                color: "white",
-              }}
-            >
+            <Title level={3} style={{ color: "white" }}>
               WareVision
             </Title>
           )}
@@ -136,19 +162,33 @@ const Sidebar: React.FC = () => {
       <Menu
         theme="dark"
         mode="inline"
-        defaultSelectedKeys={["1"]}
-        // selectedKeys={[currentPath]}
+        openKeys={openKeys}
+        selectedKeys={selectedKeys}
+        onOpenChange={onOpenChange}
         className="border-r-0"
       >
-        {items.map((item) => (
-          <Menu.Item
-            key={item.key}
-            icon={item.icon}
-            onClick={() => handleMenuClick(item.to)}
-          >
-            <div>{item.label}</div>
-          </Menu.Item>
-        ))}
+        {menuConfig.map((menu) =>
+          menu.items ? (
+            <Menu.SubMenu key={menu.key} icon={menu.icon} title={menu.title}>
+              {menu.items.map((item) => (
+                <Menu.Item
+                  key={item.key}
+                  onClick={() => handleMenuClick(item.path)}
+                >
+                  {item.label}
+                </Menu.Item>
+              ))}
+            </Menu.SubMenu>
+          ) : (
+            <Menu.Item
+              key={menu.key}
+              icon={menu.icon}
+              onClick={() => handleMenuClick(menu.path)}
+            >
+              {menu.label}
+            </Menu.Item>
+          )
+        )}
       </Menu>
     </Sider>
   );

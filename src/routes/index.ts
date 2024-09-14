@@ -5,7 +5,6 @@ import Dashboard from "../pages/Dashboard";
 import Customer from "../pages/Customer";
 import Supplier from "../pages/Supplier";
 import CustomerDept from "../pages/CustomerrDept";
-import NewCustomer from "../pages/NewCustomer";
 import Calendar from "../pages/Calendar";
 import Security from "../pages/Security";
 import Warning from "../pages/Warning";
@@ -55,12 +54,6 @@ const routes = [
   {
     path: config.routes.customerDept,
     component: CustomerDept,
-    layout: DefaultLayout,
-  },
-
-  {
-    path: config.routes.addNewCustomer,
-    component: NewCustomer,
     layout: DefaultLayout,
   },
 

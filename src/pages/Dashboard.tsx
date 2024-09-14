@@ -31,7 +31,7 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <div className="m-5">
+    <>
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
       {/* Grid & Charts */}
       <div className="grid grid-cols-12 gap-5">
         {/* Row 1 */}
-        <Card className="col-span-3 flex items-center justify-center bg-gray-800 text-white">
+        <Card className="col-span-3 flex items-center justify-center bg-violet-300 text-white">
           <Space direction="vertical" className="text-center">
             <MailOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
@@ -62,7 +62,7 @@ const Dashboard: React.FC = () => {
           </Space>
         </Card>
 
-        <Card className="col-span-3 flex items-center justify-center bg-gray-800 text-white">
+        <Card className="col-span-3 flex items-center justify-center bg-violet-300 text-white">
           <Space direction="vertical" className="text-center">
             <ShopOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
           </Space>
         </Card>
 
-        <Card className="col-span-3 flex items-center justify-center bg-gray-800 text-white">
+        <Card className="col-span-3 flex items-center justify-center bg-violet-300 text-white">
           <Space direction="vertical" className="text-center">
             <UserAddOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
@@ -84,7 +84,7 @@ const Dashboard: React.FC = () => {
           </Space>
         </Card>
 
-        <Card className="col-span-3 flex items-center justify-center bg-gray-800 text-white">
+        <Card className="col-span-3 flex items-center justify-center bg-violet-300 text-white">
           <Space direction="vertical" className="text-center">
             <AreaChartOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
@@ -96,7 +96,7 @@ const Dashboard: React.FC = () => {
         </Card>
 
         {/* Row 2 - Revenue Generated Chart */}
-        <Card className="col-span-8 bg-gray-800 text-white p-5">
+        <Card className="col-span-8 bg-violet-300 text-white p-5">
           <div className="flex justify-between items-center mb-5">
             <div>
               <Title level={4} className="text-white">
@@ -113,7 +113,7 @@ const Dashboard: React.FC = () => {
         </Card>
 
         {/* Recent Transactions */}
-        <Card className="col-span-4 bg-gray-800 text-white p-5 overflow-auto">
+        <Card className="col-span-4 bg-violet-300 text-white p-5 overflow-auto">
           <Title level={4} className="text-white mb-4">
             Recent Transactions
           </Title>
@@ -125,7 +125,7 @@ const Dashboard: React.FC = () => {
         </Card>
 
         {/* Row 3 */}
-        <Card className="col-span-4 bg-gray-800 text-white p-5">
+        <Card className="col-span-4 bg-violet-300 text-white p-5">
           <Title level={4}>Campaign</Title>
           <div className="flex flex-col items-center mt-5">
             {/* Replace with actual ProgressCircle component */}
@@ -137,19 +137,19 @@ const Dashboard: React.FC = () => {
           </div>
         </Card>
 
-        <Card className="col-span-4 bg-gray-800 text-white p-5">
+        <Card className="col-span-4 bg-violet-300 text-white p-5">
           <Title level={4}>Sales Quantity</Title>
           {/* Replace with actual BarChart component */}
           <div className="h-64 bg-gray-700 mt-5">Bar Chart Component</div>
         </Card>
 
-        <Card className="col-span-4 bg-gray-800 text-white p-5">
+        <Card className="col-span-4 bg-violet-300 text-white p-5">
           <Title level={4}>Geography Based Traffic</Title>
           {/* Replace with actual GeographyChart component */}
           <div className="h-48 bg-gray-700 mt-5">Geography Chart Component</div>
         </Card>
       </div>
-    </div>
+    </>
   );
 };
 

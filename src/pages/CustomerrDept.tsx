@@ -49,22 +49,20 @@ const CustomerDept: React.FC = () => {
   ];
 
   return (
-    <div className="m-5">
+    <div className="">
       {/* Header */}
       <div className="mb-6">
-        <Title level={2}>CustomerDept</Title>
-        <p className="text-gray-500">List of Invoice Balances</p>
+        <Title level={2}>TEAM</Title>
+        <p className="text-gray-500">Managing the Team Members</p>
       </div>
-
       {/* Data Table */}
-      <div className="overflow-auto bg-gray-800 p-5 rounded-md shadow-md">
+      <div className="overflow-auto rounded-md shadow-md">
         <Table
           dataSource={mockDataCustomerDept}
           columns={columns}
           pagination={{ pageSize: 5 }}
           rowKey="id"
           className="text-white"
-          style={{ backgroundColor: "rgb(31 41 55)", color: "white" }}
         />
       </div>
     </div>

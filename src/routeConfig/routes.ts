@@ -5,7 +5,6 @@ const routes = {
   supplier: "/admin/suppliers",
   product: "/admin/products",
   customerDept: "/admin/dept",
-  addNewCustomer: "/admin/create-customer",
   calendar: "/admin/calendar",
   warning: "/admin/warning",
   record: "/admin/record",
