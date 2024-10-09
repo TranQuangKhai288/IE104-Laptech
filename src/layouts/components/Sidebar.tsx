@@ -133,7 +133,7 @@ const Sidebar: React.FC = () => {
         <div className="flex items-center justify-between mb-4">
           {!collapsed && (
             <Title level={3} style={{ color: "white" }}>
-              WareVision
+              LapTech
             </Title>
           )}
           <button

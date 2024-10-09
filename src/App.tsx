@@ -5,7 +5,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import { CameraProvider } from "./provider/CameraProvider";
+// import { CameraProvider } from "./provider/CameraProvider";
 import DefaultLayout from "./layouts/DefaultLayout";
 import { routes } from "./routes";
 
@@ -16,11 +16,11 @@ interface DefaultLayoutProps {
 const App: React.FC = () => {
   return (
     <Router>
-      <CameraProvider>
-        <div className="App">
-          <AppRoutes />
-        </div>
-      </CameraProvider>
+      {/* <CameraProvider> */}
+      <div className="App">
+        <AppRoutes />
+      </div>
+      {/* </CameraProvider> */}
     </Router>
   );
 };
