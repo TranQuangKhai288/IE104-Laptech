@@ -15,6 +15,8 @@ import Nothing from "../layouts/Nothing";
 import HeaderLayout from "../layouts/HeaderLayout";
 import DefaultLayout from "../layouts/DefaultLayout";
 import Product from "../pages/Product";
+import { Profiler } from "react";
+import Profile from "../pages/Profile";
 
 const routes = [
   {
@@ -81,6 +83,11 @@ const routes = [
     layout: DefaultLayout,
   },
 
+  {
+    path: config.routes.profile,
+    component: Profile,
+    layout: HeaderLayout
+  }
 ];
 
 export { routes };

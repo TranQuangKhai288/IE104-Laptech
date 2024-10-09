@@ -9,6 +9,7 @@ const routes = {
   warning: "/admin/warning",
   record: "/admin/record",
   security: "/admin/security",
+  profile: "/profile"
 };
 
 export default routes;
