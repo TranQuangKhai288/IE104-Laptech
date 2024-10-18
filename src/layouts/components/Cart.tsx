@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./Cart.css";
 
 interface CartItem {
   id: string;
@@ -92,39 +93,32 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 p-8 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800 border-b pb-4">
-        Giỏ hàng của bạn
-      </h2>
+    <div className="cart-container">
+      <h2 className="cart-title">Giỏ hàng của bạn</h2>
 
       {cartItems.length === 0 ? (
-        <div className="text-center py-10">
-          <p className="text-lg text-gray-500">Giỏ hàng của bạn đang trống.</p>
+        <div className="cart-empty">
+          <p className="cart-empty-message">Giỏ hàng của bạn đang trống.</p>
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="cart-items">
           {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center justify-between p-4 border rounded-lg hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center space-x-6">
+            <div key={item.id} className="cart-item">
+              <div className="cart-item-details">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-24 h-24 object-cover rounded-md"
+                  className="cart-item-image"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700">
-                    {item.name}
-                  </h3>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <h3 className="cart-item-name">{item.name}</h3>
+                  <p className="cart-item-price">
                     Giá: {item.price.toLocaleString("vi-VN")} VND
                   </p>
-                  <div className="mt-2">
+                  <div className="cart-item-quantity">
                     <label
                       htmlFor={`quantity-${item.id}`}
-                      className="mr-2 text-sm text-gray-600"
+                      className="cart-item-quantity-label"
                     >
                       Số lượng:
                     </label>
@@ -136,15 +130,15 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
                       onChange={(e) =>
                         handleQuantityChange(item.id, parseInt(e.target.value))
                       }
-                      className="w-16 p-1 text-center border rounded-md"
+                      className="cart-item-quantity-input"
                     />
                   </div>
                 </div>
               </div>
-              <div className="flex space-x-4">
+              <div className="cart-item-actions">
                 <button
                   onClick={() => removeProductFromCart(item.id)}
-                  className="px-3 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+                  className="cart-item-remove-button"
                 >
                   Xóa
                 </button>
@@ -154,7 +148,7 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
         </div>
       )}
 
-      <div className="mt-10 flex justify-end">
+      <div className="cart-footer">
         <button
           onClick={() =>
             addProductToCart({
@@ -165,14 +159,14 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
               image: "/product.png",
             })
           }
-          className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+          className="cart-add-button"
         >
           Thêm sản phẩm mới
         </button>
       </div>
 
-      <div className="mt-10 p-4 border-t">
-        <h3 className="text-xl font-bold text-gray-800">
+      <div className="cart-total">
+        <h3 className="cart-total-text">
           Tổng tiền:{" "}
           {cartItems
             .reduce((total, item) => total + item.price * item.quantity, 0)
