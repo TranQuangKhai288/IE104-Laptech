@@ -35,6 +35,13 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
       quantity: 1,
       image: "/keychron-k2.png",
     },
+    {
+      id: "sample4",
+      name: "Laptop Lenovo Legion 5 Pro",
+      price: 40000000,
+      quantity: 1,
+      image: "/legion-5-pro.png",
+    },
   ]);
 
   useEffect(() => {
