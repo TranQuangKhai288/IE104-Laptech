@@ -9,7 +9,9 @@ interface CartItem {
   image: string;
 }
 
-const Cart: React.FC = () => {
+const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
+  updateCartItemsCount,
+}) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: "1",
@@ -25,25 +27,44 @@ const Cart: React.FC = () => {
       quantity: 1,
       image: "/sample-product-2.png",
     },
+    {
+      id: "3",
+      name: "Sản phẩm mẫu 3",
+      price: 1750000,
+      quantity: 1,
+      image: "/sample-product-3.png",
+    },
   ]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("/api/products");
-        setCartItems((prevItems) => [...prevItems, ...response.data]);
+        setCartItems((prevItems) => {
+          const updatedItems = [...prevItems, ...response.data];
+          updateCartItemsCount(updatedItems.length);
+          return updatedItems;
+        });
       } catch (err) {
         console.error("Error fetching products:", err);
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [updateCartItemsCount]);
+
+  useEffect(() => {
+    updateCartItemsCount(cartItems.length);
+  }, [cartItems, updateCartItemsCount]);
 
   const addProductToCart = async (product: CartItem) => {
     try {
       const response = await axios.post("/api/products", product);
-      setCartItems((prevItems) => [...prevItems, response.data]);
+      setCartItems((prevItems) => {
+        const updatedItems = [...prevItems, response.data];
+        updateCartItemsCount(updatedItems.length);
+        return updatedItems;
+      });
     } catch (err) {
       console.error("Error adding product:", err);
     }
@@ -52,7 +73,11 @@ const Cart: React.FC = () => {
   const removeProductFromCart = async (id: string) => {
     try {
       await axios.delete(`/api/products/${id}`);
-      setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+      setCartItems((prevItems) => {
+        const updatedItems = prevItems.filter((item) => item.id !== id);
+        updateCartItemsCount(updatedItems.length);
+        return updatedItems;
+      });
     } catch (err) {
       console.error("Error removing product:", err);
     }

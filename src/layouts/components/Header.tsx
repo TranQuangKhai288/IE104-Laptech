@@ -17,7 +17,7 @@ interface User {
 const Header: React.FC = () => {
   const user: User = {}; // Lấy thông tin người dùng từ API hoặc context
   const navigate = useNavigate();
-  const [cartItemsCount, setCartItemsCount] = useState(2); // Giả sử có 2 sản phẩm trong giỏ hàng
+  const [cartItemsCount, setCartItemsCount] = useState(0); // Khởi tạo số lượng sản phẩm trong giỏ hàng
   const [isCartModalVisible, setCartModalVisible] = useState(false); // Trạng thái modal
 
   // Hàm hiển thị modal giỏ hàng
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
         onCancel={handleCartModalClose}
         footer={null}
       >
-        <Cart />
+        <Cart updateCartItemsCount={setCartItemsCount} />
       </Modal>
     </header>
   );
