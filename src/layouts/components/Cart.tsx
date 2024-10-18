@@ -10,13 +10,28 @@ interface CartItem {
 }
 
 const Cart: React.FC = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([
+    {
+      id: "1",
+      name: "Sản phẩm mẫu 1",
+      price: 500000,
+      quantity: 2,
+      image: "/sample-product-1.png",
+    },
+    {
+      id: "2",
+      name: "Sản phẩm mẫu 2",
+      price: 750000,
+      quantity: 1,
+      image: "/sample-product-2.png",
+    },
+  ]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("/api/products");
-        setCartItems(response.data);
+        setCartItems((prevItems) => [...prevItems, ...response.data]);
       } catch (err) {
         console.error("Error fetching products:", err);
       }
