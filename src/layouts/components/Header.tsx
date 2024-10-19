@@ -53,9 +53,9 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-4">
           {/* Cart */}
           <div className="relative cursor-pointer" onClick={showCartModal}>
-            <FiShoppingCart size={28} className="text-blue-500" />
+            <FiShoppingCart size={28} className="text-black" />
             {cartItemsCount > 0 && (
-              <span className="absolute top-0 right-0 bg-red-600 text-white rounded-full px-2 text-xs">
+              <span className="absolute top-[-10px] right-[-10px] bg-red-600 text-white rounded-full px-2 py-0.5 text-[10px]">
                 {cartItemsCount}
               </span>
             )}
@@ -120,12 +120,12 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal Giỏ Hàng */}
       <Modal
         title="Giỏ Hàng"
         visible={isCartModalVisible}
         onCancel={handleCartModalClose}
         footer={null}
+        width={900}
       >
         <Cart updateCartItemsCount={setCartItemsCount} />
       </Modal>

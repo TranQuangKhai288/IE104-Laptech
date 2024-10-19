@@ -8,6 +8,7 @@ interface CartItem {
   price: number;
   quantity: number;
   image: string;
+  description: string;
 }
 
 const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
@@ -19,28 +20,32 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
       name: "Laptop ThinkPad X1 Carbon",
       price: 32000000,
       quantity: 1,
-      image: "/laptop-thinkpad-x1-carbon.png",
+      image: "/images/thinkpad-x1-carbon.png",
+      description: "Intel i7, 16GB RAM, 512GB SSD, Nhập khẩu",
     },
     {
       id: "sample2",
       name: "Tai nghe Sony WH-1000XM4",
       price: 8000000,
       quantity: 2,
-      image: "/sony-wh-1000xm4.png",
+      image: "/images/sony-wh-1000xm4.jpg",
+      description: "Chống ồn chủ động, Bluetooth 5.0",
     },
     {
       id: "sample3",
       name: "Bàn phím cơ Keychron K2",
       price: 2500000,
       quantity: 1,
-      image: "/keychron-k2.png",
+      image: "/images/keychron-k2.png",
+      description: "Switch Gateron Brown, Layout 75%, Bluetooth",
     },
     {
       id: "sample4",
       name: "Laptop Lenovo Legion 5 Pro",
       price: 40000000,
       quantity: 1,
-      image: "/legion-5-pro.png",
+      image: "/images/legion-5-pro.png",
+      description: "AMD Ryzen 7, 16GB RAM, 1TB SSD, RTX 3060, Nhập khẩu",
     },
   ]);
 
@@ -99,6 +104,10 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
     });
   };
 
+  const handleCheckout = () => {
+    window.location.href = "/checkout";
+  };
+
   return (
     <div className="cart-container">
       <h2 className="cart-title">Giỏ hàng của bạn</h2>
@@ -119,6 +128,7 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
                 />
                 <div>
                   <h3 className="cart-item-name">{item.name}</h3>
+                  <p className="cart-item-description">{item.description}</p>
                   <p className="cart-item-price">
                     Giá: {item.price.toLocaleString("vi-VN")} VND
                   </p>
@@ -164,11 +174,15 @@ const Cart: React.FC<{ updateCartItemsCount: (count: number) => void }> = ({
               price: 1000000,
               quantity: 1,
               image: "/product.png",
+              description: "Mô tả sản phẩm mới",
             })
           }
           className="cart-add-button"
         >
           Thêm sản phẩm mới
+        </button>
+        <button onClick={handleCheckout} className="cart-checkout-button">
+          Đặt hàng
         </button>
       </div>
 
