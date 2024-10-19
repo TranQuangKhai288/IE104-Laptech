@@ -1,3 +1,4 @@
+// src/routes.ts
 const routes = {
   home: "/",
   admin: "/admin",
@@ -9,6 +10,7 @@ const routes = {
   warning: "/admin/warning",
   record: "/admin/record",
   security: "/admin/security",
+  cart: "/cart",
   profile: "/profile"
 };
 

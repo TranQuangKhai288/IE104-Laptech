@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Popover } from "antd";
+import { Popover, Modal } from "antd"; // Import Modal từ Ant Design
 import { adminMenu, guestMenu, userMenu } from "./menuApp";
 import { AiOutlineUser } from "react-icons/ai";
+import { FiShoppingCart } from "react-icons/fi"; // Biểu tượng giỏ hàng
 import Search from "./SearchComponent";
+import Cart from "./Cart"; // Import Cart component
 
 interface User {
   id?: number;
@@ -15,6 +17,18 @@ interface User {
 const Header: React.FC = () => {
   const user: User = {}; // Lấy thông tin người dùng từ API hoặc context
   const navigate = useNavigate();
+  const [cartItemsCount, setCartItemsCount] = useState(0); // Khởi tạo số lượng sản phẩm trong giỏ hàng
+  const [isCartModalVisible, setCartModalVisible] = useState(false); // Trạng thái modal
+
+  // Hàm hiển thị modal giỏ hàng
+  const showCartModal = () => {
+    setCartModalVisible(true);
+  };
+
+  // Hàm đóng modal giỏ hàng
+  const handleCartModalClose = () => {
+    setCartModalVisible(false);
+  };
 
   const handleMenuItemClick = (path?: string) => {
     if (path) {
@@ -25,13 +39,29 @@ const Header: React.FC = () => {
   return (
     <header className="flex items-center justify-center bg-white relative w-full border-b">
       <div className="flex items-center w-4/5 my-2">
+        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src="store_logo_text" alt="Store Logo" className="w-48 h-auto" />
         </Link>
+
+        {/* Search Component */}
         <div className="flex-1 mx-4">
           <Search />
         </div>
+
+        {/* User Account and Cart */}
         <div className="flex items-center space-x-4">
+          {/* Cart */}
+          <div className="relative cursor-pointer" onClick={showCartModal}>
+            <FiShoppingCart size={28} className="text-black" />
+            {cartItemsCount > 0 && (
+              <span className="absolute top-[-10px] right-[-10px] bg-red-600 text-white rounded-full px-2 py-0.5 text-[10px]">
+                {cartItemsCount}
+              </span>
+            )}
+          </div>
+
+          {/* User Menu */}
           <Popover
             content={
               user?.isAdmin
@@ -89,6 +119,16 @@ const Header: React.FC = () => {
           </Popover>
         </div>
       </div>
+
+      <Modal
+        title="Giỏ Hàng"
+        visible={isCartModalVisible}
+        onCancel={handleCartModalClose}
+        footer={null}
+        width={900}
+      >
+        <Cart updateCartItemsCount={setCartItemsCount} />
+      </Modal>
     </header>
   );
 };
