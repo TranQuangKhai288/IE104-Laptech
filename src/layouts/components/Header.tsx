@@ -5,7 +5,7 @@ import { adminMenu, guestMenu, userMenu } from "./menuApp";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi"; // Biểu tượng giỏ hàng
 import Search from "./SearchComponent";
-import Cart from "./Cart"; // Import Cart component
+// import Cart from "./Cart"; // Import Cart component
 
 interface User {
   id?: number;
@@ -20,14 +20,8 @@ const Header: React.FC = () => {
   const [cartItemsCount, setCartItemsCount] = useState(0); // Khởi tạo số lượng sản phẩm trong giỏ hàng
   const [isCartModalVisible, setCartModalVisible] = useState(false); // Trạng thái modal
 
-  // Hàm hiển thị modal giỏ hàng
-  const showCartModal = () => {
-    setCartModalVisible(true);
-  };
-
-  // Hàm đóng modal giỏ hàng
-  const handleCartModalClose = () => {
-    setCartModalVisible(false);
+  const handleClickCart = () => {
+    navigate("/cart");
   };
 
   const handleMenuItemClick = (path?: string) => {
@@ -52,7 +46,10 @@ const Header: React.FC = () => {
         {/* User Account and Cart */}
         <div className="flex items-center space-x-4">
           {/* Cart */}
-          <div className="relative cursor-pointer" onClick={showCartModal}>
+          <div
+            className="relative cursor-pointer mr-2"
+            onClick={handleClickCart}
+          >
             <FiShoppingCart size={28} className="text-black" />
             {cartItemsCount > 0 && (
               <span className="absolute top-[-10px] right-[-10px] bg-red-600 text-white rounded-full px-2 py-0.5 text-[10px]">
@@ -119,16 +116,6 @@ const Header: React.FC = () => {
           </Popover>
         </div>
       </div>
-
-      <Modal
-        title="Giỏ Hàng"
-        visible={isCartModalVisible}
-        onCancel={handleCartModalClose}
-        footer={null}
-        width={900}
-      >
-        <Cart updateCartItemsCount={setCartItemsCount} />
-      </Modal>
     </header>
   );
 };

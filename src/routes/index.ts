@@ -1,6 +1,7 @@
 import config from "../routeConfig";
 
 import Home from "../pages/Home";
+import Cart from "../pages/Cart";
 import Dashboard from "../pages/Dashboard";
 import Customer from "../pages/Customer";
 import Supplier from "../pages/Supplier";
@@ -28,6 +29,11 @@ const routes = [
     path: config.routes.home,
     component: Home,
     layout: HeaderLayout,
+  },
+  {
+path: config.routes.cart,
+component: Cart,
+layout: HeaderLayout,
   },
   {
     path: config.routes.admin,

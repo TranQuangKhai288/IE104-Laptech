@@ -11,7 +11,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       <div className="sticky top-0 left-0 h-screen z-[999]">
         <Sidebar />
       </div>
-      <div className="flex flex-col w-full bg-gray-200">
+      <div className="flex flex-col w-full bg-[#f6f9fc]">
         {/* Header */}
         <div className="sticky top-0 z-10">
           <Header />
@@ -19,7 +19,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
         {/* Main Content Area */}
 
-        <main className="flex-grow sm:px-8 md:mx-2 my-2 bg-white py-4">
+        <main className="flex-grow sm:px-8 md:mx-2 my-2 bg-[#f6f9fc] py-4">
           {children}
         </main>
       </div>

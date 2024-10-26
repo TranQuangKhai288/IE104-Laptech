@@ -7,7 +7,7 @@ interface HeaderLayoutProps {
 
 const HeaderLayout = ({ children }: HeaderLayoutProps) => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-200">
+    <div className="flex flex-col min-h-screen bg-[#f6f9fc]">
       {/* Header */}
       <Header />
 
