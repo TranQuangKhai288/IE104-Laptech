@@ -1,25 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Popover, Modal } from "antd"; // Import Modal từ Ant Design
 import { adminMenu, guestMenu, userMenu } from "./menuApp";
 import { AiOutlineUser } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi"; // Biểu tượng giỏ hàng
 import Search from "./SearchComponent";
-// import Cart from "./Cart"; // Import Cart component
-
-interface User {
-  id?: number;
-  isAdmin?: boolean;
-  avatar?: string;
-  name?: string;
-}
+import { useAppContext } from "../../provider/StoreProvider";
 
 const Header: React.FC = () => {
-  const user: User = {}; // Lấy thông tin người dùng từ API hoặc context
   const navigate = useNavigate();
-  const [cartItemsCount, setCartItemsCount] = useState(0); // Khởi tạo số lượng sản phẩm trong giỏ hàng
-  const [isCartModalVisible, setCartModalVisible] = useState(false); // Trạng thái modal
-
+  const { state } = useAppContext();
+  const { user, cart } = state;
+  const [cartItemsCount, setCartItemsCount] = useState(cart.length); // Khởi tạo số lượng sản phẩm trong giỏ hàng
+  console.log("User:", user);
+  console.log("Cart:", cart);
   const handleClickCart = () => {
     navigate("/cart");
   };
@@ -72,7 +66,7 @@ const Header: React.FC = () => {
                       <p>{item.name}</p>
                     </div>
                   ))
-                : user?.id
+                : user?._id
                 ? userMenu.map((item, index) => (
                     <div
                       key={index}

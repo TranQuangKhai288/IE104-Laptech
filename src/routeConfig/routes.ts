@@ -1,6 +1,10 @@
+import { register } from "module";
+
 // src/routes.ts
 const routes = {
   home: "/",
+  login: "/login",
+  register: "/register",
   admin: "/admin",
   customer: "/admin/customers",
   supplier: "/admin/suppliers",

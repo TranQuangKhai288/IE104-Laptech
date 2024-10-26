@@ -16,23 +16,14 @@ interface DefaultLayoutProps {
 const App: React.FC = () => {
   return (
     <Router>
-      {/* <CameraProvider> */}
       <div className="App">
         <AppRoutes />
       </div>
-      {/* </CameraProvider> */}
     </Router>
   );
 };
 
 const AppRoutes: React.FC = () => {
-  const [showCamera, setShowCamera] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    setShowCamera(location.pathname === "/admin/security");
-  }, [location]);
-
   return (
     <Routes>
       {routes.map((route, index) => {
@@ -49,7 +40,7 @@ const AppRoutes: React.FC = () => {
             path={route.path}
             element={
               <Layout>
-                <Page showCamera={showCamera} />
+                <Page />
               </Layout>
             }
           />
