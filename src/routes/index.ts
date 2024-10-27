@@ -9,7 +9,7 @@ import CustomerDept from "../pages/CustomerrDept";
 import Calendar from "../pages/Calendar";
 import Warning from "../pages/Warning";
 import RecordCamera from "../pages/RecordCamera";
-
+import CombinedLayout from "../layouts/CombinedLayout";
 import NotFoundPage from "../pages/NotFoundPage";
 import Nothing from "../layouts/Nothing";
 import HeaderLayout from "../layouts/HeaderLayout";
@@ -36,12 +36,12 @@ const routes = [
   {
     path: config.routes.home,
     component: Home,
-    layout: HeaderLayout,
+    layout: CombinedLayout,
   },
   {
-path: config.routes.cart,
-component: Cart,
-layout: HeaderLayout,
+    path: config.routes.cart,
+    component: Cart,
+    layout: HeaderLayout,
   },
   {
     path: config.routes.admin,

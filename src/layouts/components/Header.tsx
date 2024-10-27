@@ -6,6 +6,9 @@ import { AiOutlineUser } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import Search from "./SearchComponent";
 import { useAppContext } from "../../provider/StoreProvider";
+import { Tooltip } from "antd";
+import { GoLocation } from "react-icons/go"; 
+
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -51,7 +54,14 @@ const Header: React.FC = () => {
         <div className="flex-1 mx-4">
           <Search />
         </div>
-
+        {/* Address */}
+        <div>
+          <Tooltip title="Khu Phố 6, Phường Linh Trung, TP Thủ Đức" placement="bottom">
+            <button className="flex items-center text-gray-600 hover:text-blue-600 mr-10">
+              <GoLocation size={28} className="mr-1"/>Địa chỉ cửa hàng
+            </button>
+          </Tooltip>
+        </div>
         {/* User Account and Cart */}
         <div className="flex items-center space-x-4">
           {/* Cart */}
