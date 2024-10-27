@@ -7,25 +7,25 @@ import {
   AiOutlineUserAdd,
 } from "react-icons/ai";
 import { RxDashboard } from "react-icons/rx";
-export const adminMenu = [
-  {
-    name: "Profile",
-    path: "/profile",
-    icon: AiOutlineUser,
-    exact: true,
-  },
-  {
-    name: "Dashboard",
-    path: "/system/admin",
-    icon: RxDashboard,
-    exact: true,
-  },
-  {
-    name: "Sign out",
-    icon: AiOutlineLogout,
-    exact: true,
-  },
-];
+// export const adminMenu = [
+//   {
+//     name: "Profile",
+//     path: "/profile",
+//     icon: AiOutlineUser,
+//     exact: true,
+//   },
+//   {
+//     name: "Dashboard",
+//     path: "/system/admin",
+//     icon: RxDashboard,
+//     exact: true,
+//   },
+//   {
+//     name: "Sign out",
+//     icon: AiOutlineLogout,
+//     exact: true,
+//   },
+// ];
 
 export const userMenu = [
   {

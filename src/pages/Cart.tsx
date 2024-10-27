@@ -79,7 +79,7 @@ const Cart: React.FC = () => {
   );
 
   return (
-    <div className="flex flex-col w-full mx-auto p-8">
+    <div className="flex flex-col w-full mx-auto px-8">
       <h2 className="text-2xl font-bold mb-6">Giỏ hàng của bạn</h2>
 
       <div className="flex flex-col lg:flex-row">
@@ -108,7 +108,7 @@ const Cart: React.FC = () => {
         </div>
 
         {/* Right side - Order summary */}
-        <div className="lg:w-1/3 lg:h-72 lg:pl-4 mt-6 lg:mt-0 bg-white p-6 rounded-lg shadow-md">
+        <div className="lg:w-1/3 lg:h-72 lg:pl-4 mt-6 lg:mt-0 bg-white p-6 rounded-lg shadow-md sticky top-4">
           <h3 className="text-xl font-bold mb-4">Tóm tắt đơn hàng</h3>
           <div className="border-b pb-4 mb-4">
             <p className="flex justify-between text-gray-700">

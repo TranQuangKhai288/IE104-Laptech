@@ -56,8 +56,13 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-screen bg-gray-100">
-      <div className="w-full max-w-md p-6 bg-white rounded shadow-md">
+    <div className="flex flex-col items-center justify-center w-full h-screen bg-[#deeff7]">
+      <img
+        src={require("../assets/LogoLaptech.jpeg")}
+        alt="Store Logo"
+        className="absolute top-16 w-96 object-contain"
+      />
+      <div className="absolute w-full max-w-md mt-32 p-6 bg-transparent rounded shadow-md z-20">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
           Login
         </h2>

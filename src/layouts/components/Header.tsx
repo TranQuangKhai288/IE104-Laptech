@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Popover, Modal } from "antd"; // Import Modal từ Ant Design
-import { adminMenu, guestMenu, userMenu } from "./menuApp";
+import { Popover, Modal } from "antd";
+import { guestMenu, userMenu } from "./menuApp";
 import { AiOutlineUser } from "react-icons/ai";
-import { FiShoppingCart } from "react-icons/fi"; // Biểu tượng giỏ hàng
+import { FiShoppingCart } from "react-icons/fi";
 import Search from "./SearchComponent";
 import { useAppContext } from "../../provider/StoreProvider";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
   const { user, cart } = state;
-  const [cartItemsCount, setCartItemsCount] = useState(cart.length); // Khởi tạo số lượng sản phẩm trong giỏ hàng
+  const [cartItemsCount, setCartItemsCount] = useState(cart.length);
   console.log("User:", user);
   console.log("Cart:", cart);
   const handleClickCart = () => {
@@ -21,15 +21,30 @@ const Header: React.FC = () => {
   const handleMenuItemClick = (path?: string) => {
     if (path) {
       navigate(path);
+    } else {
+      Modal.confirm({
+        title: "Đăng xuất",
+        content: "Bạn có chắc muốn đăng xuất?",
+        onOk: () => {
+          dispatch({ type: "CLEAR_USER" });
+          navigate("/");
+        },
+      });
     }
   };
 
   return (
-    <header className="flex items-center justify-center bg-white relative w-full border-b">
+    <header className="flex max-h-16 items-center justify-center bg-white relative w-full border-b">
       <div className="flex items-center w-4/5 my-2">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src="store_logo_text" alt="Store Logo" className="w-48 h-auto" />
+          <div className="">
+            <img
+              src={require("../../assets/logo.png")}
+              alt="Store Logo"
+              className="h-14"
+            />
+          </div>
         </Link>
 
         {/* Search Component */}
@@ -41,10 +56,10 @@ const Header: React.FC = () => {
         <div className="flex items-center space-x-4">
           {/* Cart */}
           <div
-            className="relative cursor-pointer mr-2"
+            className="relative items-center justify-center cursor-pointer p-3 mr-4 bg-[#f6f9fc] rounded-full"
             onClick={handleClickCart}
           >
-            <FiShoppingCart size={28} className="text-black" />
+            <FiShoppingCart size={18} className="text-black mr-1" />
             {cartItemsCount > 0 && (
               <span className="absolute top-[-10px] right-[-10px] bg-red-600 text-white rounded-full px-2 py-0.5 text-[10px]">
                 {cartItemsCount}
@@ -55,18 +70,7 @@ const Header: React.FC = () => {
           {/* User Menu */}
           <Popover
             content={
-              user?.isAdmin
-                ? adminMenu.map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleMenuItemClick(item.path)}
-                    >
-                      <item.icon size={24} className="mr-2" />
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                : user?._id
+              user?._id
                 ? userMenu.map((item, index) => (
                     <div
                       key={index}
