@@ -30,9 +30,15 @@ const Login: React.FC = () => {
           message: "Login success",
           description: "You have successfully logged in",
         });
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        if (user.isAdmin) {
+          setTimeout(() => {
+            navigate("/admin");
+          }, 1000);
+        } else {
+          setTimeout(() => {
+            navigate("/");
+          }, 1000);
+        }
       } else {
         notification.error({
           message: "Login failed",
