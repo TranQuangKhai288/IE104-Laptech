@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CartItem from "../components/CartItem";
 
@@ -48,7 +48,7 @@ const Cart: React.FC = () => {
     },
   ]);
 
-  const navigate = useNavigate(); // Sử dụng useNavigate để chuyển hướng
+  const navigate = useNavigate();
 
   const addProductToCart = async () => {
     const newProduct = {
@@ -72,7 +72,6 @@ const Cart: React.FC = () => {
     );
     if (!isConfirmed) return;
     try {
-      // Lỗi ở đây có thể do nhầm dấu `` với ''.
       await axios.delete(`/api/products/${id}`);
       setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     } catch (err) {
@@ -94,7 +93,7 @@ const Cart: React.FC = () => {
   );
 
   const handleCheckout = () => {
-    navigate("/checkout"); // Chuyển hướng sang trang thanh toán
+    navigate("/checkout");
   };
 
   return (
