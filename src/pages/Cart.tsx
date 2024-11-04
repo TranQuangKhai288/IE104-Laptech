@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import CartItem from "../components/CartItem";
 
-interface CartItem {
+interface CartItemType {
   id: string;
   name: string;
   price: number;
@@ -12,7 +13,7 @@ interface CartItem {
 }
 
 const Cart: React.FC = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([
+  const [cartItems, setCartItems] = useState<CartItemType[]>([
     {
       id: "sample1",
       name: "Laptop ThinkPad X1 Carbon",
@@ -47,17 +48,31 @@ const Cart: React.FC = () => {
     },
   ]);
 
-  const addProductToCart = async (product: CartItem) => {
+  const navigate = useNavigate(); // Sử dụng useNavigate để chuyển hướng
+
+  const addProductToCart = async () => {
+    const newProduct = {
+      id: Math.random().toString(36).substring(2, 9),
+      name: "Sản phẩm mới",
+      price: 1000000,
+      quantity: 1,
+      image: "/images/product.png",
+      description: "Mô tả sản phẩm mới",
+    };
     try {
-      const response = await axios.post("/api/products", product);
-      setCartItems((prevItems) => [...prevItems, response.data]);
+      setCartItems((prevItems) => [...prevItems, newProduct]);
     } catch (err) {
       console.error("Error adding product:", err);
     }
   };
 
   const removeProductFromCart = async (id: string) => {
+    const isConfirmed = window.confirm(
+      "Bạn có chắc muốn xóa sản phẩm này không?"
+    );
+    if (!isConfirmed) return;
     try {
+      // Lỗi ở đây có thể do nhầm dấu `` với ''.
       await axios.delete(`/api/products/${id}`);
       setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     } catch (err) {
@@ -74,13 +89,17 @@ const Cart: React.FC = () => {
   };
 
   const totalAmount = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total, item) => total + Number(item.price) * Number(item.quantity),
     0
   );
 
+  const handleCheckout = () => {
+    navigate("/checkout"); // Chuyển hướng sang trang thanh toán
+  };
+
   return (
     <div className="flex flex-col w-full mx-auto px-8">
-      <h2 className="text-2xl font-bold mb-6">Giỏ hàng của bạn</h2>
+      <h2 className="text-3xl font-bold mb-6">Đơn hàng của bạn</h2>
 
       <div className="flex flex-col lg:flex-row">
         <div className="lg:w-2/3 lg:pr-4">
@@ -95,12 +114,11 @@ const Cart: React.FC = () => {
               {cartItems.map((item) => (
                 <CartItem
                   key={item.id}
-                  item={{
-                    ...item,
-                    onQuantityChange: (newQuantity: number) =>
-                      handleQuantityChange(item.id, newQuantity),
-                    onRemove: () => removeProductFromCart(item.id),
-                  }}
+                  item={item}
+                  onQuantityChange={(newQuantity) =>
+                    handleQuantityChange(item.id, newQuantity)
+                  }
+                  onRemove={() => removeProductFromCart(item.id)}
                 />
               ))}
             </div>
@@ -108,36 +126,36 @@ const Cart: React.FC = () => {
         </div>
 
         {/* Right side - Order summary */}
-        <div className="lg:w-1/3 lg:h-72 lg:pl-4 mt-6 lg:mt-0 bg-white p-6 rounded-lg shadow-md sticky top-4">
-          <h3 className="text-xl font-bold mb-4">Tóm tắt đơn hàng</h3>
-          <div className="border-b pb-4 mb-4">
+        <div className="lg:w-1/3 lg:h-80 lg:pl-4 mt-6 lg:mt-0 bg-white p-6 rounded-lg shadow-md sticky top-4">
+          <h3 className="text-2xl font-semibold mb-6">Tóm tắt đơn hàng</h3>
+          <div className="border-b pb-6 mb-6">
             <p className="flex justify-between text-gray-700">
               <span>Tổng sản phẩm:</span>
               <span>{cartItems.length}</span>
             </p>
             <p className="flex justify-between text-gray-700">
-              <span>Tổng tiền:</span>
-              <span>{totalAmount.toLocaleString("vi-VN")} VND</span>
+              <span>Tổng cộng:</span>
+              <span
+                style={{
+                  color: "#fe3464",
+                  fontSize: "20px",
+                  fontWeight: 600,
+                  lineHeight: "30px",
+                }}
+              >
+                {totalAmount.toLocaleString("vi-VN")} VND
+              </span>
             </p>
           </div>
           <button
-            onClick={() =>
-              addProductToCart({
-                id: Math.random().toString(36).substring(2),
-                name: "Sản phẩm mới",
-                price: 1000000,
-                quantity: 1,
-                image: "/product.png",
-                description: "Mô tả sản phẩm mới",
-              })
-            }
-            className="bg-blue-500 w-full text-white px-4 py-3 rounded-md mb-4 hover:bg-blue-600"
+            onClick={addProductToCart}
+            className="bg-blue-500 w-full text-white px-4 py-3 rounded-md mb-4 hover:bg-blue-600 transition"
           >
             Thêm sản phẩm mới
           </button>
           <button
-            // onClick={handleCheckout}
-            className="bg-green-500 w-full text-white px-4 py-3 rounded-md hover:bg-green-600"
+            onClick={handleCheckout}
+            className="bg-[rgb(254,52,100)] w-full text-white px-4 py-3 rounded-md hover:bg-[rgb(234,31,79)] transition font-semibold"
           >
             Đặt hàng
           </button>

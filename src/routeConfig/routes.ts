@@ -15,7 +15,8 @@ const routes = {
   record: "/admin/record",
   security: "/admin/security",
   cart: "/cart",
-  profile: "/profile"
+  profile: "/profile",
+  checkout: "/checkout",
 };
 
 export default routes;
