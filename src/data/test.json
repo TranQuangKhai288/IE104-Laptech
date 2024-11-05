@@ -1,0 +1,876 @@
+[
+  {
+    "name": "HP Spectre x360",
+    "description": "A versatile 2-in-1 laptop with a stunning design and powerful performance.",
+    "category": "laptop",
+    "brand": "HP",
+    "price": 1399,
+    "starting_price": "1299",
+    "sale_percentage": 10,
+    "stock": 30,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Nightfall Black",
+        "hex": "#1E1E1E"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1165G7 with 4 cores"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "1TB SSD",
+        "description": "Fast 1TB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "13.3-inch Full HD IPS touchscreen"
+      }
+    ],
+    "gift_value": "100 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Lenovo ThinkPad X1 Carbon",
+    "description": "Lightweight and durable, perfect for business professionals.",
+    "category": "laptop",
+    "brand": "Lenovo",
+    "price": 1499,
+    "starting_price": "1399",
+    "sale_percentage": 5,
+    "stock": 25,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Black",
+        "hex": "#000000"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-10510U processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR3 RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB PCIe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "WQHD",
+        "description": "14-inch WQHD display"
+      }
+    ],
+    "gift_value": "50 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Asus ZenBook 14",
+    "description": "A sleek laptop with powerful performance and a long battery life.",
+    "category": "laptop",
+    "brand": "Asus",
+    "price": 899,
+    "starting_price": "799",
+    "sale_percentage": 10,
+    "stock": 40,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Royal Blue",
+        "hex": "#003B5C"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i5",
+        "description": "Intel Core i5-1135G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "8GB",
+        "description": "8GB LPDDR4X RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "256GB SSD",
+        "description": "256GB PCIe NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "14-inch Full HD display"
+      }
+    ],
+    "gift_value": "30 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Acer Aspire 5",
+    "description": "Affordable laptop with a balance of performance and battery life.",
+    "category": "laptop",
+    "brand": "Acer",
+    "price": 599,
+    "starting_price": "549",
+    "sale_percentage": 10,
+    "stock": 50,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Silver",
+        "hex": "#C0C0C0"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "AMD Ryzen 5",
+        "description": "AMD Ryzen 5 5500U processor"
+      },
+      {
+        "type": "RAM",
+        "title": "8GB",
+        "description": "8GB DDR4 RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "15.6-inch Full HD display"
+      }
+    ],
+    "gift_value": "",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Dell Inspiron 15",
+    "description": "Versatile laptop for work and play, equipped with the latest technology.",
+    "category": "laptop",
+    "brand": "Dell",
+    "price": 749,
+    "starting_price": "699",
+    "sale_percentage": 7,
+    "stock": 45,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Black",
+        "hex": "#000000"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i5",
+        "description": "Intel Core i5-11300H processor"
+      },
+      {
+        "type": "RAM",
+        "title": "8GB",
+        "description": "8GB DDR4 RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "15.6-inch Full HD display"
+      }
+    ],
+    "gift_value": "20 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Microsoft Surface Laptop 4",
+    "description": "A premium laptop with a stunning PixelSense display and long battery life.",
+    "category": "laptop",
+    "brand": "Microsoft",
+    "price": 1399,
+    "starting_price": "1299",
+    "sale_percentage": 10,
+    "stock": 20,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Platinum",
+        "hex": "#D6D6D6"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1185G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "3:2 Aspect Ratio",
+        "description": "13.5-inch PixelSense display"
+      }
+    ],
+    "gift_value": "100 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Razer Blade 15",
+    "description": "High-performance gaming laptop with a sleek design.",
+    "category": "laptop",
+    "brand": "Razer",
+    "price": 1999,
+    "starting_price": "1899",
+    "sale_percentage": 5,
+    "stock": 15,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Black",
+        "hex": "#1D1D1D"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-10875H processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB DDR4 RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "1TB SSD",
+        "description": "1TB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "15.6-inch Full HD 144Hz display"
+      }
+    ],
+    "gift_value": "200 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "LG Gram 17",
+    "description": "Ultra-lightweight laptop with a large display and great battery life.",
+    "category": "laptop",
+    "brand": "LG",
+    "price": 1699,
+    "starting_price": "1599",
+    "sale_percentage": 5,
+    "stock": 10,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Silver",
+        "hex": "#C0C0C0"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1165G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "1TB SSD",
+        "description": "1TB NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "WQXGA",
+        "description": "17-inch WQXGA display"
+      }
+    ],
+    "gift_value": "150 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Apple MacBook Air",
+    "description": "Lightweight and powerful, perfect for everyday tasks and on-the-go use.",
+    "category": "laptop",
+    "brand": "Apple",
+    "price": 999,
+    "starting_price": "949",
+    "sale_percentage": 5,
+    "stock": 35,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Space Gray",
+        "hex": "#4B4B4D"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Apple M1",
+        "description": "Apple M1 chip with 8-core CPU"
+      },
+      {
+        "type": "RAM",
+        "title": "8GB",
+        "description": "8GB unified memory"
+      },
+      {
+        "type": "Storage",
+        "title": "256GB SSD",
+        "description": "256GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Retina",
+        "description": "13.3-inch Retina display"
+      }
+    ],
+    "gift_value": "50 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Samsung Galaxy Book Pro 360",
+    "description": "A premium 2-in-1 laptop with AMOLED display and S Pen support.",
+    "category": "laptop",
+    "brand": "Samsung",
+    "price": 1399,
+    "starting_price": "1299",
+    "sale_percentage": 7,
+    "stock": 20,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Silver",
+        "hex": "#C0C0C0"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1160G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "Super AMOLED",
+        "description": "13.3-inch Super AMOLED touchscreen"
+      }
+    ],
+    "gift_value": "100 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Toshiba Dynabook Tecra A50",
+    "description": "Business-ready laptop with durability and advanced security features.",
+    "category": "laptop",
+    "brand": "Toshiba",
+    "price": 999,
+    "starting_price": "949",
+    "sale_percentage": 5,
+    "stock": 15,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Dark Blue",
+        "hex": "#001F3F"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i5",
+        "description": "Intel Core i5-1135G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB DDR4 RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "15.6-inch Full HD display"
+      }
+    ],
+    "gift_value": "20 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "MSI Prestige 14",
+    "description": "Stylish laptop designed for creators with a stunning display.",
+    "category": "laptop",
+    "brand": "MSI",
+    "price": 1399,
+    "starting_price": "1299",
+    "sale_percentage": 5,
+    "stock": 20,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Pink",
+        "hex": "#FFB6C1"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1185G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "4K UHD",
+        "description": "14-inch 4K UHD display"
+      }
+    ],
+    "gift_value": "50 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Huawei MateBook X Pro",
+    "description": "Premium laptop with high-end performance and a stunning display.",
+    "category": "laptop",
+    "brand": "Huawei",
+    "price": 1499,
+    "starting_price": "1399",
+    "sale_percentage": 7,
+    "stock": 10,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Space Gray",
+        "hex": "#7A7A7A"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1165G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "1TB SSD",
+        "description": "1TB NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "3K",
+        "description": "13.9-inch 3K display"
+      }
+    ],
+    "gift_value": "100 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": true
+  },
+  {
+    "name": "Razer Blade Stealth 13",
+    "description": "Compact laptop for gamers with a powerful GPU.",
+    "category": "laptop",
+    "brand": "Razer",
+    "price": 1499,
+    "starting_price": "1399",
+    "sale_percentage": 7,
+    "stock": 10,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Black",
+        "hex": "#1D1D1D"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1165G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "13.3-inch Full HD display"
+      }
+    ],
+    "gift_value": "50 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Acer Swift 3",
+    "description": "Affordable and portable laptop with good performance.",
+    "category": "laptop",
+    "brand": "Acer",
+    "price": 649,
+    "starting_price": "599",
+    "sale_percentage": 8,
+    "stock": 50,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Silver",
+        "hex": "#C0C0C0"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "AMD Ryzen 7",
+        "description": "AMD Ryzen 7 4700U processor"
+      },
+      {
+        "type": "RAM",
+        "title": "8GB",
+        "description": "8GB LPDDR4 RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "14-inch Full HD display"
+      }
+    ],
+    "gift_value": "20 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Lenovo ThinkPad X1 Carbon",
+    "description": "Business laptop with premium build and excellent keyboard.",
+    "category": "laptop",
+    "brand": "Lenovo",
+    "price": 1899,
+    "starting_price": "1799",
+    "sale_percentage": 5,
+    "stock": 15,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Black",
+        "hex": "#1D1D1D"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1165G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "1TB SSD",
+        "description": "1TB NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "WQXGA",
+        "description": "14-inch WQXGA display"
+      }
+    ],
+    "gift_value": "100 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": true
+  },
+  {
+    "name": "Asus ROG Zephyrus G14",
+    "description": "Powerful gaming laptop with a compact design.",
+    "category": "laptop",
+    "brand": "Asus",
+    "price": 1699,
+    "starting_price": "1599",
+    "sale_percentage": 5,
+    "stock": 8,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Moonlight White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "AMD Ryzen 9",
+        "description": "AMD Ryzen 9 5900HS processor"
+      },
+      {
+        "type": "RAM",
+        "title": "32GB",
+        "description": "32GB DDR4 RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "1TB SSD",
+        "description": "1TB NVMe SSD"
+      },
+      {
+        "type": "Display",
+        "title": "QHD",
+        "description": "14-inch QHD display"
+      }
+    ],
+    "gift_value": "200 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  },
+  {
+    "name": "Dell XPS 13",
+    "description": "Premium ultrabook with stunning display and performance.",
+    "category": "laptop",
+    "brand": "Dell",
+    "price": 1499,
+    "starting_price": "1399",
+    "sale_percentage": 7,
+    "stock": 20,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Platinum Silver",
+        "hex": "#C0C0C0"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i7",
+        "description": "Intel Core i7-1165G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "16GB",
+        "description": "16GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "Full HD",
+        "description": "13.4-inch Full HD display"
+      }
+    ],
+    "gift_value": "50 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": true
+  },
+  {
+    "name": "Microsoft Surface Laptop 4",
+    "description": "Stylish laptop with great performance and battery life.",
+    "category": "laptop",
+    "brand": "Microsoft",
+    "price": 1299,
+    "starting_price": "1199",
+    "sale_percentage": 8,
+    "stock": 25,
+    "images": [
+      "https://imagor.owtg.one/unsafe/fit-in/1000x1000/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/9/30/lenovo-thinkpad-x1-carbon-gen8-thinkpro-02.jpg",
+      "https://imagor.owtg.one/unsafe/filters:quality(100)/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2024/9/19/lenovo-ideapad-slim-5-light-14abr8-82xs0006vn-undefined.jpg"
+    ],
+    "colors": [
+      {
+        "title": "Ice Blue",
+        "hex": "#A3C1DA"
+      }
+    ],
+    "specifications": [
+      {
+        "type": "CPU",
+        "title": "Intel Core i5",
+        "description": "Intel Core i5-1135G7 processor"
+      },
+      {
+        "type": "RAM",
+        "title": "8GB",
+        "description": "8GB LPDDR4x RAM"
+      },
+      {
+        "type": "Storage",
+        "title": "512GB SSD",
+        "description": "512GB SSD storage"
+      },
+      {
+        "type": "Display",
+        "title": "PixelSense",
+        "description": "13.5-inch PixelSense display"
+      }
+    ],
+    "gift_value": "50 USD",
+    "reviews": [],
+    "averageRating": 0,
+    "isFeatured": false
+  }
+]

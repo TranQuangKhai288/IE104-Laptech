@@ -9,6 +9,7 @@ import CustomerDept from "../pages/CustomerrDept";
 import Calendar from "../pages/Calendar";
 import Warning from "../pages/Warning";
 import RecordCamera from "../pages/RecordCamera";
+import Checkout from "../pages/Checkout";
 
 import NotFoundPage from "../pages/NotFoundPage";
 import Nothing from "../layouts/Nothing";
@@ -39,9 +40,9 @@ const routes = [
     layout: HeaderLayout,
   },
   {
-path: config.routes.cart,
-component: Cart,
-layout: HeaderLayout,
+    path: config.routes.cart,
+    component: Cart,
+    layout: HeaderLayout,
   },
   {
     path: config.routes.admin,
@@ -93,8 +94,14 @@ layout: HeaderLayout,
   {
     path: config.routes.profile,
     component: Profile,
-    layout: HeaderLayout
-  }
+    layout: HeaderLayout,
+  },
+
+  {
+    path: config.routes.checkout, // Thêm định tuyến cho Checkout
+    component: Checkout,
+    layout: HeaderLayout,
+  },
 ];
 
 export { routes };

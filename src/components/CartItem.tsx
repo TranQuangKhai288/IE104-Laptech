@@ -1,59 +1,72 @@
 import React from "react";
+import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 
 interface CartItemProps {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-  description: string;
+  item: {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+    image: string;
+    description: string;
+  };
   onQuantityChange: (quantity: number) => void;
   onRemove: () => void;
 }
 
-const CartItem: React.FC<{ item: CartItemProps }> = ({ item }) => {
-  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newQuantity = parseInt(e.target.value, 10);
-    if (!isNaN(newQuantity) && newQuantity > 0) {
-      item.onQuantityChange(newQuantity);
-    }
-  };
-
+const CartItem: React.FC<CartItemProps> = ({
+  item,
+  onQuantityChange,
+  onRemove,
+}) => {
   return (
-    <div className="flex justify-start items-center p-5 mb-5 bg-white rounded-lg shadow-md">
-      <div className="flex gap-12 flex-grow items-center">
-        <img
-          src={item.image}
-          alt={item.name}
-          className="w-[140px] h-[120px] object-cover rounded-lg"
-        />
-        <div>
-          <h3 className="text-xl font-bold">{item.name}</h3>
-          <p className="bg-gray-200 px-3 py-2 rounded-md text-gray-700 mt-2 inline-block">
-            {item.description}
-          </p>
-          <p className="text-lg text-gray-700 mt-3">
-            Giá: {item.price.toLocaleString("vi-VN")} VND
-          </p>
-          <div className="mt-5 text-sm">
-            <label htmlFor={`quantity-${item.id}`}>Số lượng:</label>
-            <input
-              id={`quantity-${item.id}`}
-              type="number"
-              value={item.quantity}
-              min={1}
-              onChange={handleQuantityChange}
-              className="w-[70px] p-2 ml-3 border rounded-md"
-            />
-          </div>
-        </div>
-      </div>
-      <div>
-        <button
-          onClick={item.onRemove}
-          className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+    <div className="flex items-center p-14 mb-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+      <img
+        src={item.image}
+        alt={item.name}
+        className="w-20 h-20 object-cover mr-12 "
+      />
+      <div className="flex-grow">
+        <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
+        <p className="bg-gray-200 px-2 rounded-md text-gray-800 mb-2 inline-block">
+          {item.description}
+        </p>
+        <p
+          className="text-h4 text-secondary font-semibold"
+          style={{
+            color: "#fe3464",
+            fontSize: "20px",
+            fontWeight: 600,
+            lineHeight: "30px",
+          }}
         >
-          Xóa
+          {item.price.toLocaleString("vi-VN")} VND
+        </p>
+      </div>
+      <div className="flex items-center">
+        <button
+          onClick={() => onQuantityChange(Math.max(1, item.quantity - 1))}
+          className="text-gray-600 p-2 rounded-full hover:bg-gray-200"
+        >
+          <FaMinus />
+        </button>
+        <input
+          type="text"
+          value={item.quantity}
+          readOnly
+          className="mx-2 w-10 text-center border border-gray-300 rounded"
+        />
+        <button
+          onClick={() => onQuantityChange(item.quantity + 1)}
+          className="text-gray-600 p-2 rounded-full hover:bg-gray-200"
+        >
+          <FaPlus />
+        </button>
+        <button
+          onClick={onRemove}
+          className="text-red-500 ml-4 p-2 rounded-full hover:bg-red-100"
+        >
+          <FaTrash />
         </button>
       </div>
     </div>
