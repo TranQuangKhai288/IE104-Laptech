@@ -1,0 +1,161 @@
+[
+  {
+    "id": "ad9ecb71-ac00-4607-903d-0270d437222f",
+    "url": "/",
+    "categories": [
+      {
+        "type": "laptop",
+        "title": "Laptop",
+        "quantity": 117
+      }
+    ],
+    "title": "LAPTOP CHÍNH HÃNG - DEAL RẺ VÔ ĐỊCH",
+    "sale_percentage": 32,
+    "gifts": [
+      {
+        "title": "Máy chơi game / Game console",
+        "quantity": 1
+      }
+    ],
+    "starting_price": "11.990.000",
+    "from_date": "27/09",
+    "to_date": "31/10/2024",
+    "images": [
+      "/images/homepage/deal/laptop/01.png",
+      "/images/homepage/deal/laptop/02.png",
+      "/images/homepage/deal/laptop/03.png",
+      "/images/homepage/deal/laptop/04.png",
+      "/images/homepage/deal/laptop/05.png",
+      "/images/homepage/deal/laptop/06.png"
+    ]
+  },
+  {
+    "id": "889c98ba-8859-40eb-8512-7ebc5e3cbcd5",
+    "url": "/",
+    "categories": [
+      {
+        "type": "asus",
+        "title": "Laptop",
+        "quantity": 79
+      }
+    ],
+    "quantity": 79,
+    "title": "ASUS SALE TO - LO CHI VỀ GIÁ",
+    "sale_percentage": 48,
+    "gifts": [
+      {
+        "title": "tai nghe",
+        "quantity": 3
+      }
+    ],
+    "starting_price": "9.990.000",
+    "from_date": "18/03/2023",
+    "to_date": "",
+    "images": [
+      "/images/homepage/deal/asus/01.webp",
+      "/images/homepage/deal/asus/02.webp",
+      "/images/homepage/deal/asus/03.webp",
+      "/images/homepage/deal/asus/04.webp",
+      "/images/homepage/deal/asus/05.webp",
+      "/images/homepage/deal/asus/06.webp"
+    ]
+  },
+  {
+    "id": "b627bd03-7ab1-42af-9925-fecc8e9c4eef",
+    "url": "/",
+    "categories": [
+      {
+        "type": "workstation",
+        "title": "Laptop",
+        "quantity": 58
+      }
+    ],
+    "quantity": 58,
+    "title": "HIỆU NĂNG ĐỈNH CAO",
+    "sale_percentage": 42,
+    "gifts": [
+      {
+        "title": "cục sạc type-C đa năng Ugreen",
+        "quantity": 1
+      }
+    ],
+    "starting_price": "12.590.000",
+    "from_date": "18/03/2023",
+    "to_date": "",
+    "images": [
+      "/images/homepage/deal/workstation/01.webp",
+      "/images/homepage/deal/workstation/02.webp",
+      "/images/homepage/deal/workstation/03.webp",
+      "/images/homepage/deal/workstation/04.webp",
+      "/images/homepage/deal/workstation/05.webp",
+      "/images/homepage/deal/workstation/06.webp"
+    ]
+  },
+  {
+    "id": "4b616685-5433-4be9-ab43-22e7a04bc072",
+    "url": "/",
+    "categories": [
+      {
+        "type": "gaming",
+        "title": "Laptop",
+        "quantity": 151
+      }
+    ],
+    "title": "🔥 HOT SALE 🔥 MUA LAPTOP GAMING TẶNG CHUỘT GAMING",
+    "sale_percentage": 50,
+    "gifts": [
+      {
+        "title": "Chuột Gaming Logitech G120 Aura RGB",
+        "quantity": 1
+      }
+    ],
+    "starting_price": "10.290.000",
+    "from_date": "23/09/2024",
+    "to_date": "",
+    "images": [
+      "/images/homepage/deal/gaming/01.png",
+      "/images/homepage/deal/gaming/02.jpg",
+      "/images/homepage/deal/gaming/03.jpg",
+      "/images/homepage/deal/gaming/04.jpg",
+      "/images/homepage/deal/gaming/05.png",
+      "/images/homepage/deal/gaming/06.png"
+    ]
+  },
+  {
+    "id": "f7474f4a-9721-4536-896e-b09610374251",
+    "url": "/",
+    "categories": [
+      {
+        "title": "Balo",
+        "quantity": 37
+      },
+      {
+        "title": "Túi",
+        "quantity": 30
+      }
+    ],
+    "title": "BALO & TÚI GIẢM GIÁ MÙA BACK TO SCHOOL",
+    "sale_percentage": 75,
+    "gifts": [
+      {
+        "title": "Quà tặng",
+        "quantity": 1
+      },
+      {
+        "title": "Phụ kiện & Setup",
+        "quantity": 3
+      }
+    ],
+    "starting_price": "190.000",
+    "from_date": "18/07/2024",
+    "to_date": "",
+    "images": [
+      "/images/homepage/deal/backpack/01.png",
+      "/images/homepage/deal/backpack/02.png",
+      "/images/homepage/deal/backpack/03.jpg",
+      "/images/homepage/deal/backpack/04.jpg",
+      "/images/homepage/deal/backpack/05.png",
+      "/images/homepage/deal/backpack/06.jpg"
+    ]
+  }
+]

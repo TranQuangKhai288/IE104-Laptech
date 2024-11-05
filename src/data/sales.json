@@ -1,0 +1,530 @@
+[
+  {
+    "id": "1469fbd2-7b8d-4c6f-bf56-9a798d065f2e",
+    "url": "/",
+    "image": "/images/homepage/sale/01.png",
+    "title": "Lenovo ThinkPad X1 Nano Gen 2 i7 1280P, 32GB, 512GB, 2K. LTE",
+    "sale_percentage": 22,
+    "starting_price": "31.390.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1280p"
+      },
+      {
+        "type": "RAM",
+        "description": "32GB"
+      },
+      {
+        "type": "Storage",
+        "description": "512GB"
+      },
+      {
+        "type": "Display",
+        "description": "2K. LTE"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "66e3e5ab-312d-4a1a-b40e-20e91429e871",
+    "url": "/",
+    "image": "/images/homepage/sale/02.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 9 Core i7 1185G7, 32GB, 512GB, 4K HDR",
+    "sale_percentage": 12,
+    "starting_price": "21.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1185G7"
+      },
+      {
+        "type": "RAM",
+        "description": "32GB"
+      },
+      {
+        "type": "Storage",
+        "description": "512GB"
+      },
+      {
+        "type": "Display",
+        "description": "4K HDR"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "c77153fe-3700-411a-bacf-bcd8a23eafab",
+    "url": "/",
+    "image": "/images/homepage/sale/03.png",
+    "title": "Dell Inspiron 14 Plus (7420) i7 12700H, 16GB, 512GB, 2.2K",
+    "sale_percentage": 40,
+    "starting_price": "16.790.000",
+    "colors": [
+      {
+        "title": "dark green",
+        "hex": "#17532c"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 12700H"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "512GB"
+      },
+      {
+        "type": "Display",
+        "description": "2.2K"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "e5aabd36-e5a2-4a8e-9c6d-1b7435018c63",
+    "url": "/",
+    "image": "/images/homepage/sale/04.png",
+    "title": "Dell XPS 13 9315 (2022) I5 1235U 8GB 512GB FHD+",
+    "sale_percentage": 35,
+    "starting_price": "29.990.000",
+    "colors": [
+      {
+        "title": "light blue",
+        "hex": "#c2dafe"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i5 1235U"
+      },
+      {
+        "type": "RAM",
+        "description": "8GB"
+      },
+      {
+        "type": "Storage",
+        "description": "512GB"
+      },
+      {
+        "type": "Display",
+        "description": "FHD+"
+      }
+    ],
+    "gift_value": "100.000"
+  },
+  {
+    "id": "2d8b24dd-fe0a-46c3-8f35-65fad057508a",
+    "url": "/",
+    "image": "/images/homepage/sale/05.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 9 Core i7 1185G7, 16GB, 256GB, FHD+, LTE",
+    "sale_percentage": 44,
+    "starting_price": "18.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "Core i7 1185G7"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "FHD+"
+      },
+      {
+        "type": "Cellular",
+        "description": "LTE"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "20b5d248-12e3-4f31-8779-2e127c4cd9dd",
+    "url": "/",
+    "image": "/images/homepage/sale/06.png",
+    "title": "Lenovo ThinkBook 14 G5+ R7 7735H, 16GB, 512GB, 2.8K 90Hz",
+    "sale_percentage": 40,
+    "starting_price": "17.990.000",
+    "colors": [
+      {
+        "title": "dark gray",
+        "hex": "#666666"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "R7 7735H"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "512GB"
+      },
+      {
+        "type": "Display",
+        "description": "2.8K 90Hz"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "5c7ea401-c3cb-451d-9e60-ca4d359098ac",
+    "url": "/",
+    "image": "/images/homepage/sale/07.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 8 i7 10610U, 16GB, 256GB, FHD",
+    "sale_percentage": 47,
+    "starting_price": "13.190.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 10610U"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "FHD"
+      }
+    ],
+    "gift_value": "350.000"
+  },
+  {
+    "id": "121e8bcc-f7d4-4fa5-a09e-804aba5b0e91",
+    "url": "/",
+    "image": "/images/homepage/sale/08.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 11 i7 1365U, 16GB, 256GB, FHD+ Touch",
+    "sale_percentage": 30,
+    "starting_price": "27.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1365U"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "FHD+ Touch"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "51893d48-1c6e-414a-8cd1-689e9076970b",
+    "url": "/",
+    "image": "/images/homepage/sale/09.png",
+    "title": "Lenovo ThinkPad X1 Nano Gen 1 Core i7 1180G7, 16GB, 256GB, 2K Touch",
+    "sale_percentage": 45,
+    "starting_price": "19.390.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1180G7"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "2K Touch"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "6f12d1e7-5af6-447d-ad86-51e301d28295",
+    "url": "/",
+    "image": "/images/homepage/sale/10.png",
+    "title": "MacBook Air 2022 (Apple M2) M2, 8GB, SSD 256GB MLY13SA/A",
+    "sale_percentage": 0,
+    "starting_price": "28.990.000",
+    "colors": [
+      {
+        "title": "gold",
+        "hex": "#fde6bf"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "M2"
+      },
+      {
+        "type": "RAM",
+        "description": "8GB"
+      },
+      {
+        "type": "Storage",
+        "description": "SSD 256GB"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "20c750ae-ef68-4ac6-8e18-4b223fcbc1e2",
+    "url": "/",
+    "image": "/images/homepage/sale/11.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 9 Core i7 1185G7, 32GB, 256GB, 4K HDR",
+    "sale_percentage": 16,
+    "starting_price": "20.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1185G7"
+      },
+      {
+        "type": "RAM",
+        "description": "32GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "4K HDR"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "e4d7bb8a-01df-48ee-9d31-b902b89807b1",
+    "url": "/",
+    "image": "/images/homepage/sale/12.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 9 Core i7 1185G7, 32GB, 512GB, 4K HDR",
+    "sale_percentage": 12,
+    "starting_price": "21.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1365U"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "512GB"
+      },
+      {
+        "type": "Display",
+        "description": "FHD+ Touch"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "5d7c5701-7ef4-4c2b-8494-916f11411597",
+    "url": "/",
+    "image": "/images/homepage/sale/13.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 7 i7 8565U, 16GB, 256GB, 2K",
+    "sale_percentage": 17,
+    "starting_price": "12.390.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 8565U"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "2K"
+      }
+    ],
+    "gift_value": "350.000"
+  },
+  {
+    "id": "5dd751f4-7214-4a33-a1cb-3ff66ee31409",
+    "url": "/",
+    "image": "/images/homepage/sale/14.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 11 i7 1370P, 64GB, 512GB, 2.8K OLED",
+    "sale_percentage": 7,
+    "starting_price": "39.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1370"
+      },
+      {
+        "type": "RAM",
+        "description": "64GB"
+      },
+      {
+        "type": "Storage",
+        "description": "512GB"
+      },
+      {
+        "type": "Display",
+        "description": "2.8K OLED"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "b7156cb7-1ea5-4bb3-8deb-c4da6f73beac",
+    "url": "/",
+    "image": "/images/homepage/sale/15.png",
+    "title": "Lenovo ThinkPad X1 Nano Gen 1 Core i7 1160G7, 16GB, 256GB, 2K",
+    "sale_percentage": 22,
+    "starting_price": "18.790.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1160G7"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "2K"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "83a9f17a-0c41-4af4-b0e6-e3f6d48e02e8",
+    "url": "/",
+    "image": "/images/homepage/sale/16.png",
+    "title": "Microsoft Surface Pro 9 i7 1255U, 16GB, 256GB, 3K 120Hz",
+    "sale_percentage": 33,
+    "starting_price": "26.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "i7 1255U"
+      },
+      {
+        "type": "RAM",
+        "description": "16GB"
+      },
+      {
+        "type": "Storage",
+        "description": "256GB"
+      },
+      {
+        "type": "Display",
+        "description": "3K 120Hz"
+      }
+    ],
+    "gift_value": "797.000"
+  }
+]
