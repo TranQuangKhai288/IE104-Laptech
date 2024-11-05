@@ -21,12 +21,12 @@
     "from_date": "27/09",
     "to_date": "31/10/2024",
     "images": [
-      "/images/homepage/deal/laptop/01.png",
-      "/images/homepage/deal/laptop/02.png",
-      "/images/homepage/deal/laptop/03.png",
-      "/images/homepage/deal/laptop/04.png",
-      "/images/homepage/deal/laptop/05.png",
-      "/images/homepage/deal/laptop/06.png"
+      "/images/homepage/deal/laptop/01.webp",
+      "/images/homepage/deal/laptop/02.webp",
+      "/images/homepage/deal/laptop/03.webp",
+      "/images/homepage/deal/laptop/04.webp",
+      "/images/homepage/deal/laptop/05.webp",
+      "/images/homepage/deal/laptop/06.webp"
     ]
   },
   {
@@ -113,12 +113,12 @@
     "from_date": "23/09/2024",
     "to_date": "",
     "images": [
-      "/images/homepage/deal/gaming/01.png",
-      "/images/homepage/deal/gaming/02.jpg",
-      "/images/homepage/deal/gaming/03.jpg",
-      "/images/homepage/deal/gaming/04.jpg",
-      "/images/homepage/deal/gaming/05.png",
-      "/images/homepage/deal/gaming/06.png"
+      "/images/homepage/deal/gaming/01.webp",
+      "/images/homepage/deal/gaming/02.webp",
+      "/images/homepage/deal/gaming/03.webp",
+      "/images/homepage/deal/gaming/04.webp",
+      "/images/homepage/deal/gaming/05.webp",
+      "/images/homepage/deal/gaming/06.webp"
     ]
   },
   {
@@ -150,12 +150,12 @@
     "from_date": "18/07/2024",
     "to_date": "",
     "images": [
-      "/images/homepage/deal/backpack/01.png",
-      "/images/homepage/deal/backpack/02.png",
-      "/images/homepage/deal/backpack/03.jpg",
-      "/images/homepage/deal/backpack/04.jpg",
-      "/images/homepage/deal/backpack/05.png",
-      "/images/homepage/deal/backpack/06.jpg"
+      "/images/homepage/deal/backpack/01.webp",
+      "/images/homepage/deal/backpack/02.webp",
+      "/images/homepage/deal/backpack/03.webp",
+      "/images/homepage/deal/backpack/04.webp",
+      "/images/homepage/deal/backpack/05.webp",
+      "/images/homepage/deal/backpack/06.webp"
     ]
   }
 ]
