@@ -1,0 +1,422 @@
+[
+  {
+    "id": "acff76c5-df9b-4ca6-a7d5-82d506416178",
+    "url": "/",
+    "image": "/images/homepage/suggest/01.webp",
+    "title": "Lenovo ThinkPad T16 Gen 3 21MN007EVA Ultra 7 155H, 16GB, 512GB, WUXGA",
+    "sale_percentage": 4,
+    "starting_price": "32.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core Ultra 7 155H, 16 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "16GB, 5600Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 512GB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "16\", 1920x1200, 60Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "Intel® Arc™ Graphics"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "42556c3f-7d3d-45bf-8f4a-809c4875b02b",
+    "url": "/",
+    "image": "/images/homepage/suggest/02.webp",
+    "title": "Lenovo Slim 7 16 Gen 7 i7 12700H, A370M 4GB, 32GB, 1TB, 2.5K Touch 120Hz",
+    "sale_percentage": 42,
+    "starting_price": "19.690.000",
+    "colors": [
+      {
+        "title": "dark gray",
+        "hex": "#4c5563"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core i7 12700H, 14 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "32GB, 4800Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 1TB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "Màn hình: 16\", 2560 x 1600, 120Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "Arc A370M 4GB"
+      }
+    ],
+    "gift_value": "350.000"
+  },
+  {
+    "id": "774b3d14-fa03-4b14-a981-f4c3d8472665",
+    "url": "/",
+    "image": "/images/homepage/suggest/03.webp",
+    "title": "Lenovo Thinkpad T14 Gen 1 R5 4650U, 16GB, 256GB, FHD",
+    "sale_percentage": 45,
+    "starting_price": "8.790.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Ryzen 5 4650U, 4 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "16GB, 2666Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 256GB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "14\", 1920 x 1080, 60Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "AMD Radeon"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "7a1ae809-065e-457d-99d0-986290cdb166",
+    "url": "/",
+    "image": "/images/homepage/suggest/04.webp",
+    "title": "Dell Inspiron 14 5430 i5 1340P, 16GB, 512GB, FHD+",
+    "sale_percentage": 45,
+    "starting_price": "15.990.000",
+    "colors": [
+      {
+        "title": "light gray",
+        "hex": "#d1d5db"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core i5 1340P, 12 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "16GB, 4800Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 512GB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "Màn hình: 14\", 1920 x 1200, 60Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "Intel Iris Xe Graphics"
+      }
+    ],
+    "gift_value": "398.000"
+  },
+  {
+    "id": "21b475aa-20e4-4474-95d3-6ccaa7c566fa",
+    "url": "/",
+    "image": "/images/homepage/suggest/05.webp",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 10 i7 1280P, 32GB, 512GB, 4K HDR, LTE",
+    "sale_percentage": 5,
+    "starting_price": "27.490.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core i7 1280P, 14 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "32GB, 5200Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 512GB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "14\", 3840 x 2400, 60Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "Intel Iris Xe Graphics"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "112f8d80-03cc-4225-a9c3-c73ed60c129b",
+    "url": "/",
+    "image": "/images/homepage/suggest/06.webp",
+    "title": "Lenovo Xiaoxin Pro 16 APH8 R7 7840HS, 32GB, 1TB, 2.5K 120Hz",
+    "sale_percentage": 10,
+    "starting_price": "22.390.000",
+    "colors": [
+      {
+        "title": "dark gray",
+        "hex": "#5f5c5c"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "R7 7840HS, 8 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "32GB, 6400Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 1TB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "16\", 2560x1600, 120Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "AMD Radeon 780M"
+      }
+    ],
+    "gift_value": "797.000"
+  },
+  {
+    "id": "92f5b2c9-e7cf-4f22-979c-b2142e371174",
+    "url": "/",
+    "image": "/images/homepage/suggest/07.webp",
+    "title": "Dell Inspiron 16 5630 i5 1340P, 16GB, 512GB, FHD+",
+    "sale_percentage": 20,
+    "starting_price": "15.990.000",
+    "colors": [
+      {
+        "title": "light gray",
+        "hex": "#c0c0c0"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core i5 1340P, 12 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "16GB, 5200Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 512GB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "16\", 1920 x 1200, 60Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "Intel Iris Xe Graphics"
+      }
+    ],
+    "gift_value": "3.860.000"
+  },
+  {
+    "id": "7e144969-3489-4f2b-884b-d96be5bbc695",
+    "url": "/",
+    "image": "/images/homepage/suggest/08.webp",
+    "title": "Dell Alienware m16 R2 Gaming Core™ Ultra 7 155H, GeForce RTX™ 4060, 64GB, 2TB, QHD+ 240Hz",
+    "sale_percentage": 0,
+    "starting_price": "48.990.000",
+    "colors": [
+      {
+        "title": "dark gray",
+        "hex": "#504f4f"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core™ Ultra 7 155H, 16 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "64GB, 5600Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 2TB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "16\", 2560 x 1600, 240Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "NVIDIA® GeForce RTX™ 4060, 8 GB GDDR6 GB"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "3f289077-d01f-4066-aa1e-697a4ef10543",
+    "url": "/",
+    "image": "/images/homepage/suggest/09.webp",
+    "title": "Lenovo Yoga Slim 7 14IMH9 Core Ultra 7 155H, 32GB, 1TB, WUXGA OLED Touch",
+    "sale_percentage": 11,
+    "starting_price": "24.790.000",
+    "colors": [
+      {
+        "title": "light gray",
+        "hex": "#e0e0e0"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core Ultra 7 155H, 16 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "32GB, 7467Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 1TB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "14\", 1920 x 1200, 60Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "Intel Arc Graphics"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "aa9a4a9f-ffb7-470f-98d7-d7da5d9e9b2a",
+    "url": "/",
+    "image": "/images/homepage/suggest/10.webp",
+    "title": "HP Elitebook X360 1040 G7 i7 10610U, 16GB, 512GB, FHD Touch",
+    "sale_percentage": 11,
+    "starting_price": "13.290.000",
+    "colors": [
+      {
+        "title": "gray",
+        "hex": "#c0c0c0"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "title": "CPU",
+        "description": "Core i7 10610U, 4 Cores"
+      },
+      {
+        "type": "RAM",
+        "title": "RAM",
+        "description": "16GB, 2933Mhz"
+      },
+      {
+        "type": "Storage",
+        "title": "Ổ cứng",
+        "description": "SSD 512GB"
+      },
+      {
+        "type": "Display",
+        "title": "Màn hình",
+        "description": "14\", 1920 x 1080, 60Hz"
+      },
+      {
+        "type": "GPU",
+        "title": "Card",
+        "description": "Intel UHD"
+      }
+    ],
+    "gift_value": "450.000"
+  }
+]

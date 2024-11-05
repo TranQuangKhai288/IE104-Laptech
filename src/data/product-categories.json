@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "title": "Laptop gaming",
+    "image": "/images/homepage/popular/laptop-gaming.webp",
+    "quantity": 153,
+    "url": "/"
+  },
+  {
+    "id": "2",
+    "title": "Laptop văn phòng",
+    "image": "/images/homepage/popular/laptop-van-phong.webp",
+    "quantity": 229,
+    "url": "/"
+  },
+  {
+    "id": "3",
+    "title": "Laptop mỏng nhẹ",
+    "image": "/images/homepage/popular/laptop-mong-nhe.webp",
+    "quantity": 78,
+    "url": "/"
+  },
+  {
+    "id": "4",
+    "title": "Macbook",
+    "image": "/images/homepage/popular/macbook.webp",
+    "quantity": 57,
+    "url": "/"
+  },
+  {
+    "id": "5",
+    "title": "Workstation",
+    "image": "/images/homepage/popular/workstation.webp",
+    "quantity": 49,
+    "url": "/"
+  },
+  {
+    "id": "6",
+    "title": "Máy cũ",
+    "image": "/images/homepage/popular/may-cu.webp",
+    "quantity": 174,
+    "url": "/"
+  },
+  {
+    "id": "7",
+    "title": "Bàn phím / Chuột",
+    "image": "/images/homepage/popular/keyboard-mouse.webp",
+    "quantity": 229,
+    "url": "/"
+  },
+  {
+    "id": "8",
+    "title": "Giá đỡ laptop",
+    "image": "/images/homepage/popular/stand.webp",
+    "quantity": 67,
+    "url": "/"
+  },
+  {
+    "id": "9",
+    "title": "Balo / Túi đựng laptop",
+    "image": "/images/homepage/popular/backpack.webp",
+    "quantity": 85,
+    "url": "/"
+  }
+]

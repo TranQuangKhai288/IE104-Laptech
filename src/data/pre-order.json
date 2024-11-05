@@ -1,0 +1,168 @@
+[
+  {
+    "id": "21cc38cd-1804-48e8-98cf-462f297d2e1e",
+    "url": "/",
+    "image": "/images/homepage/pre-order/01.png",
+    "title": "Dell XPS 13 9350 (2025) Ultra 7 268V, 32GB, 1TB, 2.8K OLED 60Hz",
+    "sale_percentage": 10,
+    "starting_price": "71.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "Ultra 7 268V"
+      },
+      {
+        "type": "RAM",
+        "description": "32GB"
+      },
+      {
+        "type": "Storage",
+        "description": "1TB"
+      },
+      {
+        "type": "Display",
+        "description": "2.8K OLED 60Hz"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "47b4d299-b338-4c9b-90d6-f62538fc33cd",
+    "url": "/",
+    "image": "/images/homepage/pre-order/02.jpg",
+    "title": "Bàn phím cơ AKKO MU02 MU02 - Autumn",
+    "sale_percentage": 18,
+    "starting_price": "2.790.000",
+    "colors": [
+      {
+        "title": "brown",
+        "hex": "#792f13"
+      }
+    ],
+    "specs": [
+      {
+        "type": "Theme",
+        "description": "MU02 - Autumn"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "9ae10d37-0679-455a-94ad-0c38e4df769b",
+    "url": "/",
+    "image": "/images/homepage/pre-order/03.jpg",
+    "title": "Bàn Phím Cơ Lofree Flow Lite 100 Keys",
+    "sale_percentage": 14,
+    "starting_price": "2.490.000",
+    "colors": [
+      {
+        "title": "light gray",
+        "hex": "#d1d5db"
+      },
+      {
+        "title": "white",
+        "hex": "#ffffff"
+      },
+      {
+        "title": "light pink",
+        "hex": "#fccbca"
+      }
+    ],
+    "specs": [
+      {
+        "type": "Layout",
+        "description": "100 Keys"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "5a927af7-5050-45fd-b234-6675cbf0c8e5",
+    "url": "/",
+    "image": "/images/homepage/pre-order/04.jpg",
+    "title": "Bàn phím cơ AKKO MU02 MU02 - Mountain Seclusion",
+    "sale_percentage": 9,
+    "starting_price": "3.090.000",
+    "colors": [
+      {
+        "title": "brown",
+        "hex": "#792f13"
+      }
+    ],
+    "specs": [
+      {
+        "type": "Theme",
+        "description": "MU02 - Mountain Seclusion"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "9ac39861-ed28-4043-868c-ec4d38018443",
+    "url": "/",
+    "image": "/images/homepage/pre-order/05.png",
+    "title": "Lenovo ThinkPad X1 Carbon Gen 13 Ultra 7 258V, 32GB, 1TB, 2.8K OLED 120Hz",
+    "sale_percentage": 1,
+    "starting_price": "78.990.000",
+    "colors": [
+      {
+        "title": "black",
+        "hex": "#000000"
+      }
+    ],
+    "specs": [
+      {
+        "type": "CPU",
+        "description": "Ultra 7 258V"
+      },
+      {
+        "type": "RAM",
+        "description": "32GB"
+      },
+      {
+        "type": "Storage",
+        "description": "1TB"
+      },
+      {
+        "type": "Display",
+        "description": "2.8K OLED 120Hz"
+      }
+    ],
+    "gift_value": ""
+  },
+  {
+    "id": "3a63d65e-2229-43bd-ae67-100b677c79f5",
+    "url": "/",
+    "image": "/images/homepage/pre-order/06.jpg",
+    "title": "Bàn Phím Cơ Lofree Flow Lite 84 Keys",
+    "sale_percentage": 15,
+    "starting_price": "2.190.000",
+    "colors": [
+      {
+        "title": "light gray",
+        "hex": "#d1d5db"
+      },
+      {
+        "title": "white",
+        "hex": "#ffffff"
+      },
+      {
+        "title": "light pink",
+        "hex": "#fccbca"
+      }
+    ],
+    "specs": [
+      {
+        "type": "Layout",
+        "description": "84 Keys"
+      }
+    ],
+    "gift_value": ""
+  }
+]
