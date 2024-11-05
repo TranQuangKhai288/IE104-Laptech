@@ -13,13 +13,13 @@ const Sales = () => {
       slidesPerView={4}
       navigation={true}
       modules={[Navigation]}
-      style={{ paddingBottom: "10px" }}
+      style={{ padding: "10px 0" }}
     >
       {salesData.map((sale) => (
         <SwiperSlide key={sale.id}>
           <a
             href={sale.url}
-            className="p-4 rounded bg-white shadow-md hover:bg-gray-50 block"
+            className="p-4 rounded bg-white shadow-md transition ease-in-out hover:-translate-y-1 hover:bg-gray-50 block"
             style={{ height: "520px" }}
           >
             <img src={sale.image} alt="" />

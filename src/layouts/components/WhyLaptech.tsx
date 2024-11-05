@@ -1,3 +1,5 @@
+import whyLaptechData from "../../data/why-laptech.json";
+
 const WhyLaptech = () => {
   return (
     <div className="flex items-center space-x-3 w-full">

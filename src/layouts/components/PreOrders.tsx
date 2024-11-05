@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Navigation} from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 
 import CheckLightBg from "../../components/CheckLightBg";
@@ -14,13 +14,13 @@ const Sales = () => {
       navigation={true}
       pagination={{ type: "fraction" }}
       modules={[Navigation]}
-      style={{ paddingBottom: "10px" }}
+      style={{ padding: "10px 0" }}
     >
       {preOrderData.map((order) => (
         <SwiperSlide key={order.id}>
           <a
             href={order.url}
-            className="p-4 rounded bg-white shadow-md hover:bg-gray-50 block"
+            className="p-4 rounded bg-white shadow-md transition ease-in-out hover:-translate-y-1 hover:bg-gray-50 block"
             style={{ height: "450px" }}
           >
             <img src={order.image} alt="" />

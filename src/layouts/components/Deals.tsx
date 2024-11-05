@@ -26,7 +26,7 @@ const Deals = () => {
         <SwiperSlide key={deal.id} className="flex justify-center items-center">
           <a
             href={deal.url}
-            className="w-[580px] rounded-lg bg-white p-4 shadow-md hover:bg-gray-50 block"
+            className="w-[580px] rounded-lg bg-white p-4 shadow-md transition ease-in-out hover:-translate-y-1 hover:bg-gray-50 block"
           >
             <div className="flex flex-row text-sm">
               {deal.categories.map((category, index) => (
