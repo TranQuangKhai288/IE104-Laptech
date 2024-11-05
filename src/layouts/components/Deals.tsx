@@ -9,7 +9,7 @@ import dealsData from "../../data/deals.json";
 const Deals = () => {
   return (
     <Swiper
-      spaceBetween={10}
+      spaceBetween={30}
       slidesPerView={2}
       centeredSlides={true}
       autoplay={{
