@@ -21,7 +21,7 @@ const Sales = () => {
           <a
             href={order.url}
             className="p-4 rounded-lg bg-white shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-white block"
-            style={{ height: "460px" }}
+            style={{ height: "480px" }}
           >
             <img src={order.image} alt="" />
             <div className="font-bold mb-2">{order.title}</div>
