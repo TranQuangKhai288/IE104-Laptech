@@ -4,27 +4,27 @@
     "url": "/",
     "title": "Trải nghiệm tận tay",
     "background_color": "#F2D4FF",
-    "img": "/images/homepage/quality/01.png"
+    "img": "/images/homepage/quality/01.webp"
   },
   {
     "id": 1,
     "url": "/",
     "title": "Tư vấn viên tận tâm",
     "background_color": "#FCEFCC",
-    "img": "/images/homepage/quality/02.png"
+    "img": "/images/homepage/quality/02.webp"
   },
   {
     "id": 2,
     "url": "/",
     "title": "Trung tâm bảo vệ khách hàng",
     "background_color": "#CEE6FE",
-    "img": "/images/homepage/quality/03.png"
+    "img": "/images/homepage/quality/03.webp"
   },
   {
     "id": 3,
     "url": "/",
     "title": "Phục vụ đến 24 giờ",
     "background_color": "#F9CFD8",
-    "img": "/images/homepage/quality/04.png"
+    "img": "/images/homepage/quality/04.webp"
   }
 ]
