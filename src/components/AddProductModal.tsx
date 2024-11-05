@@ -158,14 +158,13 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
       console.log("Product data:", productData);
 
       // Submit product data
-      await handleAddProduct(productData);
+      handleAddProduct(productData);
 
       // Reset form and states
       form.resetFields();
       setFileList([]);
       setColors([]);
       setSpecifications([]);
-      message.success("Thêm sản phẩm thành công!");
       handleCloseModal();
     } catch (error) {
       console.error("Error adding product:", error);

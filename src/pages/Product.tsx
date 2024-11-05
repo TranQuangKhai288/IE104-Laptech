@@ -58,6 +58,7 @@ const ProductManagement: React.FC = () => {
   const handleEditProduct = (product: ProductColumns) => {
     console.log("Edit product:", product);
     setEditingProduct(product); // Set the product being edited
+    fetchProducts(); // Refetch the products
     setIsEditModalOpen(true); // Open the modal
   };
 
@@ -71,13 +72,18 @@ const ProductManagement: React.FC = () => {
             type="primary"
             danger
             className="mr-2"
-            onClick={() => {
+            onClick={async () => {
               console.log("Delete product:", product._id);
+
               notification.destroy();
 
-              notification.success({
-                message: `Xoá sản phẩm ${product.name} thành công`,
-              });
+              const resDelete = await ProductService.deleteProduct(product._id);
+              if (resDelete.status === "OK") {
+                notification.success({
+                  message: `Xoá sản phẩm ${product.name} thành công`,
+                });
+                fetchProducts();
+              }
             }}
           >
             Xoá

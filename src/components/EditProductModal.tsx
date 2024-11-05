@@ -17,6 +17,7 @@ import {
   deleteMultipleFiles,
 } from "../apis/StorageService";
 import { ProductColumns } from "../columnConfig/productColumns";
+import * as ProductService from "../apis/ProductService";
 const { Option } = Select;
 
 interface ColorItem {
@@ -155,7 +156,24 @@ const EditProductModal: React.FC<{
       colors,
       specifications,
     };
-    await handleEditProduct(updatedProduct);
+
+    if (product?._id) {
+      const resEditProduct = await ProductService.updateProduct(
+        product._id,
+        updatedProduct
+      );
+      if (resEditProduct.status === "OK") {
+        message.success("Chỉnh sửa sản phẩm thành công!");
+      } else {
+        message.error("Lỗi khi chỉnh sửa sản phẩm!");
+        setUploading(false);
+      }
+    } else {
+      message.error("Product ID is missing.");
+      setUploading(false);
+    }
+
+    handleEditProduct(updatedProduct);
     setUploading(false);
     handleCloseModal();
   };
