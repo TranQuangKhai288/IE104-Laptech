@@ -8,7 +8,7 @@ const ProductCategories = () => {
           <a
             key={item.id}
             href={item.url}
-            className="p-6 container flex flex-col items-center md:flex-row rounded-lg shadow-md bg-white transition ease-in-out hover:-translate-y-1 hover:bg-blue-100"
+            className="p-6 container flex flex-col items-center md:flex-row rounded-lg shadow-md bg-white transition ease-in-out hover:-translate-y-2 hover:text-blue-500 hover:shadow-xl"
           >
             <div className="md:w-1/5">
               <img src={item.image} alt={item.title} />

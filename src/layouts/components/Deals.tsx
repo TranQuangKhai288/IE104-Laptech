@@ -20,32 +20,32 @@ const Deals = () => {
       loop={true}
       pagination={{ clickable: true }}
       modules={[Navigation, Pagination, Autoplay]}
-      style={{ padding: "0px 5px 50px 5px" }}
+      style={{ padding: "15px 0px 50px 0px" }}
     >
       {dealsData.map((deal) => (
         <SwiperSlide key={deal.id} className="flex justify-center items-center">
           <a
             href={deal.url}
-            className="w-[580px] rounded-lg bg-white p-4 shadow-md transition ease-in-out hover:-translate-y-1 hover:bg-gray-50 block"
+            className="w-[600px] rounded-lg bg-white p-4 shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-white block"
           >
             <div className="flex flex-row text-sm">
               {deal.categories.map((category, index) => (
-                <div key={index} className="bg-gray-200 rounded px-2">
+                <div key={index} className="bg-gray-200 rounded px-2 mr-2">
                   {category.quantity} {category.title}
                 </div>
               ))}
               {deal.gifts.map((gift, index) => (
-                <div className="bg-gray-200 rounded px-2 ml-2">
+                <div className="bg-gray-200 rounded px-2 mr-2">
                   {gift.quantity} {gift.title}
                 </div>
               ))}
             </div>
             <div className="text-lg font-bold my-3">{deal.title}</div>
             <div className="flex flex-row text-sm">
-              <div className="bg-gray-200 rounded px-2 font-bold text-red-400">
-                {deal.sale_percentage}%
+              <div className="bg-[#FFEAEA] rounded px-2 font-bold text-red-400">
+                -{deal.sale_percentage}%
               </div>
-              <div className="bg-gray-200 rounded px-2 ml-2 font-bold text-red-400">
+              <div className="bg-[#FFEAEA] rounded px-2 ml-2 font-bold text-red-400">
                 Giá chỉ từ {deal.starting_price}
               </div>
             </div>
