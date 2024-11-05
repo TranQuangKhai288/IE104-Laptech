@@ -58,11 +58,6 @@ const Home: React.FC = () => {
       <section className="mt-12">
         <h2 className="text-3xl font-bold mb-4">Gợi ý cho bạn ✨</h2>
         <ProductSuggestions />
-        <div className="flex items-center justify-center mt-12">
-          <button className="bg-white font-bold text-xl text-blue-500 py-4 px-24 rounded-lg shadow">
-            Xem thêm
-          </button>
-        </div>
       </section>
       <section className="mt-12">
         <h2 className="text-3xl font-bold mb-4">Tìm kiếm nhiều</h2>
