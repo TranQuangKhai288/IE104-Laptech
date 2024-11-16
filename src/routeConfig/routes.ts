@@ -25,7 +25,7 @@ const routes = {
   supplier: "/admin/suppliers",
   product: "/admin/products",
   customerDept: "/admin/dept",
-  calendar: "/admin/calendar",
+  order: "/admin/order-management",
   warning: "/admin/warning",
   record: "/admin/record",
   security: "/admin/security",

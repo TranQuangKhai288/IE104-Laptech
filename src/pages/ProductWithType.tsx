@@ -79,6 +79,7 @@ const ProductWithType: React.FC = () => {
         category,
         subCategory,
         "",
+        "",
         ""
       );
       if (res.status === "OK") {

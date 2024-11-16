@@ -145,7 +145,9 @@ const ProductManagement: React.FC = () => {
         pageSize,
         "",
         "",
-        search
+        "",
+        search,
+        ""
       );
       console.log("Products:", res.data);
       setProducts(res.data);

@@ -1,4 +1,4 @@
-import productCategoriesData from "../../data/product-categories.json";
+import productCategoriesData from "../data/product-categories.json";
 
 const ProductCategories = () => {
   return (

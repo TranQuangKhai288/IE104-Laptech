@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
 interface CheckoutItemType {
-  id: string;
+  _id: string;
   name: string;
   price: number;
   quantity: number;
@@ -14,7 +14,7 @@ interface CheckoutItemType {
 const Checkout: React.FC = () => {
   const [checkoutItems, setCheckoutItems] = useState<CheckoutItemType[]>([
     {
-      id: "sample1",
+      _id: "sample1",
       name: "Laptop ThinkPad X1 Carbon",
       price: 32000000,
       quantity: 1,
@@ -22,7 +22,7 @@ const Checkout: React.FC = () => {
       description: "Intel i7, 16GB RAM, 512GB SSD, Nhập khẩu",
     },
     {
-      id: "sample2",
+      _id: "sample2",
       name: "Tai nghe Sony WH-1000XM4",
       price: 8000000,
       quantity: 2,
@@ -30,7 +30,7 @@ const Checkout: React.FC = () => {
       description: "Chống ồn chủ động, Bluetooth 5.0",
     },
     {
-      id: "sample3",
+      _id: "sample3",
       name: "Bàn phím cơ Keychron K2",
       price: 2500000,
       quantity: 1,
@@ -38,7 +38,7 @@ const Checkout: React.FC = () => {
       description: "Switch Gateron Brown, Layout 75%, Bluetooth",
     },
     {
-      id: "sample4",
+      _id: "sample4",
       name: "Laptop Lenovo Legion 5 Pro",
       price: 40000000,
       quantity: 1,
@@ -67,7 +67,7 @@ const Checkout: React.FC = () => {
 
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-2xl font-semibold mb-4">Thông tin người nhận</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="gr_id gr_id-cols-1 md:gr_id-cols-2 gap-4 mb-6">
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Họ và tên
@@ -186,7 +186,7 @@ const Checkout: React.FC = () => {
           <div className="mb-6">
             {checkoutItems.map((item) => (
               <div
-                key={item.id}
+                key={item._id}
                 className="flex items-center justify-between border-b py-4"
               >
                 <div className="flex items-center">

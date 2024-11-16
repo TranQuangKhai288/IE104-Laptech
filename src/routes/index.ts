@@ -6,7 +6,6 @@ import Dashboard from "../pages/Dashboard";
 import Customer from "../pages/Customer";
 import Supplier from "../pages/Supplier";
 import CustomerDept from "../pages/CustomerrDept";
-import Calendar from "../pages/Calendar";
 import Warning from "../pages/Warning";
 import RecordCamera from "../pages/RecordCamera";
 import Checkout from "../pages/Checkout";
@@ -16,6 +15,7 @@ import Nothing from "../layouts/Nothing";
 import HeaderLayout from "../layouts/HeaderLayout";
 import DefaultLayout from "../layouts/DefaultLayout";
 import Product from "../pages/Product";
+import OrderManagement from "../pages/OrderManagement";
 import ProductWithType from "../pages/ProductWithType";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
@@ -75,16 +75,17 @@ const routes = [
   },
 
   {
+    path: config.routes.order,
+    component: OrderManagement,
+    layout: DefaultLayout,
+  },
+
+  {
     path: config.routes.customerDept,
     component: CustomerDept,
     layout: DefaultLayout,
   },
 
-  {
-    path: config.routes.calendar,
-    component: Calendar,
-    layout: DefaultLayout,
-  },
   {
     path: config.routes.warning,
     component: Warning,

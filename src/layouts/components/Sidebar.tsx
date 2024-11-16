@@ -4,12 +4,8 @@ import {
   HomeOutlined,
   TeamOutlined,
   ContactsOutlined,
-  FileTextOutlined,
   UserOutlined,
-  CalendarOutlined,
   BarChartOutlined,
-  PieChartOutlined,
-  LineChartOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
@@ -25,23 +21,24 @@ const menuConfig = [
     label: "Bảng Thống Kê",
     path: "",
   },
-  {
-    key: "sub1",
-    icon: <TeamOutlined />,
-    title: "Thông Tin",
-    items: [
-      { key: "2", label: "Thông Tin Khách Hàng", path: "customers" },
-      { key: "3", label: "Thông Tin Nhà Cung Cấp", path: "suppliers" },
-      { key: "4", label: "Ghi Nợ Khách Hàng", path: "dept" },
-    ],
-  },
+  // {
+  //   key: "sub1",
+  //   icon: <TeamOutlined />,
+  //   title: "Thông Tin",
+  //   items: [
+
+  //     { key: "3", label: "Thông Tin Nhà Cung Cấp", path: "suppliers" },
+  //     { key: "4", label: "Ghi Nợ Khách Hàng", path: "dept" },
+  //   ],
+  // },
   {
     key: "sub2",
     icon: <ContactsOutlined />,
     title: "Quản Lý",
     items: [
-      { key: "5", label: "Quản Lý Sản Phẩm", path: "products" },
-      { key: "6", label: "Lịch Trình", path: "calendar" },
+      { key: "2", label: "Quản Lý Người Dùng", path: "customers" },
+      { key: "3", label: "Quản Lý Sản Phẩm", path: "products" },
+      { key: "4", label: "Quản Lý Đơn Hàng", path: "order-management" },
     ],
   },
   {

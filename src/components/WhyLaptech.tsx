@@ -1,4 +1,4 @@
-import whyLaptechData from "../../data/why-laptech.json";
+import whyLaptechData from "../data/why-laptech.json";
 import { FaAngleRight } from "react-icons/fa";
 
 const WhyLaptech = () => {

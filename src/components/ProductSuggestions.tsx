@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import * as ProductService from "../../apis/ProductService";
-import ProductHomeItem from "../../components/ProductHomeItem";
+import * as ProductService from "../apis/ProductService";
+import ProductHomeItem from "./ProductHomeItem";
 
-import { Product } from "../../interfaces/Product";
+import { Product } from "../interfaces/Product";
 
 const ProductSuggestions = () => {
   const [suggestionsData, setSuggestionsData] = useState<Product[]>([]);
@@ -12,7 +12,16 @@ const ProductSuggestions = () => {
   const fetchSuggestions = async () => {
     try {
       setIsLoading(true); // Hiển thị trạng thái loading khi fetch API
-      const res = await ProductService.getProducts(1, pageSize, "", "", "");
+      const res = await ProductService.getProducts(
+        1,
+        pageSize,
+        "",
+        "",
+        "",
+        "",
+        ""
+      );
+
       if (res.status === "OK") {
         setSuggestionsData(res.data);
       } else {

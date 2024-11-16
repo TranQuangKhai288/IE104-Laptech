@@ -1,14 +1,14 @@
 import React from "react";
 
-import DealBanner from "../layouts/components/DealBanner";
-import ProductCategories from "../layouts/components/ProductCategories";
-import Deals from "../layouts/components/Deals";
-import Sales from "../layouts/components/Sales";
-import PreOrders from "../layouts/components/PreOrders";
-import WhyLaptech from "../layouts/components/WhyLaptech";
-import ProductSuggestions from "../layouts/components/ProductSuggestions";
-import MostSearchedTags from "../layouts/components/MostSearchedTags";
-import Socials from "../layouts/components/Socials";
+import DealBanner from "../components/DealBanner";
+import ProductCategories from "../components/ProductCategories";
+import Deals from "../components/Deals";
+import Sales from "../components/Sales";
+import PreOrders from "../components/PreOrders";
+import WhyLaptech from "../components/WhyLaptech";
+import ProductSuggestions from "../components/ProductSuggestions";
+import MostSearchedTags from "../components/MostSearchedTags";
+import Socials from "../components/Socials";
 
 const Home: React.FC = () => {
   return (
