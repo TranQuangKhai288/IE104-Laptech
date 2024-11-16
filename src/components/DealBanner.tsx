@@ -1,4 +1,4 @@
-import dealBannerData from "../../data/deal-banner.json";
+import dealBannerData from "../data/deal-banner.json";
 import { FaArrowRight } from "react-icons/fa";
 
 const DealBanner = () => {

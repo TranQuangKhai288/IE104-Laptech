@@ -4,9 +4,9 @@ import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 
 // import salesData from "../../data/sales.json";
-import ProductHomeItem from "../../components/ProductHomeItem";
-import * as ProductService from "../../apis/ProductService";
-import { Product } from "../../interfaces/Product";
+import ProductHomeItem from "./ProductHomeItem";
+import * as ProductService from "../apis/ProductService";
+import { Product } from "../interfaces/Product";
 import { useEffect, useState } from "react";
 const PreOrder = () => {
   const [salesData, setSalesData] = useState<Product[]>([]);

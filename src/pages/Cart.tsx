@@ -49,23 +49,6 @@ const Cart: React.FC = () => {
   ]);
 
   const navigate = useNavigate();
-
-  const addProductToCart = async () => {
-    const newProduct = {
-      id: Math.random().toString(36).substring(2, 9),
-      name: "Sản phẩm mới",
-      price: 1000000,
-      quantity: 1,
-      image: "/images/product.png",
-      description: "Mô tả sản phẩm mới",
-    };
-    try {
-      setCartItems((prevItems) => [...prevItems, newProduct]);
-    } catch (err) {
-      console.error("Error adding product:", err);
-    }
-  };
-
   const removeProductFromCart = async (id: string) => {
     const isConfirmed = window.confirm(
       "Bạn có chắc muốn xóa sản phẩm này không?"
@@ -146,12 +129,12 @@ const Cart: React.FC = () => {
               </span>
             </p>
           </div>
-          <button
+          {/* <button
             onClick={addProductToCart}
             className="bg-blue-500 w-full text-white px-4 py-3 rounded-md mb-4 hover:bg-blue-600 transition"
           >
             Thêm sản phẩm mới
-          </button>
+          </button> */}
           <button
             onClick={handleCheckout}
             className="bg-[rgb(254,52,100)] w-full text-white px-4 py-3 rounded-md hover:bg-[rgb(234,31,79)] transition font-semibold"

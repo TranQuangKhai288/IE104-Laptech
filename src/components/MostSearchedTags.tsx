@@ -1,4 +1,4 @@
-import mostSearchedTagsData from "../../data/most-searched-tags.json";
+import mostSearchedTagsData from "../data/most-searched-tags.json";
 
 const MostSearchedTags = () => {
   return (
