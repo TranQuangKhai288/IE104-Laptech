@@ -3,65 +3,54 @@ import "swiper/css";
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 
-import CheckLightBg from "../../components/CheckLightBg";
-import preOrderData from "../../data/pre-order.json";
+// import salesData from "../../data/sales.json";
+import ProductHomeItem from "../../components/ProductHomeItem";
+import * as ProductService from "../../apis/ProductService";
+import { Product } from "../../interfaces/Product";
+import { useEffect, useState } from "react";
+const PreOrder = () => {
+  const [salesData, setSalesData] = useState<Product[]>([]);
 
-const Sales = () => {
+  const fetchSales = async () => {
+    try {
+      const res = await ProductService.getProducts(
+        1,
+        10,
+        "",
+        "",
+        "",
+        "",
+        "true"
+      );
+      if (res.status === "OK") {
+        setSalesData(res.data);
+      } else {
+        console.log(res.message, "error at fetchSales");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchSales();
+  }, []);
+
   return (
     <Swiper
       spaceBetween={15}
       slidesPerView={4}
       navigation={true}
-      pagination={{ type: "fraction" }}
       modules={[Navigation]}
-      style={{ padding: "15px 0 50px 0" }}
+      style={{ padding: "15px 0 35px 0" }}
     >
-      {preOrderData.map((order) => (
-        <SwiperSlide key={order.id}>
-          <a
-            href={order.url}
-            className="p-4 rounded-lg bg-white shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-white block"
-            style={{ height: "480px" }}
-          >
-            <img src={order.image} alt="" />
-            <div className="font-bold mb-2">{order.title}</div>
-            <div className="flex flex-row space-x-2">
-              <div>Từ</div>
-              <div className="font-bold text-red-500">
-                {order.starting_price}
-              </div>
-              <div className="text-sm rounded bg-[#FFEAEA] px-1 text-red-500">
-                -{order.sale_percentage}%
-              </div>
-            </div>
-            <div className="flex flex-row space-x-2 mb-2">
-              <div>Màu</div>
-              {order.colors.map((color, index) => (
-                <div key={index} className="flex items-center justify-end">
-                  <CheckLightBg bgColor={color.hex} />
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {order.specs.map((part, index) => (
-                <div key={index} className="text-sm px-2 rounded bg-gray-100">
-                  {part.description}
-                </div>
-              ))}
-            </div>
-            {Object.keys(order.gift_value).length === 0 ? (
-              ""
-            ) : (
-              <div>
-                <hr className="my-4 border-b-1 border-gray-300 border-b-0 mb-4" />
-                <div className="underline">Qùa tặng {order.gift_value}</div>
-              </div>
-            )}
-          </a>
+      {salesData.map((sale) => (
+        <SwiperSlide key={sale._id}>
+          <ProductHomeItem product={sale} />
         </SwiperSlide>
       ))}
     </Swiper>
   );
 };
 
-export default Sales;
+export default PreOrder;

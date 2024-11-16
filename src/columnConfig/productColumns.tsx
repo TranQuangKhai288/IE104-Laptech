@@ -37,6 +37,7 @@ export interface ProductColumns {
   name: string;
   description: string;
   category: string;
+  subCategory?: string;
   brand: string;
   price: number;
   starting_price: string;
@@ -132,7 +133,7 @@ export const productColumns = ({
               </div>
             </Tooltip>
             <div className="text-sm text-gray-500">
-              {record.brand} - {record.category}
+              {record.brand} - {record.category} {record?.subCategory}
             </div>
             <div className="flex items-center mt-1">
               <Rate

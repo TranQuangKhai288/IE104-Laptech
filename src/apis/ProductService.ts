@@ -21,12 +21,15 @@ export const getProducts = async (
   page = 1,
   limit = 10,
   category = '',
+  subCategory = '',
   brand = '',
-  search = ''
+  search = '',
+  isFeatured = ''
+
 ) => {
   console.log("page", page);
   console.log("limit", limit);
-    const res: response = await baseURL.get(`/product?page=${page}&limit=${limit}&category=${category}&brand=${brand}&search=${search}`);
+    const res: response = await baseURL.get(`/product?page=${page}&limit=${limit}&category=${category}&subCategory=${subCategory}&brand=${brand}&search=${search}&isFeatured=${isFeatured}`);
     return res; // Assuming you want to return the data from the response
 };
 

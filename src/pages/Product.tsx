@@ -106,6 +106,8 @@ const ProductManagement: React.FC = () => {
     if (resNewProduct.status === "OK") {
       message.success("Thêm sản phẩm thành công!");
       fetchProducts();
+    } else {
+      message.error("Thêm sản phẩm thất bại!");
     }
     setIsModalOpen(false);
   };

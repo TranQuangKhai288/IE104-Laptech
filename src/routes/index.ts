@@ -16,7 +16,7 @@ import Nothing from "../layouts/Nothing";
 import HeaderLayout from "../layouts/HeaderLayout";
 import DefaultLayout from "../layouts/DefaultLayout";
 import Product from "../pages/Product";
-import { Profiler } from "react";
+import ProductWithType from "../pages/ProductWithType";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import path from "path";
@@ -39,6 +39,12 @@ const routes = [
     component: Home,
     layout: HeaderLayout,
   },
+  {
+    path: config.routes.productWithType, // Sử dụng route động
+    component: ProductWithType,
+    layout: HeaderLayout,
+  },
+
   {
     path: config.routes.cart,
     component: Cart,

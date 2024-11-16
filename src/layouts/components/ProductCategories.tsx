@@ -15,7 +15,7 @@ const ProductCategories = () => {
             </div>
             <div className="md:w-4/5 md:px-8">
               <p className="font-bold text-xl">{item.title}</p>
-              <p className="text-sm">{item.quantity} sản phẩm</p>
+              {/* <p className="text-sm">{item.quantity} sản phẩm</p> */}
             </div>
           </a>
         ))}
