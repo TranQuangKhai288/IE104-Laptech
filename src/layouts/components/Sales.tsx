@@ -1,12 +1,41 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Navigation} from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 
-import CheckLightBg from "../../components/CheckLightBg";
-import salesData from "../../data/sales.json";
-
+// import salesData from "../../data/sales.json";
+import ProductHomeItem from "../../components/ProductHomeItem";
+import * as ProductService from "../../apis/ProductService";
+import { Product } from "../../interfaces/Product";
+import { useEffect, useState } from "react";
 const Sales = () => {
+  const [salesData, setSalesData] = useState<Product[]>([]);
+
+  const fetchSales = async () => {
+    try {
+      const res = await ProductService.getProducts(
+        1,
+        10,
+        "",
+        "",
+        "",
+        "",
+        "true"
+      );
+      if (res.status === "OK") {
+        setSalesData(res.data);
+      } else {
+        console.log(res.message, "error at fetchSales");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchSales();
+  }, []);
+
   return (
     <Swiper
       spaceBetween={15}
@@ -16,47 +45,8 @@ const Sales = () => {
       style={{ padding: "15px 0 35px 0" }}
     >
       {salesData.map((sale) => (
-        <SwiperSlide key={sale.id}>
-          <a
-            href={sale.url}
-            className="p-4 rounded-lg bg-white shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl block hover:border-blue-500 border-2 border-white"
-            style={{ height: "530px" }}
-          >
-            <img src={sale.image} alt="" />
-            <div className="font-bold mb-2">{sale.title}</div>
-            <div className="flex flex-row space-x-2">
-              <div>Từ</div>
-              <div className="font-bold text-red-500">
-                {sale.starting_price}
-              </div>
-              <div className="text-sm rounded bg-[#FFEAEA] px-1 text-red-500">
-                -{sale.sale_percentage}%
-              </div>
-            </div>
-            <div className="flex flex-row space-x-2 mb-2">
-              <div>Màu</div>
-              {sale.colors.map((color, index) => (
-                <div key={index} className="flex items-center justify-end">
-                  <CheckLightBg bgColor={color.hex} />
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {sale.specs.map((part, index) => (
-                <div key={index} className="text-sm px-2 rounded bg-gray-100">
-                  {part.description}
-                </div>
-              ))}
-            </div>
-            {Object.keys(sale.gift_value).length === 0 ? (
-              ""
-            ) : (
-              <div>
-                <hr className="my-4 border-b-1 border-gray-300 border-b-0 mb-4" />
-                <div className="underline">Qùa tặng {sale.gift_value}</div>
-              </div>
-            )}
-          </a>
+        <SwiperSlide key={sale._id}>
+          <ProductHomeItem product={sale} />
         </SwiperSlide>
       ))}
     </Swiper>

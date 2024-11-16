@@ -232,6 +232,32 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
           </Select>
         </Form.Item>
 
+        {/* kiểm tra nếu phân loại là laptop thì sẽ có thêm chọn loại laptop */}
+        <Form.Item
+          noStyle
+          shouldUpdate={(prev, curr) => prev.category !== curr.category}
+        >
+          {({ getFieldValue }) =>
+            getFieldValue("category") === "laptop" && (
+              <Form.Item
+                name="subCategory"
+                label="Loại laptop"
+                rules={[
+                  { required: true, message: "Vui lòng chọn loại laptop!" },
+                ]}
+              >
+                <Select placeholder="Chọn loại laptop">
+                  <Option value="gaming">Gaming</Option>
+                  <Option value="business">Business</Option>
+                  <Option value="ultrabook">Ultrabook</Option>
+                  <Option value="student">Student</Option>
+                  <Option value="other">Khác</Option>
+                </Select>
+              </Form.Item>
+            )
+          }
+        </Form.Item>
+
         <Form.Item
           name="brand"
           label="Thương hiệu"
