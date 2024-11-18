@@ -20,6 +20,9 @@ import ProductWithType from "../pages/ProductWithType";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import path from "path";
+import ProductDetailPage from "../pages/ProductDetail";
+import { Layout } from "antd";
+import { Header } from "antd/es/layout/layout";
 
 const routes = [
   {
@@ -108,6 +111,12 @@ const routes = [
     path: config.routes.checkout, // Thêm định tuyến cho Checkout
     component: Checkout,
     layout: HeaderLayout,
+  },
+
+  {
+    path: config.routes.productDetail,
+    component: ProductDetailPage,
+    Layout: HeaderLayout,
   },
 ];
 

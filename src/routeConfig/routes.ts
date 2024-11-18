@@ -32,6 +32,7 @@ const routes = {
   cart: "/cart",
   profile: "/profile",
   checkout: "/checkout",
+  productDetail: "/product/product-detail-example"
 };
 
 export default routes;
