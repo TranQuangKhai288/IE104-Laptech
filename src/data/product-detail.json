@@ -1,0 +1,301 @@
+{
+  "id": "ec65edde-8150-40d0-a32c-cb633f69f2a1",
+  "images": {
+    "rootPath": "/images/product-detail/",
+    "items": ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", "06.webp"]
+  },
+  "title": "LENOVO THINKPAD X1 - LAPTOP DOANH NHÂN SỐ 1",
+  "SKU": "X1CG9026NS",
+  "brand": "Lenovo",
+  "brandImage": "brand.webp",
+  "name": "ThinkPad X1 Carbon Gen 9",
+  "videoURL": "https://www.youtube-nocookie.com/embed/4Mj4cinIM1w",
+  "specList": [
+    {
+      "title": "Core i7 1185G7, 16GB, 256GB, FHD+ Touch, LTE",
+      "detail": {}
+    },
+    {
+      "title": "Core i5 1135G7, 8GB, 256GB, FHD+",
+      "detail": {}
+    },
+    {
+      "title": "Core i7 1185G7, 32GB, 512GB, 4K HDR",
+      "detail": {}
+    },
+    {
+      "title": "Core i5 1135G7, 32GB, 256GB, FHD+ Touch",
+      "detail": {
+        "summarySpec": [
+          {
+            "title": "Loại CPU",
+            "description": "Intel Core i5 1135G7, 4C/8T"
+          },
+          {
+            "title": "Tốc độ",
+            "description": "2.4GHz , Lên tới 4.2GHz"
+          },
+          {
+            "title": "Bộ nhớ đệm",
+            "description": "8MB"
+          },
+          {
+            "title": "Card onboard",
+            "description": "Intel Iris Xe Graphics"
+          },
+          {
+            "title": "Card rời",
+            "description": "Không"
+          },
+          {
+            "title": "Dung lượng RAM",
+            "description": "32GB LPDDR4X 4266MHz"
+          },
+          {
+            "title": "Hỗ trợ tối đa",
+            "description": "32GB (Không thể nâng cấp)"
+          },
+          {
+            "title": "Dung lượng SSD",
+            "description": "256 GB (M.2 NVMe)"
+          }
+        ],
+        "detailSpec": [
+          {
+            "title": "Bộ xử lý",
+            "specs": [
+              {
+                "title": "CPU",
+                "description": "Intel Core i5 1135G7, 4C/8T"
+              },
+              {
+                "title": "Tốc độ",
+                "description": "2.4GHz , Lên tới 4.2GHz"
+              },
+              {
+                "title": "Bộ nhớ đệm",
+                "description": "8MB"
+              }
+            ]
+          },
+          {
+            "title": "Card đồ họa",
+            "specs": [
+              {
+                "title": "Card onboard",
+                "description": "Intel Iris Xe Graphics"
+              },
+              {
+                "title": "Card rời",
+                "description": "Không"
+              }
+            ]
+          },
+          {
+            "title": "RAM",
+            "specs": [
+              {
+                "title": "Dung lượng",
+                "description": "32GB LPDDR4X 4266MHz"
+              },
+              {
+                "title": "Hỗ trợ tối đa",
+                "description": "32GB (Không thể nâng cấp)"
+              }
+            ]
+          },
+          {
+            "title": "Ổ cứng",
+            "specs": [
+              {
+                "title": "Dung lượng SSD",
+                "description": "256 GB (M.2 NVMe)"
+              },
+              {
+                "title": "Khả năng nâng cấp",
+                "description": "Hỗ trợ 1 SSD"
+              }
+            ]
+          },
+          {
+            "title": "Màn hình",
+            "specs": [
+              {
+                "title": "Màn hình",
+                "description": "14inches, 1920 x 1200px, 60Hz"
+              },
+              {
+                "title": "Tấm phủ",
+                "description": "Nhám, Cảm ứng"
+              },
+              {
+                "title": "Thông số khác",
+                "description": "Tỉ lệ 16:10, IPS, 400Nits, 100% sRGB"
+              }
+            ]
+          },
+          {
+            "title": "Khối lượng & Kích thước",
+            "specs": [
+              {
+                "title": "Khối lượng",
+                "description": "1.13kg"
+              },
+              {
+                "title": "Kích thước",
+                "description": "315mm x 221.6mm x 14.9mm"
+              },
+              {
+                "title": "Chất liệu vỏ",
+                "description": "Nhựa & kim loại"
+              }
+            ]
+          },
+          {
+            "title": "Pin",
+            "specs": [
+              {
+                "title": "Dung lượng pin",
+                "description": "57WHr Li-Polymer"
+              },
+              {
+                "title": "Thời lượng Pin",
+                "description": "5Hrs"
+              }
+            ]
+          },
+          {
+            "title": "Webcam & Âm thanh",
+            "specs": [
+              {
+                "title": "Webcam",
+                "description": "Có"
+              },
+              {
+                "title": "Công nghệ âm thanh",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "title": "Cổng kết nối",
+            "specs": [
+              {
+                "title": "Cổng kết nối",
+                "description": "2 x USB Type C, 2 x USB Type A, 1 x HDMI, Jack tai nghe 3.5mm"
+              },
+              {
+                "title": "Khe thẻ SD/ Micro SD",
+                "description": "Không khe thẻ SD, Không khe micro SD"
+              }
+            ]
+          },
+          {
+            "title": "Kết nối",
+            "specs": [
+              {
+                "title": "WiFi",
+                "description": "Có hỗ trợ"
+              },
+              {
+                "title": "Bluetooth",
+                "description": "Có hỗ trợ"
+              },
+              {
+                "title": "Kết nối LTE/WWAN",
+                "description": "Không hỗ trợ"
+              }
+            ]
+          },
+          {
+            "title": "Hệ điều hành",
+            "specs": [
+              {
+                "title": "OS",
+                "description": "Windows 10"
+              }
+            ]
+          }
+        ],
+        "rating": {
+          "expert": [
+            {
+              "title": "Sinh viên",
+              "score": 8
+            },
+            {
+              "title": "Văn phòng",
+              "score": 10
+            },
+            {
+              "title": "Gaming",
+              "score": 5
+            },
+            {
+              "title": "Lập trình",
+              "score": 8
+            },
+            {
+              "title": "Đồ họa",
+              "score": 5
+            },
+            {
+              "title": "Ứng dụng AI",
+              "score": 5
+            },
+            {
+              "title": "Mỏng nhẹ",
+              "score": 10
+            }
+          ],
+          "user": "./data/rating/ec65edde-8150-40d0-a32c-cb633f69f2a1.json"
+        },
+        "color": ["Black"],
+        "type": [
+          "Outlet, nhập khẩu",
+          "Used, nhập khẩu",
+          "Mới, sealed, nhập khẩu"
+        ],
+        "originalPrice": "24.990.000",
+        "saledPrice": "17.390.000",
+        "salePercentage": "30%",
+        "gift": "Chuột Không dây EM604BW 299.000đ",
+        "availableLocations": [
+          {
+            "title": "Thành phố Hồ Chí Minh",
+            "locations": [
+              "Số 5 - 7 Nguyễn Huy Tưởng, Phường 6, Quận Bình Thạnh, Hồ Chí Minh",
+              "95 Trần Thiện Chánh, F12, Q10, HCM"
+            ]
+          },
+          {
+            "title": "Hà Nội",
+            "locations": ["53 Thái Hà, Trung Liệt, Đống Đa, Hà Nội"]
+          },
+          {
+            "title": "Kênh Online",
+            "locations": [
+              "Chuyên viên chúng tôi trực từ 8h30 đến 24h hàng ngày."
+            ]
+          }
+        ],
+        "warranty": {
+          "duration": 12,
+          "unit": "tháng"
+        }
+      }
+    },
+    {
+      "title": "Core i7 1185G7, 32GB, 256GB, 4K HDR",
+      "detail": {}
+    },
+    {
+      "title": "Core i7 1185G7, 16GB, 256GB, 4K HDR",
+      "detail": {}
+    },
+    {
+      "title": "Core i5 1145G7, 16GB, 256GB, FHD+",
+      "detail": {}
+    }
+  ]
+}
