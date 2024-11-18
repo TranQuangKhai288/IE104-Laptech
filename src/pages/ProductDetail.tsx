@@ -4,6 +4,7 @@ import ProductArticle from "../components/ProductArticle";
 import ProductOverview from "../components/ProductOverview";
 import ProductSuggestions from "../components/ProductSuggestions";
 import SampleProductData from "../data/product-detail.json";
+import Socials from "../components/Socials";
 
 const ProductDetailPage: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const ProductDetailPage: React.FC = () => {
       <section>
         <ProductSuggestions />
       </section>
+      <Socials />
     </div>
   );
 };
