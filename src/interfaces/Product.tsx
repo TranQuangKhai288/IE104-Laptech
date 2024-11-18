@@ -1,11 +1,20 @@
 export interface Product {
   _id: string;
-  url: string;
-  images: Array<string>;
   name: string;
+  description?: string;
+  category?: string;
+  subCategory?: string;
+  brand?: string;
+  url?: string;
+  price?: number;
   starting_price: string;
   sale_percentage: number;
-  colors: { hex: string }[];
-  specifications: { title: string; description: string }[];
+  stock?: number;
+  images: Array<string>;
+
+  colors?: { title: string; hex: string }[];
+  specifications: { type: string; title: string; description: string }[];
   gift_value: string;
+  reviews: Array<any>;
+  averageRating: number;
 }

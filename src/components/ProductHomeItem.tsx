@@ -1,10 +1,17 @@
 import React from "react";
 import CheckLightBg from "./CheckLightBg";
 import { Product } from "../interfaces/Product";
+import { useNavigate } from "react-router-dom";
 
 const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
+  const navigate = useNavigate();
   return (
-    <div className="p-4 rounded-lg bg-white shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-white block cursor-pointer flex flex-col justify-between h-full">
+    <div
+      className="p-4 rounded-lg bg-white shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-white block cursor-pointer flex flex-col justify-between h-full"
+      onClick={() => {
+        navigate(`/product-details/${product._id}`);
+      }}
+    >
       <div className="flex flex-col flex-grow">
         <img
           src={product.images[0]}
@@ -28,14 +35,15 @@ const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
         {/* Colors */}
         <div className="flex flex-row space-x-2 mt-2">
           <div>Màu</div>
-          {product.colors.map((color, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-end border-2 border-[#adadad] rounded-md w-5 h-5"
-            >
-              <CheckLightBg bgColor={color.hex} />
-            </div>
-          ))}
+          {product.colors &&
+            product.colors.map((color, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-end border-2 border-[#adadad] rounded-md w-5 h-5"
+              >
+                <CheckLightBg bgColor={color.hex} />
+              </div>
+            ))}
         </div>
         <hr className="my-4 border-b-1 border-gray-300" />
         {/* Specifications */}

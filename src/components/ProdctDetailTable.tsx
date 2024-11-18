@@ -1,14 +1,14 @@
 import React from "react";
-import { ItemDataType } from "./ProductDataType";
+import { Product } from "../interfaces/Product";
 
 interface customProps {
-  data: ItemDataType;
+  data: Product;
 }
 const ProductDetailTable: React.FC<customProps> = ({ data }) => {
   return (
     <table>
       <tbody>
-        {data.specList[3].detail?.detailSpec?.map((item, itemIndex) => (
+        {/* {data.specList[3].detail?.detailSpec?.map((item, itemIndex) => (
           <>
             <tr key={itemIndex}>
               <th
@@ -26,7 +26,7 @@ const ProductDetailTable: React.FC<customProps> = ({ data }) => {
               </tr>
             ))}
           </>
-        ))}
+        ))} */}
       </tbody>
     </table>
   );

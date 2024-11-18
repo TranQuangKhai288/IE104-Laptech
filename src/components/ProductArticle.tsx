@@ -16,11 +16,11 @@ import {
   FaAngleRight,
 } from "react-icons/fa";
 import Modal from "./Modal";
-import { ItemDataType } from "./ProductDataType";
 import ProductDetailTable from "./ProdctDetailTable";
+import { Product } from "../interfaces/Product";
 
 interface customProps {
-  data: ItemDataType;
+  data: Product;
 }
 
 const ProductArticle: React.FC<customProps> = ({ data }) => {
@@ -47,13 +47,9 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
             direction={"vertical"}
             className="cursor-pointer w-1/6 rounded"
           >
-            {data.images.items.map((item, index) => (
+            {data.images.map((item, index) => (
               <SwiperSlide className="">
-                <img
-                  src={`${data.images.rootPath}${data.id}/${item}`}
-                  alt=""
-                  className="w-max"
-                />
+                <img src={item} alt="" className="w-max" />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -68,9 +64,9 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
             modules={[FreeMode, Navigation, Thumbs, Controller]}
             className="flex-1"
           >
-            {data.images.items.map((item, index) => (
-              <SwiperSlide>
-                <img src={`${data.images.rootPath}${data.id}/${item}`} alt="" />
+            {data.images.map((item, index) => (
+              <SwiperSlide className="">
+                <img src={item} alt="" className="w-max" />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -105,7 +101,7 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
       <section className="my-5 p-5 bg-white rounded-xl">
         <h2 className="text-xl mb-4 font-bold">Đánh giá từ chuyên gia</h2>
         <div className="grid grid-cols-3 gap-5">
-          {data.specList[3].detail.rating?.expert.map((item, index) => (
+          {/* {data.specList[3].detail.rating?.expert.map((item, index) => (
             <div>
               <div className="flex content-between">
                 <p className="flex-1">{item.title}</p>
@@ -120,7 +116,7 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
                 ></div>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
       </section>
       <section className="my-5 p-5 bg-white rounded-xl">
@@ -152,7 +148,7 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
           </div>
           <table className="w-full">
             <tbody>
-              {data.specList[3].detail?.summarySpec?.map((item, index) => (
+              {/* {data.specList[3].detail?.summarySpec?.map((item, index) => (
                 <tr
                   key={index}
                   className={`${index % 2 === 0 ? "bg-gray-200" : ""}`}
@@ -160,7 +156,7 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
                   <th className="text-left py-3 pl-3">{item.title}</th>
                   <td className="">{item.description}</td>
                 </tr>
-              ))}
+              ))} */}
             </tbody>
           </table>
         </div>
@@ -232,10 +228,10 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
                   setShowModal_04(!showModal_04);
                 }}
               >
-                <span className="text-blue-600">
+                {/* <span className="text-blue-600">
                   <span>{data.specList[3].detail?.warranty?.duration}</span>{" "}
                   <span>{data.specList[3].detail?.warranty?.unit}</span>
-                </span>
+                </span> */}
                 <FaAngleRight className="inline-block ml-2 pb-1 text-lg" />
               </button>
             </div>
@@ -256,9 +252,9 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
               <li role="list">
                 Bảo hành{" "}
                 <b>
-                  <span>{data.specList[3].detail?.warranty?.duration}</span>{" "}
+                  {/* <span>{data.specList[3].detail?.warranty?.duration}</span>{" "}
                   <span>{data.specList[3].detail?.warranty?.unit}</span>{" "}
-                  <span>tại chuỗi cửa hàng</span>
+                  <span>tại chuỗi cửa hàng</span> */}
                 </b>
               </li>
               <li>Đổi mới trong 15 ngày đầu tiên</li>
@@ -268,15 +264,6 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
         <hr className="my-4 border-b-1 border-gray-300" />
         <div>
           <h2 className="text-xl mb-4 font-bold">Video review</h2>
-          <div className="relative w-full aspect-video">
-            <iframe
-              title="YouTube Video Player"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen={true}
-              src={data.videoURL}
-              className="absolute top-0 left-0 w-full h-full"
-            ></iframe>
-          </div>
         </div>
         <hr className="my-4 border-b-1 border-gray-300" />
         <div>

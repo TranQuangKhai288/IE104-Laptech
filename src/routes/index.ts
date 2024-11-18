@@ -116,7 +116,7 @@ const routes = [
   {
     path: config.routes.productDetail,
     component: ProductDetailPage,
-    Layout: HeaderLayout,
+    layout: HeaderLayout,
   },
 ];
 

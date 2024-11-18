@@ -17,6 +17,7 @@ const routes = {
   // phone: "/phone",
   // tablet: "/tablet",
   // accessories: "/accessories",
+  productDetail: "/product-details/:id", // Route cố định cho trang chi tiết sản phẩm
   productWithType: "/product/:type", // Route động cho các loại sản phẩm
 
 
@@ -32,7 +33,7 @@ const routes = {
   cart: "/cart",
   profile: "/profile",
   checkout: "/checkout",
-  productDetail: "/product/product-detail-example"
+  
 };
 
 export default routes;

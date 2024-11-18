@@ -7,10 +7,10 @@ import {
   FaAngleRight,
   FaCheckCircle,
 } from "react-icons/fa";
-import { ItemDataType } from "./ProductDataType";
+import { Product } from "../interfaces/Product";
 
 interface customProps {
-  data: ItemDataType;
+  data: Product;
 }
 
 const ProductOverview: React.FC<customProps> = ({ data }) => {
@@ -18,15 +18,10 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
     <div className="sticky top-24">
       <section>
         <h1 className="rounded-xl bg-[#f93966] text-white text-base font-bold h-30 p-5 text-center">
-          {data.title}
+          {data.name}
         </h1>
       </section>
       <section className="bg-white rounded-xl p-5 my-5">
-        <p>
-          <span>SKU: </span>
-          <span>{data.SKU}</span>
-          <FaCopy className="inline-block ml-2 mb-1 text-blue-600 cursor-pointer" />
-        </p>
         <h2 className="font-bold text-xl mt-4">
           <span>{data.brand} </span>
           <span>{data.name}</span>
@@ -46,7 +41,7 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
         <div>
           <h3 className="font-semibold text-gray-500 mb-4">Phiên bản</h3>
           <div className="flex flex-col space-y-2">
-            {data.specList.map((item, index) => (
+            {data.specifications.map((item, index) => (
               <div className="flex-1">
                 <p
                   key={index}
@@ -63,7 +58,7 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
           </div>
           <h3 className="font-semibold text-gray-500 my-4">Màu</h3>
           <div className="flex flex-wrap gap-2">
-            {data.specList[3].detail.color?.map((item, index) => (
+            {data.colors?.map((item, index) => (
               <div className="w-auto h-auto">
                 <p
                   key={index}
@@ -73,14 +68,14 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
                       : "border-[#e6e8ea]"
                   } py-2 px-4 inline-block font-semibold cursor-pointer`}
                 >
-                  {item}
+                  {item.hex}
                 </p>
               </div>
             ))}
           </div>
           <h3 className="font-semibold text-gray-500 my-4">Loại hàng</h3>
           <div className="flex flex-wrap gap-2">
-            {data.specList[3].detail.type?.map((item, index) => (
+            {/* {data.specList[3].detail.type?.map((item, index) => (
               <div className="w-auto h-auto">
                 <p
                   key={index}
@@ -94,21 +89,21 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
                   <FaInfoCircle className="inline-block text-xl pb-1 ml-1" />
                 </p>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
         <hr className="my-4 border-b-1 border-gray-300" />
         <div className="flex flex-row gap-8">
           <div className="flex-none">
             <p className="text-xl font-semibold text-[#f93966]">
-              {data.specList[3].detail?.saledPrice}
+              {/* {data.specList[3].detail?.saledPrice} */}
             </p>
             <div className="text-xs">
               <span className="line-through">
-                {data.specList[3].detail?.originalPrice}
+                {/* {data.specList[3].detail?.originalPrice} */}
               </span>
               <span className="text-[#f93966] ml-2">
-                -{data.specList[3].detail?.salePercentage}
+                {/* -{data.specList[3].detail?.salePercentage} */}
               </span>
             </div>
           </div>
@@ -137,7 +132,7 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
                     Quà tặng miễn phí
                   </h2>
                   <div className="my-1 text-xs">
-                    {data.specList[3].detail?.gift}
+                    {/* {data.specList[3].detail?.gift} */}
                   </div>
                 </div>
                 <button className="text-[#f93966]">
@@ -153,11 +148,7 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
         <div>
           <div className="flex flex-row gap-4">
             <div className="flex-none">
-              <img
-                src={`${data.images.rootPath}${data.id}/${data.brandImage}`}
-                alt=""
-                className="w-10 my-2"
-              />
+              <img src={data.images[0]} alt="" className="w-10 my-2" />
             </div>
             <div className="flex-1">
               <div className="flex flex-row justify-between">
