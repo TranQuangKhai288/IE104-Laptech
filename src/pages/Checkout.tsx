@@ -1,57 +1,16 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import CartItem from "../components/CartItem";
-
-interface CheckoutItemType {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-  description: string;
-}
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import provinces from "../data/provinces.json";
+import { CartItemType } from "../pages/Cart"; // Import từ file đã khai báo hoặc định nghĩa lại nếu cần
 
 const Checkout: React.FC = () => {
-  const [checkoutItems, setCheckoutItems] = useState<CheckoutItemType[]>([
-    {
-      id: "sample1",
-      name: "Laptop ThinkPad X1 Carbon",
-      price: 32000000,
-      quantity: 1,
-      image: "/images/thinkpad-x1-carbon.png",
-      description: "Intel i7, 16GB RAM, 512GB SSD, Nhập khẩu",
-    },
-    {
-      id: "sample2",
-      name: "Tai nghe Sony WH-1000XM4",
-      price: 8000000,
-      quantity: 2,
-      image: "/images/sony-wh-1000xm4.jpg",
-      description: "Chống ồn chủ động, Bluetooth 5.0",
-    },
-    {
-      id: "sample3",
-      name: "Bàn phím cơ Keychron K2",
-      price: 2500000,
-      quantity: 1,
-      image: "/images/keychron-k2.png",
-      description: "Switch Gateron Brown, Layout 75%, Bluetooth",
-    },
-    {
-      id: "sample4",
-      name: "Laptop Lenovo Legion 5 Pro",
-      price: 40000000,
-      quantity: 1,
-      image: "/images/legion-5-pro.png",
-      description: "AMD Ryzen 7, 16GB RAM, 1TB SSD, RTX 3060, Nhập khẩu",
-    },
-  ]);
-
   const navigate = useNavigate();
+  const location = useLocation();
+  const checkoutItems = location.state?.selectedItems || [];
 
   // Tính tổng tiền thanh toán
   const totalAmount = checkoutItems.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total: number, item: CartItemType) => total + item.price * item.quantity,
     0
   );
 
@@ -94,69 +53,9 @@ const Checkout: React.FC = () => {
             </label>
             <select className="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500">
               <option>Chọn khu vực</option>
-              <option>An Giang</option>
-              <option>Bà Rịa - Vũng Tàu</option>
-              <option>Bạc Liêu</option>
-              <option>Bắc Kạn</option>
-              <option>Bắc Giang</option>
-              <option>Bắc Ninh</option>
-              <option>Bến Tre</option>
-              <option>Bình Dương</option>
-              <option>Bình Định</option>
-              <option>Bình Phước</option>
-              <option>Bình Thuận</option>
-              <option>Cà Mau</option>
-              <option>Cao Bằng</option>
-              <option>Cần Thơ</option>
-              <option>Đà Nẵng</option>
-              <option>Đắk Lắk</option>
-              <option>Đắk Nông</option>
-              <option>Điện Biên</option>
-              <option>Đồng Nai</option>
-              <option>Đồng Tháp</option>
-              <option>Gia Lai</option>
-              <option>Hà Giang</option>
-              <option>Hà Nam</option>
-              <option>Hà Nội</option>
-              <option>Hà Tĩnh</option>
-              <option>Hải Dương</option>
-              <option>Hải Phòng</option>
-              <option>Hậu Giang</option>
-              <option>Hòa Bình</option>
-              <option>Hưng Yên</option>
-              <option>Khánh Hòa</option>
-              <option>Kiên Giang</option>
-              <option>Kon Tum</option>
-              <option>Lai Châu</option>
-              <option>Lâm Đồng</option>
-              <option>Lạng Sơn</option>
-              <option>Lào Cai</option>
-              <option>Long An</option>
-              <option>Nam Định</option>
-              <option>Nghệ An</option>
-              <option>Ninh Bình</option>
-              <option>Ninh Thuận</option>
-              <option>Phú Thọ</option>
-              <option>Phú Yên</option>
-              <option>Quảng Bình</option>
-              <option>Quảng Nam</option>
-              <option>Quảng Ngãi</option>
-              <option>Quảng Ninh</option>
-              <option>Quảng Trị</option>
-              <option>Sóc Trăng</option>
-              <option>Sơn La</option>
-              <option>Tây Ninh</option>
-              <option>Thái Bình</option>
-              <option>Thái Nguyên</option>
-              <option>Thanh Hóa</option>
-              <option>Thừa Thiên Huế</option>
-              <option>Tiền Giang</option>
-              <option>TP. Hồ Chí Minh</option>
-              <option>Trà Vinh</option>
-              <option>Tuyên Quang</option>
-              <option>Vĩnh Long</option>
-              <option>Vĩnh Phúc</option>
-              <option>Yên Bái</option>
+              {provinces.map((province: string, index: number) => (
+                <option key={index}>{province}</option>
+              ))}
             </select>
           </div>
           <div>
@@ -184,7 +83,7 @@ const Checkout: React.FC = () => {
           </div>
         ) : (
           <div className="mb-6">
-            {checkoutItems.map((item) => (
+            {checkoutItems.map((item: CartItemType) => (
               <div
                 key={item.id}
                 className="flex items-center justify-between border-b py-4"

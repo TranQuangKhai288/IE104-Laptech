@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CartItem from "../components/CartItem";
 
-interface CartItemType {
+// Export interface CartItemType để sử dụng ở file khác
+export interface CartItemType {
   id: string;
   name: string;
   price: number;
   quantity: number;
   image: string;
   description: string;
+  selected: boolean;
 }
 
 const Cart: React.FC = () => {
@@ -21,6 +23,7 @@ const Cart: React.FC = () => {
       quantity: 1,
       image: "/images/thinkpad-x1-carbon.png",
       description: "Intel i7, 16GB RAM, 512GB SSD, Nhập khẩu",
+      selected: false,
     },
     {
       id: "sample2",
@@ -29,6 +32,7 @@ const Cart: React.FC = () => {
       quantity: 2,
       image: "/images/sony-wh-1000xm4.jpg",
       description: "Chống ồn chủ động, Bluetooth 5.0",
+      selected: false,
     },
     {
       id: "sample3",
@@ -37,6 +41,7 @@ const Cart: React.FC = () => {
       quantity: 1,
       image: "/images/keychron-k2.png",
       description: "Switch Gateron Brown, Layout 75%, Bluetooth",
+      selected: false,
     },
     {
       id: "sample4",
@@ -45,6 +50,7 @@ const Cart: React.FC = () => {
       quantity: 1,
       image: "/images/legion-5-pro.png",
       description: "AMD Ryzen 7, 16GB RAM, 1TB SSD, RTX 3060, Nhập khẩu",
+      selected: false,
     },
   ]);
 
@@ -58,6 +64,7 @@ const Cart: React.FC = () => {
       quantity: 1,
       image: "/images/product.png",
       description: "Mô tả sản phẩm mới",
+      selected: false,
     };
     try {
       setCartItems((prevItems) => [...prevItems, newProduct]);
@@ -87,13 +94,24 @@ const Cart: React.FC = () => {
     );
   };
 
-  const totalAmount = cartItems.reduce(
-    (total, item) => total + Number(item.price) * Number(item.quantity),
-    0
-  );
+  const handleSelectionChange = (id: string) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, selected: !item.selected } : item
+      )
+    );
+  };
+
+  const totalAmount = cartItems
+    .filter((item) => item.selected)
+    .reduce(
+      (total, item) => total + Number(item.price) * Number(item.quantity),
+      0
+    );
 
   const handleCheckout = () => {
-    navigate("/checkout");
+    const selectedItems = cartItems.filter((item) => item.selected);
+    navigate("/checkout", { state: { selectedItems } });
   };
 
   return (
@@ -111,14 +129,21 @@ const Cart: React.FC = () => {
           ) : (
             <div>
               {cartItems.map((item) => (
-                <CartItem
-                  key={item.id}
-                  item={item}
-                  onQuantityChange={(newQuantity) =>
-                    handleQuantityChange(item.id, newQuantity)
-                  }
-                  onRemove={() => removeProductFromCart(item.id)}
-                />
+                <div key={item.id} className="flex items-center mb-4">
+                  <input
+                    type="checkbox"
+                    checked={item.selected}
+                    onChange={() => handleSelectionChange(item.id)}
+                    className="mr-4 w-6 h-6"
+                  />
+                  <CartItem
+                    item={item}
+                    onQuantityChange={(newQuantity) =>
+                      handleQuantityChange(item.id, newQuantity)
+                    }
+                    onRemove={() => removeProductFromCart(item.id)}
+                  />
+                </div>
               ))}
             </div>
           )}
@@ -130,7 +155,7 @@ const Cart: React.FC = () => {
           <div className="border-b pb-6 mb-6">
             <p className="flex justify-between text-gray-700">
               <span>Tổng sản phẩm:</span>
-              <span>{cartItems.length}</span>
+              <span>{cartItems.filter((item) => item.selected).length}</span>
             </p>
             <p className="flex justify-between text-gray-700">
               <span>Tổng cộng:</span>
@@ -147,14 +172,9 @@ const Cart: React.FC = () => {
             </p>
           </div>
           <button
-            onClick={addProductToCart}
-            className="bg-blue-500 w-full text-white px-4 py-3 rounded-md mb-4 hover:bg-blue-600 transition"
-          >
-            Thêm sản phẩm mới
-          </button>
-          <button
             onClick={handleCheckout}
             className="bg-[rgb(254,52,100)] w-full text-white px-4 py-3 rounded-md hover:bg-[rgb(234,31,79)] transition font-semibold"
+            disabled={cartItems.every((item) => !item.selected)}
           >
             Đặt hàng
           </button>
