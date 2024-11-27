@@ -39,11 +39,11 @@ const ProductDetailPage: React.FC = () => {
   const getDetailsProduct = async () => {
     if (id) {
       const resDetailProduct = await ProductService.getProductDetails(id);
-      if (resDetailProduct.status === "OK") {
+      if (resDetailProduct && resDetailProduct.status === "OK") {
         console.log(resDetailProduct.data);
         setProduct(resDetailProduct.data);
       } else {
-        console.error(resDetailProduct.message);
+        console.error(resDetailProduct?.message);
       }
     } else {
       console.error("Product ID is undefined");
