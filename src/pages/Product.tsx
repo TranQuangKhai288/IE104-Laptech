@@ -78,7 +78,7 @@ const ProductManagement: React.FC = () => {
               notification.destroy();
 
               const resDelete = await ProductService.deleteProduct(product._id);
-              if (resDelete.status === "OK") {
+              if (resDelete && resDelete.status === "OK") {
                 notification.success({
                   message: `Xoá sản phẩm ${product.name} thành công`,
                 });
@@ -103,7 +103,7 @@ const ProductManagement: React.FC = () => {
   const handleAddProduct = async (values: any) => {
     console.log("Product added:", values);
     const resNewProduct = await ProductService.createAProduct(values);
-    if (resNewProduct.status === "OK") {
+    if (resNewProduct && resNewProduct.status === "OK") {
       message.success("Thêm sản phẩm thành công!");
       fetchProducts();
     } else {
@@ -149,14 +149,16 @@ const ProductManagement: React.FC = () => {
         search,
         ""
       );
-      console.log("Products:", res.data);
-      setProducts(res.data);
-      setPagination({
-        current: page,
-        pageSize: pageSize,
-        totalPages: res.totalPages, // Assuming the response includes the total count of products
-        count: res.count,
-      });
+      if (res) {
+        console.log("Products:", res.data);
+        setProducts(res.data);
+        setPagination({
+          current: page,
+          pageSize: pageSize,
+          totalPages: res.totalPages, // Assuming the response includes the total count of products
+          count: res.count,
+        });
+      }
       // lướt lên đầu trang khi chuyển trang
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {

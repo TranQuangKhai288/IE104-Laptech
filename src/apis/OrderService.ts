@@ -65,16 +65,25 @@ export const getOrders = async (
 };
 
 export const getOrderDetails = async (id: string) => {
-  const res: response = await baseURL.get(`/order/${id}`);
+  try{
+    const res: response = await baseURL.get(`/order/${id}`);
   return res; // Assuming you want to return the data from the response
+  }catch(err){
+    console.log(err);
+  }
 };
 
 export const getMyOrders = async () => {
-  const res: response = await baseURL.get(`/order/my-orders`);
+  try{
+    const res: response = await baseURL.get(`/order/my-orders`);
   return res; // Assuming you want to return the data from the response
+  }catch(err){
+    console.log(err);
+  }
 }
 
 export const updateStatusOrder = async (id: string, data: any, access_token: string) => {
+ try{
   const res: response = await baseURL.patch(`/order/${id}/status`, data, {
     headers: {
       authorization: `Bearer ${access_token}`,
@@ -82,4 +91,7 @@ export const updateStatusOrder = async (id: string, data: any, access_token: str
   }
   );
   return res; // Assuming you want to return the data from the response
+ }catch(err){
+   console.log(err);
+ }
 };
