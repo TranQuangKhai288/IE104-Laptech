@@ -10,8 +10,8 @@ import { useAppContext } from "../../provider/StoreProvider";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const { state, dispatch } = useAppContext();
+
   const { user, cart } = state;
-  const [cartItemsCount, setCartItemsCount] = useState(cart.length);
   console.log("User:", user);
   console.log("Cart:", cart);
   const handleClickCart = () => {
@@ -60,9 +60,9 @@ const Header: React.FC = () => {
             onClick={handleClickCart}
           >
             <FiShoppingCart size={18} className="text-black mr-1" />
-            {cartItemsCount > 0 && (
+            {cart && cart.products.length > 0 && (
               <span className="absolute top-[-10px] right-[-10px] bg-red-600 text-white rounded-full px-2 py-0.5 text-[10px]">
-                {cartItemsCount}
+                {cart?.products?.length}
               </span>
             )}
           </div>

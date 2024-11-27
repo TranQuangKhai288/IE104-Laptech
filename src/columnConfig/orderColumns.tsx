@@ -1,6 +1,15 @@
 import { ColumnsType } from "antd/es/table";
 import { Order } from "../interfaces/Order";
-import { Tag, Space, Tooltip, Button, Select, message, Image } from "antd";
+import {
+  Tag,
+  Space,
+  Tooltip,
+  Button,
+  Select,
+  message,
+  Image,
+  Modal,
+} from "antd";
 import {
   EditOutlined,
   DeleteOutlined,
@@ -11,7 +20,6 @@ import ProductImageGallery from "../components/ProductImageGallery";
 import * as OrderService from "../apis/OrderService";
 import { useState } from "react";
 import { useAppContext } from "../provider/StoreProvider";
-
 const { Option } = Select;
 
 // Define status configurations
@@ -77,6 +85,74 @@ const OrderItemDisplay = ({ items }: { items: any[] }) => {
           )}
         </Button>
       )}
+    </div>
+  );
+};
+const PaymentMethodCell: React.FC<{ record: Order }> = ({ record }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { state } = useAppContext();
+
+  const handleModalOpen = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  };
+
+  const isInteractivePayment =
+    !state.user?.isAdmin &&
+    ["banking", "momo", "zalo pay"].includes(
+      record.paymentMethod.toLowerCase()
+    );
+
+  console.log(isInteractivePayment, "isInteractivePayment");
+  return (
+    <div className="w-full flex flex-col">
+      <Tooltip title={record.paymentMethod}>
+        <Tag color="blue">{record.paymentMethod.toUpperCase()}</Tag>
+      </Tooltip>
+
+      <Tooltip title={isInteractivePayment && "Click to pay"} className="mt-2">
+        {isInteractivePayment ? (
+          <Tag
+            color={record.paymentStatus === "pending" ? "orange" : "green"}
+            onClick={handleModalOpen}
+            style={{ cursor: "pointer" }}
+          >
+            {record.paymentStatus.toUpperCase()}
+          </Tag>
+        ) : (
+          <Tag color={record.paymentStatus === "pending" ? "orange" : "green"}>
+            {record.paymentStatus.toUpperCase()}
+          </Tag>
+        )}
+      </Tooltip>
+
+      <Modal
+        title="Payment Details"
+        open={isModalVisible}
+        onOk={handleModalClose}
+        onCancel={handleModalClose}
+      >
+        <p>
+          <strong>Payment Method:</strong> {record.paymentMethod}
+        </p>
+        {/* <p>
+          <strong>Account Name:</strong>{" "}
+          {record.paymentDetails?.accountName || "N/A"}
+        </p>
+        <p>
+          <strong>Account Number:</strong>{" "}
+          {record.paymentDetails?.accountNumber || "N/A"}
+        </p>
+        <p>
+          <strong>Bank Name:</strong> {record.paymentDetails?.bankName || "N/A"}
+        </p>
+        <p>
+          <strong>Note:</strong> {record.paymentDetails?.note || "N/A"}
+        </p> */}
+      </Modal>
     </div>
   );
 };
@@ -163,12 +239,8 @@ const orderColumns: ColumnsType<Order> = [
               Phone: {shippingAddress.phone}
             </p>
             <p className="text-l font-semibold">
-              Address: {shippingAddress.street}, {shippingAddress.city},{" "}
+              Address: {shippingAddress.detailAddress}, {shippingAddress.city},{" "}
               {shippingAddress.country}
-            </p>
-
-            <p className="text-l font-semibold">
-              Postal Code: {shippingAddress.postalCode}
             </p>
 
             {record.notes && (
@@ -209,26 +281,27 @@ const orderColumns: ColumnsType<Order> = [
     dataIndex: "status",
     key: "status",
     width: 50,
-    render: (status: string, record: Order) => (
-      <StatusSelect status={status} orderId={record._id} />
-    ),
+    render: (status: string, record: Order) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const { state } = useAppContext(); // Truy cập state từ context
+      const TAG = Object.entries(statusConfig).map(
+        ([key, { color, label }]) => {
+          return key === status && <Tag color={color}>{key.toUpperCase()}</Tag>;
+        }
+      );
+      return state.user?.isAdmin ? (
+        <StatusSelect status={status} orderId={record._id} />
+      ) : (
+        TAG
+      );
+    },
   },
   {
     title: "Payment Method",
     dataIndex: "paymentMethod",
     key: "paymentMethod",
-    render: (index: any, record: Order) => (
-      <div className="w-full flex flex-col">
-        <Tooltip title={record.paymentMethod}>
-          <Tag color="blue">{record.paymentMethod}</Tag>
-        </Tooltip>
-
-        <Tooltip title={record.paymentStatus} className="mt-2">
-          <Tag color={record.paymentStatus === "pending" ? "orange" : "green"}>
-            {record.paymentStatus.toUpperCase()}
-          </Tag>
-        </Tooltip>
-      </div>
+    render: (paymentMethod: string, record: Order) => (
+      <PaymentMethodCell record={record} />
     ),
   },
 

@@ -1,15 +1,9 @@
 import React from "react";
 import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
+import { CartItemType } from "../interfaces/Cart";
 
 interface CartItemProps {
-  item: {
-    id: string;
-    name: string;
-    price: number;
-    quantity: number;
-    image: string;
-    description: string;
-  };
+  item: CartItemType;
   onQuantityChange: (quantity: number) => void;
   onRemove: () => void;
 }
@@ -19,17 +13,18 @@ const CartItem: React.FC<CartItemProps> = ({
   onQuantityChange,
   onRemove,
 }) => {
+  console.log(item.productId, "item");
   return (
     <div className="flex items-center p-14 mb-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
       <img
-        src={item.image}
-        alt={item.name}
+        src={item?.productId?.images[0]}
+        alt={item?.productId?.name}
         className="w-20 h-20 object-cover mr-12 "
       />
       <div className="flex-grow">
-        <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
+        <h3 className="text-lg font-semibold mb-2">{item.productId.name}</h3>
         <p className="bg-gray-200 px-2 rounded-md text-gray-800 mb-2 inline-block">
-          {item.description}
+          {item.productId.description}
         </p>
         <p
           className="text-h4 text-secondary font-semibold"
@@ -40,7 +35,10 @@ const CartItem: React.FC<CartItemProps> = ({
             lineHeight: "30px",
           }}
         >
-          {item.price.toLocaleString("vi-VN")} VND
+          {item.productId.price
+            ? item.productId.price.toLocaleString("vi-VN")
+            : "N/A"}{" "}
+          VND
         </p>
       </div>
       <div className="flex items-center">

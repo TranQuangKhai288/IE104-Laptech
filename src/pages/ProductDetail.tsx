@@ -10,9 +10,7 @@ import * as ProductService from "../apis/ProductService";
 import { Product } from "../interfaces/Product";
 const ProductDetailPage: React.FC = () => {
   //Scroll to top
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   const [product, setProduct] = useState<Product>({
     _id: "",
     name: "",
@@ -35,6 +33,9 @@ const ProductDetailPage: React.FC = () => {
   });
   //get id from url
   const { id } = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
   const getDetailsProduct = async () => {
     if (id) {
       const resDetailProduct = await ProductService.getProductDetails(id);

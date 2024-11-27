@@ -27,8 +27,6 @@ export const getProducts = async (
   isFeatured = ''
 
 ) => {
-  console.log("page", page);
-  console.log("limit", limit);
     const res: response = await baseURL.get(`/product?page=${page}&limit=${limit}&category=${category}&subCategory=${subCategory}&brand=${brand}&search=${search}&isFeatured=${isFeatured}`);
     return res; // Assuming you want to return the data from the response
 };
