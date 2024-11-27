@@ -15,7 +15,7 @@ import orderColumns from "../columnConfig/orderColumns";
 import { Order } from "../interfaces/Order";
 const { Title } = Typography;
 
-const OrderManagement: React.FC = () => {
+const UserOrdered: React.FC = () => {
   const [orders, setOrders] = useState([] as Order[]);
   //pagination
   const [pagination, setPagination] = useState({
@@ -48,7 +48,6 @@ const OrderManagement: React.FC = () => {
         totalPages: res.totalPages, // Assuming the response includes the total count of products
         count: res.count,
       });
-      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       console.log("Failed to fetch products:", error);
     }
@@ -62,28 +61,27 @@ const OrderManagement: React.FC = () => {
     <div className="">
       {/* Header */}
       <div className="mb-6">
-        <Title level={2}>QUẢN LÝ ĐƠN HÀNG</Title>
+        <Title level={2}>ĐƠN HÀNG ĐÃ ĐẶT</Title>
       </div>
       {/* Data Table */}
-      <div className="overflow-auto rounded-md shadow-md p-2">
-        <Table
-          dataSource={orders}
-          columns={orderColumns}
-          pagination={{
-            current: pagination.current,
-            pageSize: pagination.pageSize,
-            total: pagination.count,
-            onChange: (page, pageSize) => {
-              fetchOrders(page, pageSize, debouncedSearchTerm);
-            },
-          }}
-          scroll={{ x: 1200 }} // Đặt giá trị lớn hơn tổng độ rộng của cột
-          rowKey="id"
-          className="text-white"
-        />
-      </div>
+
+      <Table
+        dataSource={orders}
+        columns={orderColumns}
+        pagination={{
+          current: pagination.current,
+          pageSize: pagination.pageSize,
+          total: pagination.count,
+          onChange: (page, pageSize) => {
+            fetchOrders(page, pageSize, debouncedSearchTerm);
+          },
+        }}
+        scroll={{ x: 1200 }} // Đặt giá trị lớn hơn tổng độ rộng của cột
+        rowKey="id"
+        className="text-white"
+      />
     </div>
   );
 };
 
-export default OrderManagement;
+export default UserOrdered;

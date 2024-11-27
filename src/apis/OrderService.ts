@@ -7,9 +7,20 @@ interface response {
   count: number;
 }
 
-export const createAOrder = async (data: any) => {
-  const res: response = await baseURL.post(`/order/`, data);
-  return res; // Assuming you want to return the data from the response
+export const createAOrder = async (data: any, access_token: string) => {
+  try{
+    const res: response = await baseURL.post(`/order/`, data,
+      {
+        headers: {
+          authorization: `Bearer ${access_token}`,
+        },
+      }
+    );
+    return res; // Assuming you want to return the data from the response
+  }catch (e){
+    console.error("Error creating order:", e);
+    // throw new Error("Failed to create order");
+  }
 };
 
 

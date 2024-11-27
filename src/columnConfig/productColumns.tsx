@@ -71,12 +71,12 @@ const PriceDisplay: React.FC<{
 }> = ({ price, startingPrice, salePercentage }) => (
   <div className="flex flex-col">
     <span className="text-lg font-semibold text-blue-600">
-      ${startingPrice}
+      {Number(startingPrice).toLocaleString("vi-VN")} VND
     </span>
     {salePercentage > 0 && (
       <div className="flex items-center gap-2">
         <span className="text-sm line-through text-gray-500">
-          ${price.toLocaleString()}
+          {Number(price).toLocaleString("vi-VN")} VND
         </span>
         <Tag color="red">-{salePercentage}%</Tag>
       </div>

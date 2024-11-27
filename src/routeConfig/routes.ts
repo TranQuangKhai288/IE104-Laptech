@@ -31,6 +31,7 @@ const routes = {
   record: "/admin/record",
   security: "/admin/security",
   cart: "/cart",
+  ordered: "/ordered",
   profile: "/profile",
   checkout: "/checkout",
   

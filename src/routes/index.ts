@@ -23,6 +23,7 @@ import path from "path";
 import ProductDetailPage from "../pages/ProductDetail";
 import { Layout } from "antd";
 import { Header } from "antd/es/layout/layout";
+import UserOrdered from "../pages/UserOrdered";
 
 const routes = [
   {
@@ -51,6 +52,12 @@ const routes = [
   {
     path: config.routes.cart,
     component: Cart,
+    layout: HeaderLayout,
+  },
+
+  {
+    path: config.routes.ordered,
+    component: UserOrdered,
     layout: HeaderLayout,
   },
   {

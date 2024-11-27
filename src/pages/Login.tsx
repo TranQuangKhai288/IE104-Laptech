@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as UserService from "../apis/UserService";
+import * as CartService from "../apis/CartService";
 import { notification } from "antd";
 import { useAppContext } from "../provider/StoreProvider";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,7 @@ const Login: React.FC = () => {
 
     try {
       const response = await UserService.loginUser({ email, password });
-      console.log("Response:", response);
+      console.log("Response login user", response);
 
       if (response.status === "OK") {
         const user = {
@@ -26,6 +27,7 @@ const Login: React.FC = () => {
           refresh_token: response.refresh_token,
         };
         dispatch({ type: "SET_USER", payload: user });
+
         notification.success({
           message: "Login success",
           description: "You have successfully logged in",

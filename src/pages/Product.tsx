@@ -157,6 +157,8 @@ const ProductManagement: React.FC = () => {
         totalPages: res.totalPages, // Assuming the response includes the total count of products
         count: res.count,
       });
+      // lướt lên đầu trang khi chuyển trang
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       console.log("Failed to fetch products:", error);
     }

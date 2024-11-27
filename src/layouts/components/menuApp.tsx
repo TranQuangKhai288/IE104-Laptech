@@ -42,7 +42,7 @@ export const userMenu = [
   },
   {
     name: "My ordered",
-    path: "/ordersuccess",
+    path: "/ordered",
     icon: AiOutlineOrderedList,
     exact: true,
   },

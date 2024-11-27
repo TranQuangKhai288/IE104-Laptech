@@ -8,22 +8,33 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 import { Product } from "../interfaces/Product";
-
+import { useAppContext } from "../provider/StoreProvider";
+import Lottie from "lottie-react";
 interface customProps {
   data: Product;
 }
 
 const ProductOverview: React.FC<customProps> = ({ data }) => {
+  const { state, dispatch } = useAppContext();
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleAddToCart = () => {
+    setIsLoading(true);
+    dispatch({
+      type: "ADD_PRODUCT_TO_CART",
+      payload: { productId: data, quantity: 1 },
+    });
+    setIsLoading(false);
+  };
   return (
-    <div className="sticky top-24">
+    <div className="sticky top-4">
       <section>
         <h1 className="rounded-xl bg-[#f93966] text-white text-base font-bold h-30 p-5 text-center">
-          {data.name}
+          {data.category} {data.subCategory} {data.brand}: {data.name}
         </h1>
       </section>
       <section className="bg-white rounded-xl p-5 my-5">
         <h2 className="font-bold text-xl mt-4">
-          <span>{data.brand} </span>
           <span>{data.name}</span>
         </h2>
         <p className="mt-4">
@@ -39,58 +50,54 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
         </p>
         <hr className="my-4 border-b-1 border-gray-300" />
         <div>
-          <h3 className="font-semibold text-gray-500 mb-4">Phiên bản</h3>
-          <div className="flex flex-col space-y-2">
+          <h3 className="font-semibold text-gray-500 mb-4">Cấu hình</h3>
+          <div className="flex flex-wrap">
             {data.specifications.map((item, index) => (
-              <div className="flex-1">
+              <div className="mx-2 mb-2">
                 <p
                   key={index}
-                  className={`text-xs rounded-lg border ${
-                    index === 3
-                      ? "border-[#355eee] bg-[#ecf3ff] text-[#355eee]"
-                      : "border-[#e6e8ea]"
-                  } py-2 px-4 inline-block font-semibold cursor-pointer`}
+                  className={`text-xs rounded-lg border border-[#e6e8ea] py-2 px-4 inline-block font-semibold cursor-pointer
+                    hover:bg-[#f6f9fc] hover:border-[#355eee] hover:text-[#355eee]
+                    `}
                 >
-                  {item.title}
+                  {item.type}: {item.title}
                 </p>
               </div>
             ))}
           </div>
+
           <h3 className="font-semibold text-gray-500 my-4">Màu</h3>
           <div className="flex flex-wrap gap-2">
             {data.colors?.map((item, index) => (
               <div className="w-auto h-auto">
                 <p
                   key={index}
-                  className={`text-xs rounded-lg border ${
-                    index === 0
-                      ? "border-[#355eee] bg-[#ecf3ff] text-[#355eee]"
-                      : "border-[#e6e8ea]"
-                  } py-2 px-4 inline-block font-semibold cursor-pointer`}
+                  className={`text-xs rounded-lg border border-[#e6e8ea] py-2 px-4 inline-block font-semibold cursor-pointer 
+                    hover:border-[${item.hex}] hover:text-[#355eee]`}
+                  style={{ backgroundColor: "transparent" }} // background mặc định
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = item.hex; // đổi màu nền khi hover
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent"; // trả lại màu nền ban đầu khi bỏ hover
+                  }}
                 >
-                  {item.hex}
+                  <span>{item.title}</span>
                 </p>
               </div>
             ))}
           </div>
-          <h3 className="font-semibold text-gray-500 my-4">Loại hàng</h3>
-          <div className="flex flex-wrap gap-2">
-            {/* {data.specList[3].detail.type?.map((item, index) => (
-              <div className="w-auto h-auto">
-                <p
-                  key={index}
-                  className={`text-xs rounded-lg border ${
-                    index === 0
-                      ? "border-[#355eee] bg-[#ecf3ff] text-[#355eee]"
-                      : "border-[#e6e8ea]"
-                  } py-2 px-4 inline-block font-semibold cursor-pointer`}
-                >
-                  <span>{item}</span>
-                  <FaInfoCircle className="inline-block text-xl pb-1 ml-1" />
-                </p>
-              </div>
-            ))} */}
-          </div>
+          {data.category === "laptop" && (
+            <>
+              <h3 className="font-semibold text-gray-500 my-4">Loại hàng</h3>
+              {/* hiển thị subCategory */}
+              <p className="text-xs rounded-lg border border-[#e6e8ea] py-2 px-4 inline-block font-semibold cursor-pointer">
+                <span>
+                  {data.category} {data?.subCategory}
+                </span>
+              </p>
+            </>
+          )}
         </div>
         <hr className="my-4 border-b-1 border-gray-300" />
         <div className="flex flex-row gap-8">
@@ -109,11 +116,29 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
           </div>
           <div className="flex-1">
             <div className="flex flex-row font-bold h-full gap-2">
-              <button className="flex-1 bg-[#f6f9fc] text-blue-600 rounded-lg h-full">
-                <a href="/cart">THÊM VÀO GIỎ</a>
+              <button
+                className="flex-1 p-2 bg-[#f6f9fc] text-blue-600 rounded-lg h-full"
+                onClick={() => {
+                  handleAddToCart();
+                }}
+              >
+                {isLoading ? (
+                  <Lottie
+                    animationData={require("../assets/animation/loadingAnimation.json")}
+                    height={30}
+                    width={30}
+                  />
+                ) : (
+                  <>
+                    <p>Thêm vào giỏ hàng</p>
+                  </>
+                )}
               </button>
-              <button className="flex-1 bg-[#f93966] text-white rounded-lg h-full">
-                <a href="/cart">MUA NGAY!</a>
+              <button
+                className="flex-1 p-2 bg-[#f93966] text-white rounded-lg h-full"
+                disabled={isLoading}
+              >
+                <p>MUA NGAY!</p>
               </button>
             </div>
           </div>
