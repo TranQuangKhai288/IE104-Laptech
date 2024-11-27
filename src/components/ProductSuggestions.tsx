@@ -22,10 +22,10 @@ const ProductSuggestions = () => {
         ""
       );
 
-      if (res.status === "OK") {
+      if (res && res.status === "OK") {
         setSuggestionsData(res.data);
       } else {
-        console.log(res.message, "error at fetchSuggestions");
+        console.log(res?.message, "error at fetchSuggestions");
       }
     } catch (error) {
       console.log(error);

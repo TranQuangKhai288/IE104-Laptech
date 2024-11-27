@@ -162,7 +162,7 @@ const EditProductModal: React.FC<{
         product._id,
         updatedProduct
       );
-      if (resEditProduct.status === "OK") {
+      if (resEditProduct?.status === "OK") {
         message.success("Chỉnh sửa sản phẩm thành công!");
       } else {
         message.error("Lỗi khi chỉnh sửa sản phẩm!");

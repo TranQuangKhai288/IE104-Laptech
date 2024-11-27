@@ -171,11 +171,11 @@ const updateOrderStatus = async (
       access_token
     );
     console.log(res, "res update status");
-    if (res.status === "OK") {
+    if (res?.status === "OK") {
       message.success("Order status updated successfully");
     } else {
       message.error("Failed to update order status");
-      console.error("Error updating order status:", res.message);
+      console.error("Error updating order status:", res?.message);
     }
   } catch (error) {
     message.error("Failed to update order status");

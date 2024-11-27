@@ -22,10 +22,10 @@ const Sales = () => {
         "",
         "true"
       );
-      if (res.status === "OK") {
+      if (res && res.status === "OK") {
         setSalesData(res.data);
       } else {
-        console.log(res.message, "error at fetchSales");
+        console.log(res?.message, "error at fetchSales");
       }
     } catch (error) {
       console.log(error);

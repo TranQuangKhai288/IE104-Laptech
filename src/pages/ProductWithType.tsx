@@ -82,10 +82,10 @@ const ProductWithType: React.FC = () => {
         "",
         ""
       );
-      if (res.status === "OK") {
+      if (res && res.status === "OK") {
         setProducts(res.data);
       } else {
-        console.error("Fetch Product Error:", res.message);
+        console.error("Fetch Product Error:", res?.message);
       }
     } catch (error) {
       console.error("Fetch Product Error:", error);
