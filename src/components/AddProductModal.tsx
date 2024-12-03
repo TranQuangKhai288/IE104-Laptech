@@ -249,8 +249,12 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
                 <Select placeholder="Chọn loại laptop">
                   <Option value="gaming">Gaming</Option>
                   <Option value="business">Business</Option>
-                  <Option value="ultrabook">Ultrabook</Option>
+                  <Option value="office">Office</Option>
+                  <Option value="ultra-thin">Ultrabook</Option>
+                  <Option value="2-in-1">2-in-1</Option>
+                  <Option value="workstation">Workstation</Option>
                   <Option value="student">Student</Option>
+                  <Option value="budget">Budget</Option>
                   <Option value="other">Khác</Option>
                 </Select>
               </Form.Item>

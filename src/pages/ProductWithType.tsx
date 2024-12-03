@@ -60,7 +60,7 @@ const ProductWithType: React.FC = () => {
       case "tablet":
         return { title: "Máy tính bảng", category: "tablet", subCategory: "" };
       case "accessories":
-        return { title: "Phụ kiện", category: "accessories", subCategory: "" };
+        return { title: "Phụ kiện", category: "accessory", subCategory: "" };
       default:
         return { title: "Sản phẩm", category: "", subCategory: "" };
     }
