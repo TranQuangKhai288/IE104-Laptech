@@ -7,23 +7,35 @@ import { Product } from "../interfaces/Product";
 
 const Cart: React.FC = () => {
   const { state, dispatch } = useAppContext();
-  // const [cartItems, setCartItems] = useState<CartItemType[]>();
   const navigate = useNavigate();
-  const removeProductFromCart = async (productId: Product) => {
-    const isConfirmed = window.confirm(
-      `Bạn muốn xoá ${productId.name} khỏi giỏ hàng?`
-    );
-    if (!isConfirmed) return;
+
+  // Thêm state để quản lý modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const removeProductFromCart = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmRemove = async () => {
+    if (!selectedProduct) return;
     try {
       dispatch({
         type: "REMOVE_PRODUCT_FROM_CART",
-        payload: { productId: productId, quantity: 1 }, //Quantity is not used in reducer
+        payload: { productId: selectedProduct, quantity: 1 }, // Quantity is not used in reducer
       });
-      // await axios.delete(`/api/products/${id}`);
-      // setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     } catch (err) {
-      console.error("Error removing product:", err);
+      console.error("Lỗi khi xóa sản phẩm:", err);
+    } finally {
+      setIsModalOpen(false);
+      setSelectedProduct(null);
     }
+  };
+
+  const handleCancelRemove = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
   };
 
   const handleQuantityChange = (productId: Product, newQuantity: number) => {
@@ -36,6 +48,7 @@ const Cart: React.FC = () => {
   const handleCheckout = () => {
     navigate("/checkout");
   };
+
   return (
     <div className="flex flex-col w-full mx-auto px-8">
       <h2 className="text-3xl font-bold mb-6">Giỏ Hàng</h2>
@@ -86,12 +99,6 @@ const Cart: React.FC = () => {
               </span>
             </p>
           </div>
-          {/* <button
-            onClick={addProductToCart}
-            className="bg-blue-500 w-full text-white px-4 py-3 rounded-md mb-4 hover:bg-blue-600 transition"
-          >
-            Thêm sản phẩm mới
-          </button> */}
           <button
             onClick={handleCheckout}
             className="bg-[rgb(254,52,100)] w-full text-white px-4 py-3 rounded-md hover:bg-[rgb(234,31,79)] transition font-semibold"
@@ -100,6 +107,41 @@ const Cart: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Modal tùy chỉnh */}
+      {isModalOpen && selectedProduct && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          {/* Overlay */}
+          <div
+            className="absolute inset-0 bg-black opacity-50"
+            onClick={handleCancelRemove}
+          ></div>
+          {/* Modal content */}
+          <div className="bg-white rounded-lg p-6 z-10 max-w-sm mx-auto">
+            <h2 className="text-xl font-semibold mb-4">
+              Xác nhận xoá sản phẩm
+            </h2>
+            <p className="mb-4">
+              Bạn muốn xoá <strong>{selectedProduct.name}</strong> khỏi giỏ
+              hàng?
+            </p>
+            <div className="flex justify-end">
+              <button
+                onClick={handleCancelRemove}
+                className="bg-gray-300 px-4 py-2 rounded mr-2 hover:bg-gray-400 transition"
+              >
+                Hủy bỏ
+              </button>
+              <button
+                onClick={handleConfirmRemove}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+              >
+                Xóa
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

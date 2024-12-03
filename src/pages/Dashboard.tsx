@@ -28,11 +28,11 @@ const mockTransactions = [
 
 const Dashboard: React.FC = () => {
   const columns = [
-    { title: "Transaction ID", dataIndex: "txId", key: "txId" },
-    { title: "User", dataIndex: "user", key: "user" },
-    { title: "Date", dataIndex: "date", key: "date" },
+    { title: "Mã Giao Dịch", dataIndex: "txId", key: "txId" },
+    { title: "Người Dùng", dataIndex: "user", key: "user" },
+    { title: "Ngày", dataIndex: "date", key: "date" },
     {
-      title: "Cost",
+      title: "Chi Phí",
       dataIndex: "cost",
       key: "cost",
       render: (cost: number) => `$${cost}`,
@@ -149,11 +149,11 @@ const Dashboard: React.FC = () => {
   ];
   return (
     <>
-      {/* Header */}
+      {/* Tiêu đề */}
       <div className="flex justify-between items-center mb-6">
         <div>
-          <Title level={2}>DASHBOARD</Title>
-          <p className="text-gray-500">Welcome to your dashboard</p>
+          <Title level={2}>BẢNG THỐNG KÊ</Title>
+          <p className="text-gray-500">Chào mừng bạn đến với bảng thống kê</p>
         </div>
         <Button
           type="primary"
@@ -161,18 +161,18 @@ const Dashboard: React.FC = () => {
           size="large"
           className="bg-blue-600"
         >
-          Download Reports
+          Tải Báo Cáo
         </Button>
       </div>
 
-      {/* Grid & Charts */}
+      {/* Lưới & Biểu đồ */}
       <div className="grid grid-cols-12 gap-5">
-        {/* Row 1 */}
+        {/* Hàng 1 */}
         <Card className="col-span-2 flex items-center justify-center bg-violet-300 text-white">
           <Space direction="vertical" className="text-center">
             <Tooltip
-              title={`Click for show ${
-                typeRevenue === "daily" ? "monthly" : "daily"
+              title={`Nhấn để hiển thị doanh thu theo ${
+                typeRevenue === "daily" ? "tháng" : "ngày"
               }`}
             >
               <div
@@ -197,7 +197,7 @@ const Dashboard: React.FC = () => {
           <Space direction="vertical" className="text-center">
             <ShopOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
-              {dataRevenue.current.ordersCount} Orders Placed
+              {dataRevenue.current.ordersCount} Đơn Hàng Đã Đặt
             </Title>
             <Progress percent={50} />
             <p>+21%</p>
@@ -208,7 +208,7 @@ const Dashboard: React.FC = () => {
           <Space direction="vertical" className="text-center">
             <UserAddOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
-              {dataClients.newCustomers} New Clients
+              {dataClients.newCustomers} Khách Hàng Mới
             </Title>
             <Progress percent={30} />
             <p>+5%</p>
@@ -221,7 +221,7 @@ const Dashboard: React.FC = () => {
               <AreaChartOutlined style={{ fontSize: 26, color: "#52c41a" }} />
 
               <Title level={3} className="text-white">
-                Top Buying Customer
+                Khách Hàng Mua Hàng Nhiều Nhất
               </Title>
             </div>
             <div className="flex flex-row justify-center items-center flex-wrap border-2 p-2">
@@ -239,13 +239,13 @@ const Dashboard: React.FC = () => {
                   />
                   <div className="flex flex-col items-center space-y-2 w-full">
                     <p className="text-center text-lg font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-full">
-                      Name: {customer.name}
+                      Tên: {customer.name}
                     </p>
                     <p className="text-center text-sm overflow-hidden text-ellipsis whitespace-nowrap w-full">
                       Email: {customer.email}
                     </p>
                     <p className="text-center text-sm text-green-500 font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-full">
-                      Spent: {customer.totalSpent}$
+                      Tổng Tiền: {customer.totalSpent}$
                     </p>
                   </div>
                 </div>
@@ -254,11 +254,11 @@ const Dashboard: React.FC = () => {
           </div>
         </Card>
 
-        {/* Row 2 - Revenue Generated Chart */}
+        {/* Hàng 2 - Biểu đồ Doanh Thu */}
         <Card className="col-span-6 bg-violet-300 text-white ">
           <div className="flex justify-between items-center">
             <Title level={4} className="text-white">
-              Top Selling Products
+              Sản Phẩm Bán Chạy Nhất
             </Title>
 
             {/* <Button icon={<DownloadOutlined />} size="large" /> */}
@@ -286,7 +286,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <div className="flex flex-row items-center">
                   <p className="text-lg font-semibold">
-                    {product.totalQuantity} units
+                    {product.totalQuantity} sản phẩm
                   </p>
                   <p className="text-lg font-semibold ml-4">
                     {product.totalRevenue}$
@@ -300,7 +300,7 @@ const Dashboard: React.FC = () => {
         <Card className="col-span-6 bg-violet-300 text-white">
           <div className="flex justify-between items-center ">
             <Title level={4} className="text-white">
-              Low Stock Products
+              Sản Phẩm Tồn Kho Ít
             </Title>
 
             {/* <Button icon={<DownloadOutlined />} size="large" /> */}
@@ -323,7 +323,9 @@ const Dashboard: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex flex-row items-center">
-                  <p className="text-lg font-semibold">{product.stock} units</p>
+                  <p className="text-lg font-semibold">
+                    {product.stock} sản phẩm
+                  </p>
                   <p className="text-lg font-semibold ml-4">{product.price}$</p>
                 </div>
               </div>
@@ -331,29 +333,29 @@ const Dashboard: React.FC = () => {
           </div>
         </Card>
 
-        {/* Row 3 */}
+        {/* Hàng 3 */}
         <Card className="col-span-4 bg-violet-300 text-white p-5">
-          <Title level={4}>Campaign</Title>
+          <Title level={4}>Chiến Dịch</Title>
           <div className="flex flex-col items-center mt-5">
-            {/* Replace with actual ProgressCircle component */}
+            {/* Thay thế bằng component ProgressCircle thực tế */}
             <div className="h-32 w-32 rounded-full bg-green-500"></div>
             <Title level={5} className="text-green-500 mt-4">
-              $48,352 revenue generated
+              Doanh thu $48,352
             </Title>
-            <p>Includes extra misc expenditures and costs</p>
+            <p>Bao gồm các chi phí phụ và chi phí khác</p>
           </div>
         </Card>
 
         <Card className="col-span-4 bg-violet-300 text-white p-5">
-          <Title level={4}>Sales Quantity</Title>
-          {/* Replace with actual BarChart component */}
-          <div className="h-64 bg-gray-700 mt-5">Bar Chart Component</div>
+          <Title level={4}>Số Lượng Bán Ra</Title>
+          {/* Thay thế bằng component BarChart thực tế */}
+          <div className="h-64 bg-gray-700 mt-5">Component Biểu Đồ Cột</div>
         </Card>
 
         <Card className="col-span-4 bg-violet-300 text-white p-5">
-          <Title level={4}>Geography Based Traffic</Title>
-          {/* Replace with actual GeographyChart component */}
-          <div className="h-48 bg-gray-700 mt-5">Geography Chart Component</div>
+          <Title level={4}>Lưu Lượng Dựa Trên Địa Lý</Title>
+          {/* Thay thế bằng component GeographyChart thực tế */}
+          <div className="h-48 bg-gray-700 mt-5">Component Biểu Đồ Địa Lý</div>
         </Card>
       </div>
     </>
