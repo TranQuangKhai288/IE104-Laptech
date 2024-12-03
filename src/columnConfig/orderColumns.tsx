@@ -212,14 +212,14 @@ const StatusSelect = ({
 
 const orderColumns: ColumnsType<Order> = [
   {
-    title: "Products Information",
+    title: "Thông tin sản phẩm",
     key: "items",
     dataIndex: "items",
     width: 300, // Cập nhật độ rộng
     render: (items: any, record: Order) => <OrderItemDisplay items={items} />,
   },
   {
-    title: "Delivery Information",
+    title: "Thông tin giao hàng",
     key: "shippingAddress",
     dataIndex: "shippingAddress",
 
@@ -253,7 +253,7 @@ const orderColumns: ColumnsType<Order> = [
   },
 
   {
-    title: "User Information",
+    title: "Thông tin người dùng",
     key: "userId",
     dataIndex: "userId",
     render: (user: any, record: Order) => {
@@ -277,7 +277,7 @@ const orderColumns: ColumnsType<Order> = [
   },
 
   {
-    title: "Status",
+    title: "Trạng thái",
     dataIndex: "status",
     key: "status",
     width: 50,
@@ -297,7 +297,7 @@ const orderColumns: ColumnsType<Order> = [
     },
   },
   {
-    title: "Payment Method",
+    title: "Phương thức thanh toán",
     dataIndex: "paymentMethod",
     key: "paymentMethod",
     render: (paymentMethod: string, record: Order) => (
@@ -306,7 +306,7 @@ const orderColumns: ColumnsType<Order> = [
   },
 
   {
-    title: "Total",
+    title: "Tổng cộng",
     dataIndex: "total",
     key: "total",
     render: (total: number) => `$${total.toFixed(2)}`,

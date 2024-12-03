@@ -29,25 +29,25 @@ import { RxDashboard } from "react-icons/rx";
 
 export const userMenu = [
   {
-    name: "Profile",
+    name: "Hồ sơ",
     path: "/profile",
     icon: AiOutlineUser,
     exact: true,
   },
   {
-    name: "My cart",
+    name: "Giỏ hàng của tôi",
     path: "/cart",
     icon: AiOutlineShoppingCart,
     exact: true,
   },
   {
-    name: "My ordered",
+    name: "Đơn hàng của tôi",
     path: "/ordered",
     icon: AiOutlineOrderedList,
     exact: true,
   },
   {
-    name: "Sign out",
+    name: "Đăng xuất",
     icon: AiOutlineLogout,
     exact: true,
   },
@@ -55,13 +55,13 @@ export const userMenu = [
 
 export const guestMenu = [
   {
-    name: "Sign in",
+    name: "Đăng nhập",
     path: "/login",
     icon: AiOutlineLogin,
     exact: true,
   },
   {
-    name: "Sign up",
+    name: "Đăng ký",
     path: "/register",
     icon: AiOutlineUserAdd,
     exact: true,

@@ -29,8 +29,8 @@ const Login: React.FC = () => {
         dispatch({ type: "SET_USER", payload: user });
 
         notification.success({
-          message: "Login success",
-          description: "You have successfully logged in",
+          message: "Đăng nhập thành công",
+          description: "Bạn đã đăng nhập thành công",
         });
         if (user.isAdmin) {
           setTimeout(() => {
