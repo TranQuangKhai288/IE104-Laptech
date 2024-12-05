@@ -24,14 +24,17 @@ const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
         </div>
         {/* Price and Sale */}
         <div className="flex flex-row space-x-2">
-          <div>Từ</div>
-          <div className="font-bold text-red-500">{product.starting_price}</div>
+          <div>Chỉ từ</div>
+          <div className="font-bold text-red-500">
+            {Number(product.starting_price).toLocaleString("vi-VN")}
+          </div>
           {product.sale_percentage > 0 && (
             <div className="text-sm rounded bg-[#FFEAEA] px-1 text-red-500">
               -{product.sale_percentage}%
             </div>
           )}
         </div>
+
         {/* Colors */}
         <div className="flex flex-row space-x-2 mt-2">
           <div>Màu</div>
