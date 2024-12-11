@@ -10,6 +10,7 @@ import {
 import { Product } from "../interfaces/Product";
 import { useAppContext } from "../provider/StoreProvider";
 import Lottie from "lottie-react";
+import { formatCurrency } from "../customeHooks/formatCurrency";
 interface customProps {
   data: Product;
 }
@@ -36,6 +37,21 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
       <section className="bg-white rounded-xl p-5 my-5">
         <h2 className="font-bold text-xl mt-4">
           <span>{data.name}</span>
+        </h2>
+        <h2 className="font-bold text-xl mt-4 text-red-500">
+          {formatCurrency(data.price || 0)}{" "}
+          <span className="text-gray-500 line-through">
+            {formatCurrency(parseFloat(data.starting_price))}
+          </span>
+          <span className="ml-2 text-green-500">
+            (
+            {Math.round(
+              ((parseFloat(data.starting_price) - (data.price || 0)) /
+                parseFloat(data.starting_price)) *
+                100
+            )}
+            % giảm)
+          </span>
         </h2>
         <p className="mt-4">
           {Array.from({ length: 5 }, (_, i) => (

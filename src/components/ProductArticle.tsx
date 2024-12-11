@@ -155,19 +155,20 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
         <h2 className="text-xl font-bold">Ảnh sản phẩm</h2>
         <div className="flex">
           <Swiper
-            freeMode={true}
-            slidesPerView={6}
+            freeMode={true} // Cho phép lướt tự do
+            slidesPerView={3} // Hiển thị 3 ảnh trong một lần
+            spaceBetween={10} // Khoảng cách giữa các ảnh
             watchSlidesProgress
             touchRatio={0.2}
             slideToClickedSlide={true}
             onSwiper={setThumbsSwiper}
             modules={[Navigation, Thumbs, Controller]}
-            direction={"vertical"}
+            direction={"vertical"} // Lướt theo chiều dọc
             className="cursor-pointer w-1/6 rounded"
           >
             {data.images.map((item, index) => (
-              <SwiperSlide className="" key={index}>
-                <img src={item} alt="" className="w-max" />
+              <SwiperSlide className="mb-8 max-h-24" key={index}>
+                <img src={item} alt="" className="w-full object-cover" />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -184,7 +185,7 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
           >
             {data.images.map((item, index) => (
               <SwiperSlide className="" key={index}>
-                <img src={item} alt="" className="w-max" />
+                <img src={item} alt="" className="w-full h-max object-cover" />
               </SwiperSlide>
             ))}
           </Swiper>

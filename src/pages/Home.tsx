@@ -9,20 +9,11 @@ import WhyLaptech from "../components/WhyLaptech";
 import ProductSuggestions from "../components/ProductSuggestions";
 import MostSearchedTags from "../components/MostSearchedTags";
 import Socials from "../components/Socials";
-
-import { Link } from "react-router-dom";
-
 const Home: React.FC = () => {
   return (
     <div className="max-w-screen-xl mx-auto">
       <section>
         <DealBanner />
-      </section>
-
-      {/* link to product detail example page */}
-      <section className="mt-5">
-        <h2 className="inline-block">Product detail example page:</h2>
-        <Link to="/product/product-detail-example" className="font-bold text-blue-600"> CLICK ME!</Link>
       </section>
 
       <section className="mt-12">

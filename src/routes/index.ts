@@ -1,6 +1,7 @@
 import config from "../routeConfig";
 
 import Home from "../pages/Home";
+import Search from "../pages/Search";
 import Cart from "../pages/Cart";
 import Dashboard from "../pages/Dashboard";
 import Customer from "../pages/Customer";
@@ -19,10 +20,8 @@ import OrderManagement from "../pages/OrderManagement";
 import ProductWithType from "../pages/ProductWithType";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
-import path from "path";
+import Register from "../pages/Register";
 import ProductDetailPage from "../pages/ProductDetail";
-import { Layout } from "antd";
-import { Header } from "antd/es/layout/layout";
 import UserOrdered from "../pages/UserOrdered";
 
 const routes = [
@@ -39,8 +38,19 @@ const routes = [
   },
 
   {
+    path: config.routes.register,
+    component: Register,
+    layout: Nothing,
+  },
+
+  {
     path: config.routes.home,
     component: Home,
+    layout: HeaderLayout,
+  },
+  {
+    path: config.routes.search,
+    component: Search,
     layout: HeaderLayout,
   },
   {

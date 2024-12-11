@@ -15,24 +15,19 @@ import { User } from "../interfaces/User";
 import { Cart, CartItemType } from "../interfaces/Cart";
 import { Product } from "../interfaces/Product";
 
-// Định nghĩa kiểu cho sản phẩm trong giỏ hàng
-
-// Định nghĩa kiểu cho người dùng
-
-// Định nghĩa kiểu cho state
-
+// State interface
 interface State {
-  user: User | null; // Người dùng
-  cart: Cart | null; // Giỏ hàng
+  user: User | null;
+  cart: Cart | null;
 }
 
-// Khởi tạo state ban đầu
+// Initial state
 const initialState: State = {
   user: null,
   cart: null,
 };
 
-// Định nghĩa kiểu cho action
+// Action types
 type Action =
   | { type: "SET_USER"; payload: User }
   | { type: "CLEAR_USER" }
@@ -49,12 +44,12 @@ type Action =
     }
   | { type: "UPDATE_CART"; payload: Cart };
 
-// Tạo context
+// Context creation
 const AppContext = createContext<
   { state: State; dispatch: Dispatch<Action> } | undefined
 >(undefined);
 
-// Khởi tạo reducer để quản lý state
+// Reducer function
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "SET_USER":
@@ -65,94 +60,77 @@ function reducer(state: State, action: Action): State {
       return { ...state, cart: action.payload };
     case "CLEAR_CART":
       return { ...state, cart: null };
-    case "ADD_PRODUCT_TO_CART":
-      console.log("ADD_PRODUCT_TO_CART", action.payload);
-      if (!state.cart) return state; // Không làm gì nếu cart chưa được khởi tạo
-      const existingProductIndex = state.cart.products.findIndex(
+    case "ADD_PRODUCT_TO_CART": {
+      if (!state.cart) return state;
+      const existingIndex = state.cart.products.findIndex(
         (item) => item.productId._id === action.payload.productId._id
       );
-      if (existingProductIndex !== -1) {
-        console.log("-1");
-        const updatedProducts = [...state.cart.products];
-        updatedProducts[existingProductIndex].quantity +=
-          action.payload.quantity;
-        //update total price in cart
-        const newTotalPrice =
-          state.cart.totalPrice +
-          updatedProducts[existingProductIndex].quantity *
-            (updatedProducts[existingProductIndex].productId?.price || 0);
-        console.log("newTotalPrice", newTotalPrice);
-        return {
-          ...state,
-          cart: {
-            ...state.cart,
-            totalPrice: newTotalPrice,
-            products: updatedProducts,
-          },
-        };
-      } else {
-        console.log("0");
-        //update total price in cart
-        const newTotalPrice =
-          state.cart.totalPrice +
-          action.payload.quantity * (action.payload.productId.price || 0);
-        return {
-          ...state,
-          cart: {
-            ...state.cart,
-            totalPrice: newTotalPrice,
-            products: [...state.cart.products, action.payload],
-          },
-        };
-      }
-    case "REMOVE_PRODUCT_FROM_CART":
-      console.log("EMOVE_PRODUCT_FROM_CART", action.payload);
-      if (!state.cart) return state; // Không làm gì nếu cart chưa được khởi tạo
+      const updatedProducts = [...state.cart.products];
 
-      // filter product
+      if (existingIndex !== -1) {
+        updatedProducts[existingIndex].quantity += action.payload.quantity;
+      } else {
+        updatedProducts.push(action.payload);
+      }
+
+      const newTotalPrice = updatedProducts.reduce(
+        (total, item) => total + item.quantity * (item.productId.price || 0),
+        0
+      );
+
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          products: updatedProducts,
+          totalPrice: newTotalPrice,
+        },
+      };
+    }
+    case "REMOVE_PRODUCT_FROM_CART": {
+      if (!state.cart) return state;
+
       const updatedProducts = state.cart.products.filter(
         (item) => item.productId._id !== action.payload.productId._id
       );
-      const newTotalPrice =
-        state.cart.totalPrice -
-        action.payload.quantity * (action.payload.productId.price || 0);
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          totalPrice: newTotalPrice,
-          products: updatedProducts,
-        },
-      };
-    case "UPDATE_AMOUNT":
-      if (!state.cart) return state; // Không làm gì nếu cart chưa được khởi tạo
 
-      // filter product
-      const updatedAmountProduct = state.cart.products.map((item) => {
-        if (item.productId._id === action.payload.productId._id) {
-          return {
-            ...item,
-            quantity: action.payload.quantity,
-          };
-        }
-        return item;
-      });
-      console.log("updatedAmountProduct", updatedAmountProduct);
-      //update total price in cart
-      const newTotalPriceAmount = updatedAmountProduct.reduce(
-        (total, item) => total + item.quantity * (item.productId?.price || 0),
+      const newTotalPrice = updatedProducts.reduce(
+        (total, item) => total + item.quantity * (item.productId.price || 0),
         0
       );
-      console.log("newTotalPriceAmount", newTotalPriceAmount);
+
       return {
         ...state,
         cart: {
           ...state.cart,
-          totalPrice: newTotalPriceAmount,
-          products: updatedAmountProduct,
+          products: updatedProducts,
+          totalPrice: newTotalPrice,
         },
       };
+    }
+    case "UPDATE_AMOUNT": {
+      if (!state.cart) return state;
 
+      const updatedProducts = state.cart.products.map((item) =>
+        item.productId._id === action.payload.productId._id
+          ? { ...item, quantity: action.payload.quantity }
+          : item
+      );
+
+      const newTotalPrice = updatedProducts.reduce(
+        (total, item) => total + item.quantity * (item.productId.price || 0),
+        0
+      );
+
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          products: updatedProducts,
+          totalPrice: newTotalPrice,
+        },
+      };
+    }
     case "UPDATE_CART":
       return { ...state, cart: action.payload };
     default:
@@ -160,22 +138,21 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-// Tạo UserProvider để cung cấp state cho các component con
+// StoreProvider
 interface StoreProviderProps {
   children: ReactNode;
 }
 export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Lấy thông tin user từ localStorage
+  // Sync user with localStorage
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      dispatch({ type: "SET_USER", payload: JSON.parse(user) });
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      dispatch({ type: "SET_USER", payload: JSON.parse(storedUser) });
     }
   }, []);
 
-  // Lưu thông tin user vào localStorage
   useEffect(() => {
     if (state.user) {
       localStorage.setItem("user", JSON.stringify(state.user));
@@ -184,101 +161,62 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
     }
   }, [state.user]);
 
-  // Đồng bộ giỏ hàng khi user đăng nhập
+  // Sync cart with user
   useEffect(() => {
-    const syncCart = async () => {
+    const fetchCart = async () => {
       if (state.user?.access_token) {
         try {
           const response = await CartService.getCartUser(
             state.user.access_token
           );
-          if (response.status === "OK" || response.status === 200) {
+          if (response.status === "OK") {
             dispatch({ type: "SET_CART", payload: response.data });
-          } else {
-            console.error("Failed to fetch cart:", response);
           }
         } catch (error) {
           console.error("Error fetching cart:", error);
         }
       }
     };
-    syncCart();
+    fetchCart();
   }, [state.user]);
 
-  // Lưu thông tin giỏ hàng vào localStorage
-  useEffect(() => {
-    if (state.cart) {
-      localStorage.setItem("cart", JSON.stringify(state.cart));
-    } else {
-      localStorage.removeItem("cart");
-    }
-  }, [state.cart]);
-
-  // Custom dispatch với API
-
+  // Enhanced dispatch for async actions
   const enhancedDispatch = async (action: Action) => {
-    if (action.type === "ADD_PRODUCT_TO_CART") {
-      try {
-        if (state.user?.access_token && state.cart) {
+    try {
+      if (action.type === "ADD_PRODUCT_TO_CART") {
+        if (state.user?.access_token) {
           const response = await CartService.addToCart(
             state.user.access_token,
             action.payload.productId._id,
             action.payload.quantity
           );
-          console.log("response add to cart", response);
-          if (response.status === "OK" || response.status === 200) {
-            //Hiển thị thông báo
+          if (response.status === "OK") {
             notification.success({
-              message: `Successfully`,
-              description: `Added ${action.payload.quantity} ${action.payload.productId.name} to cart`,
+              message: "Success",
+              description: `Added ${action.payload.productId.name} to cart.`,
             });
-            // Cập nhật state dựa trên response từ API
             dispatch({ type: "UPDATE_CART", payload: response.data });
-          } else {
-            console.error("Failed to add product to cart:", response);
           }
-        } else {
-          console.error("User not authenticated or cart not initialized!");
         }
-      } catch (error) {
-        console.error("Error adding product to cart:", error);
-      }
-    } else if (action.type === "REMOVE_PRODUCT_FROM_CART") {
-      try {
-        if (state.user?.access_token && state.cart) {
+      } else if (action.type === "REMOVE_PRODUCT_FROM_CART") {
+        if (state.user?.access_token) {
           const response = await CartService.removeFromCart(
             state.user.access_token,
             action.payload.productId._id
           );
-          console.log("response remove from cart", response);
-          if (response.status === "OK" || response.status === 200) {
-            //Hiển thị thông báo
+          if (response.status === "OK") {
             notification.success({
-              message: `Successfully`,
-              description: `Removed ${action.payload.productId.name} from cart`,
+              message: "Success",
+              description: `Removed ${action.payload.productId.name} from cart.`,
             });
-            // Cập nhật state dựa trên response từ API
             dispatch({ type: "UPDATE_CART", payload: response.data });
-          } else {
-            console.error("Failed to remove product from cart:", response);
           }
-        } else {
-          console.error("User not authenticated or cart not initialized!");
         }
-      } catch (error) {
-        console.error("Error removing product from cart:", error);
+      } else {
+        dispatch(action);
       }
-    } else if (action.type === "UPDATE_AMOUNT") {
-      dispatch(action);
-      const response = await CartService.updateCart(
-        state.user?.access_token || "",
-        action.payload.productId._id,
-        action.payload.quantity
-      );
-      console.log("response update cart", response);
-      // update amount in cart
-    } else {
-      dispatch(action);
+    } catch (error) {
+      console.error("Enhanced dispatch error:", error);
     }
   };
 
@@ -289,11 +227,11 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
   );
 };
 
-// Custom hook để truy cập context
+// Custom hook
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (context === undefined) {
-    throw new Error("useAppContext must be used within an UserProvider");
+    throw new Error("useAppContext must be used within a StoreProvider");
   }
   return context;
 };

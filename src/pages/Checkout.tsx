@@ -1,15 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Input, Select, Button, message } from "antd";
 import { useAppContext } from "../provider/StoreProvider";
 import * as OrderService from "../apis/OrderService";
+import * as UserService from "../apis/UserService";
 
 const { Option } = Select;
 
 const Checkout: React.FC = () => {
   const { state, dispatch } = useAppContext();
+  const [form] = Form.useForm(); // Dùng Form.useForm để có thể truy cập các phương thức của form
+
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Lấy thông tin người dùng sau khi có access_token
+    const getUserInfo = async () => {
+      if (state?.user?.access_token) {
+        const res = await UserService.getDetailsUser(
+          state?.user?.access_token || ""
+        );
+        console.log("User info response:", res);
+        if (res && res.status === "OK") {
+          const address = res.data.addresses[0];
+          const userInfo = {
+            fullName: res.data.name,
+            phone: res.data.phone || "",
+            city: res.data.city || "",
+            detailAddress:
+              address.street + " " + address.city + " " + address.state || "",
+          };
+          console.log("User info:", userInfo);
+          // Cập nhật lại các giá trị trong form bằng Form.setFieldsValue
+          form.setFieldsValue(userInfo);
+        }
+      }
+    };
+    getUserInfo();
+  }, [state?.user?.access_token, form]); // Thêm form vào dependency array để tránh cảnh báo
   // Xử lý khi submit form
   const onFinish = async (values: any) => {
     const data = {
@@ -31,7 +59,7 @@ const Checkout: React.FC = () => {
     console.log("Order response:", response);
     if (response && response.status === "OK") {
       message.success("Đặt hàng thành công!");
-      //Clear cart after successful order
+      // Clear cart after successful order
       dispatch({ type: "CLEAR_CART" });
       navigate("/ordered");
     } else {
@@ -52,6 +80,7 @@ const Checkout: React.FC = () => {
         <h3 className="text-2xl font-semibold mb-4">Thông tin người nhận</h3>
 
         <Form
+          form={form} // Liên kết form với hook form
           layout="vertical"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -91,7 +120,9 @@ const Checkout: React.FC = () => {
           <Form.Item
             className="mb-1"
             label={
-              <span className="text-gray-700 font-medium">Chọn khu vực</span>
+              <span className="text-gray-700 font-medium">
+                Chọn khu vực(Khu vực cửa hàng đặt mua)
+              </span>
             }
             name="city"
             rules={[{ required: true, message: "Vui lòng chọn khu vực!" }]}
@@ -169,7 +200,7 @@ const Checkout: React.FC = () => {
                     {item.productId.price
                       ? item.productId.price.toLocaleString("vi-VN")
                       : "N/A"}{" "}
-                    VND{" "}
+                    VND
                   </div>
                 </div>
               ))}
@@ -178,6 +209,7 @@ const Checkout: React.FC = () => {
 
           <h3 className="text-2xl font-semibold my-4">Thông tin thanh toán</h3>
 
+          {/* Phương thức thanh toán */}
           <Form.Item
             className="mb-1"
             label={
@@ -195,29 +227,11 @@ const Checkout: React.FC = () => {
           >
             <Select placeholder="Chọn phương thức thanh toán">
               {[
-                {
-                  label: "Thanh toán khi nhận hàng",
-                  value: "COD",
-                },
-                {
-                  label: "Chuyển khoản ngân hàng",
-                  value: "banking",
-                },
-                {
-                  //credit card
-                  label: "Thẻ tín dụng",
-                  value: "credit_card",
-                },
-                {
-                  //e-wallet
-                  label: "Ví điện tử Momo",
-                  value: "momo",
-                },
-                {
-                  //e-wallet
-                  label: "Ví điện tử ZaloPay",
-                  value: "zalopay",
-                },
+                { label: "Thanh toán khi nhận hàng", value: "COD" },
+                { label: "Chuyển khoản ngân hàng", value: "banking" },
+                { label: "Thẻ tín dụng", value: "credit_card" },
+                { label: "Ví điện tử Momo", value: "momo" },
+                { label: "Ví điện tử ZaloPay", value: "zalopay" },
               ].map((method) => (
                 <Option key={method.label} value={method.value}>
                   {method.label}
@@ -226,6 +240,7 @@ const Checkout: React.FC = () => {
             </Select>
           </Form.Item>
 
+          {/* Ghi chú đơn hàng */}
           <Form.Item
             className="mb-1"
             label={
@@ -236,12 +251,10 @@ const Checkout: React.FC = () => {
             name="notes"
             rules={[{ required: false }]}
           >
-            <Input.TextArea
-              rows={2}
-              placeholder="Nhập địa chỉ cụ thể (VD: Số 53 Thái Hà)"
-            />
+            <Input.TextArea rows={2} placeholder="Nhập ghi chú đơn hàng" />
           </Form.Item>
 
+          {/* Mã giảm giá */}
           <Form.Item
             className="mb-1"
             label={
@@ -252,7 +265,7 @@ const Checkout: React.FC = () => {
             name="couponCode"
             rules={[{ required: false }]}
           >
-            <Input placeholder="Nhập mã giảm giá (nếu có)" />
+            <Input placeholder="Nhập mã giảm giá" />
           </Form.Item>
 
           {/* Tổng cộng */}
