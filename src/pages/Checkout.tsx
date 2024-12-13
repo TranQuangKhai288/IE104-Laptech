@@ -26,9 +26,13 @@ const Checkout: React.FC = () => {
           const userInfo = {
             fullName: res.data.name,
             phone: res.data.phone || "",
-            city: res.data.city || "",
+            city: res.data?.city || "",
             detailAddress:
-              address.street + " " + address.city + " " + address.state || "",
+              (address?.street || "") +
+              "" +
+              (address?.city || "") +
+              "" +
+              (address?.state || ""),
           };
           console.log("User info:", userInfo);
           // Cập nhật lại các giá trị trong form bằng Form.setFieldsValue

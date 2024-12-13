@@ -160,12 +160,38 @@ const ProductManagement: React.FC = () => {
         });
       }
       // lướt lên đầu trang khi chuyển trang
-      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       console.log("Failed to fetch products:", error);
     }
   };
 
+  const handleFeaturedStatusChange = async (
+    productId: string,
+    status: boolean
+  ) => {
+    console.log("Featured status change:", productId, status);
+
+    try {
+      // Assuming the ProductService has an updateProduct method
+      const res = await ProductService.updateProduct(productId, {
+        isFeatured: status,
+      });
+
+      if (res && res.status === "OK") {
+        message.success("Cập nhật trạng thái nổi bật thành công!");
+        fetchProducts(
+          pagination.current,
+          pagination.pageSize,
+          debouncedSearchTerm
+        ); // Refresh the list of products
+      } else {
+        message.error("Cập nhật trạng thái nổi bật thất bại!");
+      }
+    } catch (error) {
+      console.log("Error updating featured status:", error);
+      message.error("Có lỗi xảy ra. Vui lòng thử lại!");
+    }
+  };
   useEffect(() => {
     fetchProducts(1, pagination.pageSize, debouncedSearchTerm);
   }, [debouncedSearchTerm]);
@@ -222,12 +248,17 @@ const ProductManagement: React.FC = () => {
 
         <Table
           dataSource={products}
-          columns={productColumns({ handleEditProduct, handleDeleteClick })}
+          columns={productColumns({
+            handleEditProduct,
+            handleDeleteClick,
+            handleFeaturedStatusChange,
+          })}
           pagination={{
             current: pagination.current,
             pageSize: pagination.pageSize,
             total: pagination.count,
             onChange: (page, pageSize) => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
               fetchProducts(page, pageSize, debouncedSearchTerm);
             },
           }}

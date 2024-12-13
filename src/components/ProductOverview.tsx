@@ -53,16 +53,19 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
             % giảm)
           </span>
         </h2>
-        <p className="mt-4">
-          {Array.from({ length: 5 }, (_, i) => (
-            <FaStar className="text-yellow-400 text-xl inline-block mr-1 pb-1" />
-          ))}
-          <a
-            href="/product/product-detail-example"
-            className="text-blue-600 ml-2"
-          >
-            3 đánh giá
-          </a>
+        <p className="mt-4 flex-row flex items-center">
+          {Array.from(
+            { length: parseInt(data.averageRating.toString()) },
+            (_, i) => (
+              <FaStar
+                key={i}
+                className="text-yellow-400 text-xl inline-block mr-1 pb-1"
+              />
+            )
+          )}
+          <div className="text-blue-600 ml-2 mb-1 hover:underline cursor-pointer">
+            {data.reviews.length} đánh giá
+          </div>
         </p>
         <hr className="my-4 border-b-1 border-gray-300" />
         <div>

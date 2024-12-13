@@ -1,5 +1,5 @@
 import React from "react";
-import { Tag, Space, Rate, Tooltip, Badge } from "antd";
+import { Tag, Space, Rate, Tooltip, Badge, Switch } from "antd";
 import {
   EditTwoTone,
   DeleteTwoTone,
@@ -102,9 +102,11 @@ const SpecificationsList: React.FC<{ specs: Specification[] }> = ({
 export const productColumns = ({
   handleEditProduct,
   handleDeleteClick,
+  handleFeaturedStatusChange, // Add this for handling switch change
 }: {
   handleEditProduct: (product: ProductColumns) => void;
   handleDeleteClick: (product: ProductColumns) => void;
+  handleFeaturedStatusChange: (productId: string, status: boolean) => void; // Function to update featured status
 }) => [
   {
     title: "Sản phẩm",
@@ -146,12 +148,22 @@ export const productColumns = ({
               </span>
             </div>
           </div>
-          {record.isFeatured && (
-            <Tag color="gold" className="w-fit">
-              <StarFilled className="mr-1" />
-              Sản phẩm nổi bật
-            </Tag>
-          )}
+          <div className="flex items-center">
+            <Switch
+              checked={record.isFeatured}
+              onChange={(checked) =>
+                handleFeaturedStatusChange(record._id, checked)
+              }
+              checkedChildren="Bật"
+              unCheckedChildren="Tắt"
+            />
+            {record.isFeatured && (
+              <Tag color="gold" className="ml-2">
+                <StarFilled className="mr-1" />
+                Sản phẩm nổi bật
+              </Tag>
+            )}
+          </div>
         </div>
       </div>
     ),
@@ -179,7 +191,7 @@ export const productColumns = ({
   {
     title: "Giá bán",
     key: "price",
-    width: 150,
+    width: 300,
     render: (record: ProductColumns) => (
       <div className="space-y-2">
         <PriceDisplay

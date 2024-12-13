@@ -18,6 +18,7 @@ import {
 import Modal from "./Modal";
 import ProductDetailTable from "./ProdctDetailTable";
 import { Product } from "../interfaces/Product";
+import ProductReviews from "./ProductReviews";
 
 interface customProps {
   data: Product;
@@ -369,6 +370,12 @@ const ProductArticle: React.FC<customProps> = ({ data }) => {
             </ul>
           </div>
         </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="my-5 p-5 bg-white rounded-xl">
+        <h2 className="text-xl font-bold mb-4">Đánh giá sản phẩm</h2>
+        <ProductReviews data={data} />
       </section>
     </div>
   );

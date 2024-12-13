@@ -1,25 +1,12 @@
 import { ColumnsType } from "antd/es/table";
 import { Order } from "../interfaces/Order";
-import {
-  Tag,
-  Space,
-  Tooltip,
-  Button,
-  Select,
-  message,
-  Image,
-  Modal,
-} from "antd";
-import {
-  EditOutlined,
-  DeleteOutlined,
-  DownOutlined,
-  UpOutlined,
-} from "@ant-design/icons";
+import { Tag, Tooltip, Button, Select, message, Image, Modal } from "antd";
+import { DownOutlined, UpOutlined } from "@ant-design/icons";
 import ProductImageGallery from "../components/ProductImageGallery";
 import * as OrderService from "../apis/OrderService";
 import { useState } from "react";
 import { useAppContext } from "../provider/StoreProvider";
+import { formatCurrency } from "../customeHooks/formatCurrency";
 const { Option } = Select;
 
 // Define status configurations
@@ -62,6 +49,9 @@ const OrderItemDisplay = ({ items }: { items: any[] }) => {
             <h3 className="text-xl font-semibold">{item.name}</h3>
             <p className="text-l font-semibold">Đơn giá: {item.price}</p>
             <p className="text-l font-semibold">Số lượng: {item.quantity}</p>
+            <p className="text-l font-semibold">
+              Thành tiền: {item.price * item.quantity}
+            </p>
           </div>
         </div>
       ))}
@@ -212,14 +202,14 @@ const StatusSelect = ({
 
 const orderColumns: ColumnsType<Order> = [
   {
-    title: "Products Information",
+    title: "Thông tin sản phẩm",
     key: "items",
     dataIndex: "items",
     width: 300, // Cập nhật độ rộng
     render: (items: any, record: Order) => <OrderItemDisplay items={items} />,
   },
   {
-    title: "Delivery Information",
+    title: "Thông tin vận chuyển",
     key: "shippingAddress",
     dataIndex: "shippingAddress",
 
@@ -253,7 +243,7 @@ const orderColumns: ColumnsType<Order> = [
   },
 
   {
-    title: "User Information",
+    title: "Thông tin người đặt hàng",
     key: "userId",
     dataIndex: "userId",
     render: (user: any, record: Order) => {
@@ -297,7 +287,7 @@ const orderColumns: ColumnsType<Order> = [
     },
   },
   {
-    title: "Payment Method",
+    title: "Phương thức thanh toán",
     dataIndex: "paymentMethod",
     key: "paymentMethod",
     render: (paymentMethod: string, record: Order) => (
@@ -306,10 +296,10 @@ const orderColumns: ColumnsType<Order> = [
   },
 
   {
-    title: "Total",
+    title: "Tổng tiền",
     dataIndex: "total",
     key: "total",
-    render: (total: number) => `$${total.toFixed(2)}`,
+    render: (total: number) => `${formatCurrency(total)}`,
   },
 ];
 

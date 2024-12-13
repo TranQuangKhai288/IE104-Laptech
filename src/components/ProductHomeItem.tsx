@@ -2,6 +2,7 @@ import React from "react";
 import CheckLightBg from "./CheckLightBg";
 import { Product } from "../interfaces/Product";
 import { useNavigate } from "react-router-dom";
+import { formatCurrency } from "../customeHooks/formatCurrency";
 
 const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
   const navigate = useNavigate();
@@ -23,15 +24,22 @@ const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
           {product.name}
         </div>
         {/* Price and Sale */}
-        <div className="flex flex-row space-x-2">
-          <div>Từ</div>
-          <div className="font-bold text-red-500">{product.starting_price}</div>
-          {product.sale_percentage > 0 && (
-            <div className="text-sm rounded bg-[#FFEAEA] px-1 text-red-500">
-              -{product.sale_percentage}%
-            </div>
-          )}
+        <div className="flex flex-col">
+          <div className="flex flex-row">
+            <p>Từ:</p>
+            <p className="text-gray-500 ml-2 line-through">
+              {formatCurrency(parseFloat(product.starting_price))}{" "}
+            </p>
+          </div>
+
+          <div className="flex flex-row ">
+            <p>Còn: </p>
+            <p className="text-base ml-2 text-red-500">
+              {formatCurrency(product.price || 0)}{" "}
+            </p>
+          </div>
         </div>
+
         {/* Colors */}
         <div className="flex flex-row space-x-2 mt-2">
           <div>Màu</div>
