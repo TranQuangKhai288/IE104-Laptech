@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tag, Space, Rate, Tooltip, Badge, Switch } from "antd";
 import {
   EditTwoTone,
@@ -67,36 +67,65 @@ const ColorPreview: React.FC<{ color: Color }> = ({ color }) => (
 const PriceDisplay: React.FC<{
   price: number;
   startingPrice: string;
-  salePercentage: number;
-}> = ({ price, startingPrice, salePercentage }) => (
-  <div className="flex flex-col">
-    <span className="text-lg font-semibold text-blue-600">
-      {Number(startingPrice).toLocaleString("vi-VN")} VND
-    </span>
-    {salePercentage > 0 && (
+}> = ({ price, startingPrice }) => {
+  const salePercentage = Math.round(
+    ((parseFloat(startingPrice) - price) / parseFloat(startingPrice)) * 100
+  );
+
+  return (
+    <div className="flex flex-col">
+      <span className="text-lg font-semibold text-blue-600">
+        {Number(price).toLocaleString("vi-VN")} VND
+      </span>
+
       <div className="flex items-center gap-2">
         <span className="text-sm line-through text-gray-500">
-          {Number(price).toLocaleString("vi-VN")} VND
+          {Number(startingPrice).toLocaleString("vi-VN")} VND
         </span>
         <Tag color="red">-{salePercentage}%</Tag>
       </div>
-    )}
-  </div>
-);
+    </div>
+  );
+};
 
 const SpecificationsList: React.FC<{ specs: Specification[] }> = ({
   specs,
-}) => (
-  <div className="space-y-1">
-    {specs.map((spec) => (
-      <Tooltip key={spec._id} title={spec.description}>
-        <Tag color="blue" className="mb-1">
-          {spec.type}: {spec.title}
-        </Tag>
-      </Tooltip>
-    ))}
-  </div>
-);
+}) => {
+  const [showAll, setShowAll] = useState(false); // Trạng thái quản lý hiển thị toàn bộ thông số
+  const MAX_VISIBLE = 3; // Số lượng thông số hiển thị mặc định
+
+  // Chọn danh sách thông số dựa trên trạng thái
+  const visibleSpecs = showAll ? specs : specs.slice(0, MAX_VISIBLE);
+
+  return (
+    <div className="space-y-1 justify-start items-start">
+      {visibleSpecs.map((spec) => (
+        <Tooltip key={spec._id} title={spec.description}>
+          <Tag
+            color="blue"
+            className="mb-1"
+            style={{
+              maxWidth: 200, // Giới hạn chiều rộng tối đa của Tag
+              whiteSpace: "normal", // Cho phép xuống dòng
+              wordBreak: "break-word", // Chia từ nếu từ quá dài
+            }}
+          >
+            {spec.type}: {spec.title}
+          </Tag>
+        </Tooltip>
+      ))}
+
+      {specs.length > MAX_VISIBLE && (
+        <div
+          onClick={() => setShowAll(!showAll)} // Đổi trạng thái hiển thị
+          className="p-0 text-blue-500 hover:underline cursor-pointer" // Hiển thị link khi hover
+        >
+          {showAll ? "Ẩn bớt" : "Xem thêm"}
+        </div>
+      )}
+    </div>
+  );
+};
 
 // Column definitions
 export const productColumns = ({
@@ -112,27 +141,26 @@ export const productColumns = ({
     title: "Sản phẩm",
     dataIndex: "name",
     key: "name",
-    width: 250,
+    width: 700,
     render: (name: string, record: ProductColumns) => (
       <div className="flex space-x-4 items-center">
-        <div className="w-48">
+        <div className="w-40 h-40 flex-shrink-0 relative">
           <ProductImageGallery images={record.images} />
         </div>
         <div className="flex flex-col justify-between">
           <div>
             <Tooltip title={name}>
-              <div
-                className="font-semibold text-lg overflow-hidden overflow-ellipsis whitespace-nowrap 
+              <p
+                className="font-semibold text-lg overflow-hidden whitespace-break-spaces
                               line-clamp-2"
                 style={{
                   display: "-webkit-box",
                   WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
                   WebkitLineClamp: 2,
                 }}
               >
                 {name}
-              </div>
+              </p>
             </Tooltip>
             <div className="text-sm text-gray-500">
               {record.brand} - {record.category} {record?.subCategory}
@@ -144,7 +172,7 @@ export const productColumns = ({
                 className="text-sm"
               />
               <span className="ml-2 text-sm text-gray-500">
-                ({record.reviews.length} đánh giá)
+                ({record.reviews?.length || 0} đánh giá)
               </span>
             </div>
           </div>
@@ -172,14 +200,22 @@ export const productColumns = ({
     title: "Thông số",
     dataIndex: "specifications",
     key: "specifications",
-    width: 250,
-    render: (specs: Specification[]) => <SpecificationsList specs={specs} />,
+    width: 500,
+    render: (specs: Specification[]) => (
+      <div
+        className="flex"
+        style={{
+          minWidth: 300,
+        }}
+      >
+        <SpecificationsList specs={specs} />
+      </div>
+    ),
   },
   {
     title: "Màu sắc",
     dataIndex: "colors",
     key: "colors",
-    width: 150,
     render: (colors: Color[]) => (
       <div className="flex">
         {colors.map((color) => (
@@ -197,7 +233,7 @@ export const productColumns = ({
         <PriceDisplay
           price={record.price}
           startingPrice={record.starting_price}
-          salePercentage={record.sale_percentage}
+          // salePercentage={record.sale_percentage}
         />
         {record.gift_value && (
           <Tooltip title="Giá trị quà tặng kèm">

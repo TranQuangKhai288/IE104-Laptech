@@ -121,7 +121,7 @@ const ProductManagement: React.FC = () => {
       const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
       const newProducts: Product[] = jsonData.map((product: any) => ({
-        id: (products.length + 1).toString(),
+        id: (products?.length + 1).toString(),
         name: product["Tên sản phẩm"],
         category: product["Phân loại"],
         price: product["Đơn giá"],

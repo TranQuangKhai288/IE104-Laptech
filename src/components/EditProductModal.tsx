@@ -228,8 +228,20 @@ const EditProductModal: React.FC<{
 
         <Form.Item
           name="price"
-          label="Đơn giá"
-          rules={[{ required: true, message: "Vui lòng nhập đơn giá!" }]}
+          label="Giá bán"
+          rules={[
+            { required: true, message: "Vui lòng nhập giá bán!" },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || value < getFieldValue("starting_price")) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error("Giá bán phải nhỏ hơn giá khởi điểm!")
+                );
+              },
+            }),
+          ]}
         >
           <InputNumber min={0} style={{ width: "100%" }} />
         </Form.Item>
@@ -237,12 +249,24 @@ const EditProductModal: React.FC<{
         <Form.Item
           name="starting_price"
           label="Giá khởi điểm"
-          rules={[{ required: true, message: "Vui lòng nhập giá khởi điểm!" }]}
+          rules={[
+            { required: true, message: "Vui lòng nhập giá khởi điểm!" },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || value > getFieldValue("price")) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error("Giá khởi điểm phải lớn hơn giá bán!")
+                );
+              },
+            }),
+          ]}
         >
           <InputNumber min={0} style={{ width: "100%" }} />
         </Form.Item>
 
-        <Form.Item
+        {/* <Form.Item
           name="sale_percentage"
           label="Phần trăm giảm giá"
           rules={[
@@ -250,7 +274,7 @@ const EditProductModal: React.FC<{
           ]}
         >
           <InputNumber min={0} max={100} style={{ width: "100%" }} />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           name="stock"

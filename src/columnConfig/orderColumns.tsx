@@ -46,7 +46,16 @@ const OrderItemDisplay = ({ items }: { items: any[] }) => {
           </div>
 
           <div className="ml-2 w-64">
-            <h3 className="text-xl font-semibold">{item.name}</h3>
+            <h3
+              className="text-xl font-semibold overflow-clip"
+              style={{
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 2,
+              }}
+            >
+              {item.name}
+            </h3>
             <p className="text-l font-semibold">Đơn giá: {item.price}</p>
             <p className="text-l font-semibold">Số lượng: {item.quantity}</p>
             <p className="text-l font-semibold">

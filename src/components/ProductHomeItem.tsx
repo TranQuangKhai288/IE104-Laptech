@@ -58,7 +58,7 @@ const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
         <div className="text-sm text-gray-500 h-32 overflow-hidden flex-grow">
           {product.specifications.map((part, index) => (
             <div key={index}>
-              {part.title}: {part.description}
+              {part.type}: {part.title} - {part.description}
             </div>
           ))}
         </div>
