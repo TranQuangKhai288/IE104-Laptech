@@ -31,8 +31,8 @@ const Login: React.FC = () => {
         dispatch({ type: "SET_USER", payload: user });
 
         notification.success({
-          message: "Login success",
-          description: "You have successfully logged in",
+          message: "Đăng nhập thành công",
+          description: "Bạn đã đăng nhập vào Laptech thành công",
         });
 
         setIsSubmitting(false);
@@ -47,8 +47,8 @@ const Login: React.FC = () => {
         }
       } else {
         notification.error({
-          message: "Login failed",
-          description: response.message || "Unknown error occurred",
+          message: "Đăng nhập thất bại",
+          description: response.message || "Đã xảy ra lỗi không xác định",
         });
         setIsSubmitting(false);
       }
@@ -57,16 +57,16 @@ const Login: React.FC = () => {
 
       if (err instanceof Error) {
         notification.error({
-          message: "Error",
+          message: "Lỗi",
           description: err.message, // Sử dụng thông điệp từ lỗi
         });
       } else {
         notification.error({
-          message: "Error",
-          description: "An unexpected error occurred.",
+          message: "Lỗi",
+          description: "Đã xảy ra lỗi không mong muốn.",
         });
       }
-      console.error("Error logging in:", err);
+      console.error("Lỗi đăng nhập:", err);
     }
   };
 

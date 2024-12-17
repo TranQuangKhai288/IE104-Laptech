@@ -79,7 +79,7 @@ const Customer: React.FC = () => {
       ),
     },
     {
-      title: "Access Level",
+      title: "Cấp độ quyền hạn",
       dataIndex: "access",
       key: "access",
       render: (access: string) => {

@@ -22,7 +22,7 @@ const Cart: React.FC = () => {
       // await axios.delete(`/api/products/${id}`);
       // setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     } catch (err) {
-      console.error("Error removing product:", err);
+      console.error("Lỗi khi xóa sản phẩm", err);
     }
   };
 

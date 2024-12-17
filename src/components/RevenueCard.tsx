@@ -32,7 +32,8 @@ const RevenueCard = ({
     : 0;
 
   // Determine title based on type
-  const cardTitle = type === "daily" ? "Daily Revenue" : "Monthly Revenue";
+  const cardTitle =
+    type === "daily" ? "Doanh thu theo ngày" : "Doanh thu theo tháng";
 
   return (
     <Card className="col-span-3 flex items-center justify-center bg-violet-300 text-white">
