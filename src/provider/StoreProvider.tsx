@@ -173,7 +173,7 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
             dispatch({ type: "SET_CART", payload: response.data });
           }
         } catch (error) {
-          console.error("Error fetching cart:", error);
+          console.error("Lỗi khi tải giỏ hàng:", error);
         }
       }
     };
@@ -192,8 +192,8 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
           );
           if (response.status === "OK") {
             notification.success({
-              message: "Success",
-              description: `Added ${action.payload.productId.name} to cart.`,
+              message: "Thành công",
+              description: `Đã thêm ${action.payload.productId.name} vào giỏ hàng.`,
             });
             dispatch({ type: "UPDATE_CART", payload: response.data });
           }
@@ -206,8 +206,8 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
           );
           if (response.status === "OK") {
             notification.success({
-              message: "Success",
-              description: `Removed ${action.payload.productId.name} from cart.`,
+              message: "Thành công",
+              description: `Đã xóa ${action.payload.productId.name} khỏi giỏ hàng.`,
             });
             dispatch({ type: "UPDATE_CART", payload: response.data });
           }
@@ -216,7 +216,7 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
         dispatch(action);
       }
     } catch (error) {
-      console.error("Enhanced dispatch error:", error);
+      console.error("Lỗi điều phối nâng cao:", error);
     }
   };
 
