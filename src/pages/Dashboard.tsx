@@ -152,8 +152,8 @@ const Dashboard: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div>
-          <Title level={2}>DASHBOARD</Title>
-          <p className="text-gray-500">Welcome to your dashboard</p>
+          <Title level={2}>Bảng điều khiển</Title>
+          <p className="text-gray-500">Chào mừng bạn đến với bản điều khiển</p>
         </div>
         <Button
           type="primary"
@@ -161,7 +161,7 @@ const Dashboard: React.FC = () => {
           size="large"
           className="bg-blue-600"
         >
-          Download Reports
+          Tải xuống báo cáo
         </Button>
       </div>
 
@@ -171,8 +171,8 @@ const Dashboard: React.FC = () => {
         <Card className="col-span-2 flex items-center justify-center bg-violet-300 text-white">
           <Space direction="vertical" className="text-center">
             <Tooltip
-              title={`Click for show ${
-                typeRevenue === "daily" ? "monthly" : "daily"
+              title={`Nhấp để xem ${
+                typeRevenue === "daily" ? "tháng" : "ngày"
               }`}
             >
               <div
@@ -197,7 +197,7 @@ const Dashboard: React.FC = () => {
           <Space direction="vertical" className="text-center">
             <ShopOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
-              {dataRevenue.current.ordersCount} Orders Placed
+              {dataRevenue.current.ordersCount} Đơn hàng đã đặt
             </Title>
             <Progress percent={50} />
             <p>+21%</p>
@@ -208,7 +208,7 @@ const Dashboard: React.FC = () => {
           <Space direction="vertical" className="text-center">
             <UserAddOutlined style={{ fontSize: 26, color: "#52c41a" }} />
             <Title level={5} className="text-white">
-              {dataClients.newCustomers} New Clients
+              {dataClients.newCustomers} Khách hàng mới
             </Title>
             <Progress percent={30} />
             <p>+5%</p>
@@ -221,7 +221,7 @@ const Dashboard: React.FC = () => {
               <AreaChartOutlined style={{ fontSize: 26, color: "#52c41a" }} />
 
               <Title level={3} className="text-white">
-                Top Buying Customer
+                Khách hàng mua hàng đầu
               </Title>
             </div>
             <div className="flex flex-row justify-center items-center flex-wrap border-2 p-2">
@@ -258,7 +258,7 @@ const Dashboard: React.FC = () => {
         <Card className="col-span-6 bg-violet-300 text-white ">
           <div className="flex justify-between items-center">
             <Title level={4} className="text-white">
-              Top Selling Products
+              Sản phẩm bán chạy nhất
             </Title>
 
             {/* <Button icon={<DownloadOutlined />} size="large" /> */}
@@ -300,7 +300,7 @@ const Dashboard: React.FC = () => {
         <Card className="col-span-6 bg-violet-300 text-white">
           <div className="flex justify-between items-center ">
             <Title level={4} className="text-white">
-              Low Stock Products
+              Sản phẩm tồn kho thấp
             </Title>
 
             {/* <Button icon={<DownloadOutlined />} size="large" /> */}
@@ -338,22 +338,22 @@ const Dashboard: React.FC = () => {
             {/* Replace with actual ProgressCircle component */}
             <div className="h-32 w-32 rounded-full bg-green-500"></div>
             <Title level={5} className="text-green-500 mt-4">
-              $48,352 revenue generated
+              $48,352 doanh thu được tạo ra
             </Title>
-            <p>Includes extra misc expenditures and costs</p>
+            <p>Bao gồm các chi phí và chi phí khác</p>
           </div>
         </Card>
 
         <Card className="col-span-4 bg-violet-300 text-white p-5">
-          <Title level={4}>Sales Quantity</Title>
+          <Title level={4}>Số lượng bán</Title>
           {/* Replace with actual BarChart component */}
-          <div className="h-64 bg-gray-700 mt-5">Bar Chart Component</div>
+          <div className="h-64 bg-gray-700 mt-5">Thành phần biểu đồ thanh</div>
         </Card>
 
         <Card className="col-span-4 bg-violet-300 text-white p-5">
-          <Title level={4}>Geography Based Traffic</Title>
+          <Title level={4}>Giao thông dựa trên địa lý</Title>
           {/* Replace with actual GeographyChart component */}
-          <div className="h-48 bg-gray-700 mt-5">Geography Chart Component</div>
+          <div className="h-48 bg-gray-700 mt-5">Thành phần biểu đồ địa lý</div>
         </Card>
       </div>
     </>

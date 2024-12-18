@@ -129,13 +129,13 @@ const PaymentMethodCell: React.FC<{ record: Order }> = ({ record }) => {
       </Tooltip>
 
       <Modal
-        title="Payment Details"
+        title="Thông tin thanh toán"
         open={isModalVisible}
         onOk={handleModalClose}
         onCancel={handleModalClose}
       >
         <p>
-          <strong>Payment Method:</strong> {record.paymentMethod}
+          <strong>Phương thức thanh toán:</strong> {record.paymentMethod}
         </p>
         {/* <p>
           <strong>Account Name:</strong>{" "}
@@ -171,14 +171,14 @@ const updateOrderStatus = async (
     );
     console.log(res, "res update status");
     if (res?.status === "OK") {
-      message.success("Order status updated successfully");
+      message.success("Trạng thái đơn hàng đã được cập nhật thành công");
     } else {
       message.error("Failed to update order status");
-      console.error("Error updating order status:", res?.message);
+      console.error("Lỗi khi cập nhật trạng thái đơn hàng:", res?.message);
     }
   } catch (error) {
     message.error("Failed to update order status");
-    console.error("Error updating order status:", error);
+    console.error("Lỗi khi cập nhật trạng thái đơn hàng:", error);
   }
 };
 
@@ -235,10 +235,10 @@ const orderColumns: ColumnsType<Order> = [
             </h3>
 
             <p className="text-l font-semibold">
-              Phone: {shippingAddress.phone}
+              Số điện thoại: {shippingAddress.phone}
             </p>
             <p className="text-l font-semibold">
-              Address: {shippingAddress.detailAddress}, {shippingAddress.city},{" "}
+              Địa chỉ: {shippingAddress.detailAddress}, {shippingAddress.city},{" "}
               {shippingAddress.country}
             </p>
 
