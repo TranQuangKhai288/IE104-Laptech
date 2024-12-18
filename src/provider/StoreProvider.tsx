@@ -212,6 +212,17 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
             dispatch({ type: "UPDATE_CART", payload: response.data });
           }
         }
+      } else if (action.type === "UPDATE_AMOUNT") {
+        if (state.user?.access_token) {
+          const response = await CartService.updateCart(
+            state.user.access_token,
+            action.payload.productId._id,
+            action.payload.quantity
+          );
+          if (response.status === "OK") {
+            dispatch(action);
+          }
+        }
       } else {
         dispatch(action);
       }
