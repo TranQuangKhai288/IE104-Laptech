@@ -41,8 +41,22 @@ export const updateDetailsUser = async (data: any, access_token: string): Promis
   return res; // Assuming you want to return the data from the response
 };
 
+// export const changePassword = async (data: any, access_token: string): Promise<response> => {
+//   const res: response = await baseURL.put(`/user/change-password`, data,
+//   {
+//     headers: {
+//       'Authorization': `Bearer ${access_token}`
+//     }
+//   });
+//   return res; // Assuming you want to return the data from the response
+// };
 
-export const createProduct = async (data: any) => {
-  const res: response = await baseURL.post(`/product/login`, data);
+export const getAllUsers = async ( page:number, limit:number ,access_token: string): Promise<response> => {
+  const res: response = await baseURL.get(`/user/all`, 
+  {
+    headers: {
+      "Authorization": `Bearer ${access_token}`
+    }
+  });
   return res; // Assuming you want to return the data from the response
-};
+}

@@ -8,6 +8,7 @@ const Search: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [pageSize, setPageSize] = useState(10);
+  const [totalProducts, setTotalProducts] = useState(0);
 
   // lấy key-word từ params
   const location = useLocation();
@@ -25,8 +26,10 @@ const Search: React.FC = () => {
         searchQuery ?? "",
         ""
       );
+
       if (res?.status === "OK") {
         setProducts(res.data);
+        setTotalProducts(res.count);
       }
       setIsLoading(true);
     } catch (error) {
@@ -51,7 +54,7 @@ const Search: React.FC = () => {
   ) : (
     <div>
       <div className="text-3xl font-bold mb-4">
-        Kết quả tìm kiếm cho {searchQuery}
+        Kết quả tìm kiếm cho {searchQuery} ({totalProducts} sản phẩm){" "}
       </div>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">

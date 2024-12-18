@@ -16,38 +16,38 @@ const ProductWithType: React.FC = () => {
       case "laptop-gaming":
         return {
           title: "Laptop Gaming",
-          category: "laptop",
-          subCategory: "gaming",
+          category: "Laptop",
+          subCategory: "Gaming",
         };
       case "laptop-office":
         return {
           title: "Laptop văn phòng",
-          category: "laptop",
-          subCategory: "office",
+          category: "Laptop",
+          subCategory: "Office",
         };
-      case "laptop-ultra-thin":
+      case "laptop-ultrabook":
         return {
           title: "Laptop mỏng nhẹ",
-          category: "laptop",
-          subCategory: "ultra-thin",
+          category: "Laptop",
+          subCategory: "Ultrabook",
         };
       case "laptop-2-in-1":
         return {
           title: "Laptop 2 trong 1",
-          category: "laptop",
+          category: "Laptop",
           subCategory: "2-in-1",
         };
       case "laptop-workstation":
         return {
           title: "Laptop Workstation",
-          category: "laptop",
-          subCategory: "workstation",
+          category: "Laptop",
+          subCategory: "Workstation",
         };
       case "laptop-budget":
         return {
           title: "Laptop giá rẻ",
-          category: "laptop",
-          subCategory: "",
+          category: "Laptop",
+          subCategory: "Budget",
         };
       case "personal-computer":
         return {

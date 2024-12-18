@@ -35,7 +35,7 @@ const Home: React.FC = () => {
             </h3>
             <Sales />
           </section>
-          <section className="mt-12">
+          {/* <section className="mt-12">
             <h3 className="text-2xl mb-4 font-bold">
               Pre-Order{" "}
               <span className="text-2xl mb-4 font-bold text-yellow-500">
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
               </span>
             </h3>
             <PreOrders />
-          </section>
+          </section> */}
         </div>
       </div>
       <section className="mt-12">

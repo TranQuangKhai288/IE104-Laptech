@@ -223,12 +223,12 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
           rules={[{ required: true, message: "Vui lòng nhập phân loại!" }]}
         >
           <Select placeholder="Chọn phân loại">
-            <Option value="laptop">Laptop</Option>
-            <Option value="pc">PC</Option>
-            <Option value="phone">Điện thoại</Option>
-            <Option value="accessory">Phụ kiện</Option>
-            <Option value="tablet">Máy tính bảng</Option>
-            <Option value="other">Khác</Option>
+            <Option value="Laptop">Laptop</Option>
+            <Option value="Pc">PC</Option>
+            <Option value="Phone">Điện thoại</Option>
+            <Option value="Accessory">Phụ kiện</Option>
+            <Option value="Tablet">Máy tính bảng</Option>
+            <Option value="Other">Khác</Option>
           </Select>
         </Form.Item>
 
@@ -238,7 +238,7 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
           shouldUpdate={(prev, curr) => prev.category !== curr.category}
         >
           {({ getFieldValue }) =>
-            getFieldValue("category") === "laptop" && (
+            getFieldValue("category") === "Laptop" && (
               <Form.Item
                 name="subCategory"
                 label="Loại laptop"
@@ -247,14 +247,14 @@ const AddProductModal: React.FC<AddProductModalProps> = ({
                 ]}
               >
                 <Select placeholder="Chọn loại laptop">
-                  <Option value="gaming">Gaming</Option>
-                  <Option value="office">Office</Option>
-                  <Option value="ultra-thin">Ultrabook</Option>
+                  <Option value="Gaming">Gaming</Option>
+                  <Option value="Office">Office</Option>
+                  <Option value="Ultra-thin">Ultrabook</Option>
                   <Option value="2-in-1">2-in-1</Option>
-                  <Option value="workstation">Workstation</Option>
-                  <Option value="student">Student</Option>
-                  <Option value="budget">Budget</Option>
-                  <Option value="other">Khác</Option>
+                  <Option value="Workstation">Workstation</Option>
+                  <Option value="Student">Student</Option>
+                  <Option value="Budget">Budget</Option>
+                  <Option value="Other">Khác</Option>
                 </Select>
               </Form.Item>
             )

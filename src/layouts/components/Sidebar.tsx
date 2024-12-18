@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Menu, Typography, Avatar } from "antd";
+import { Layout, Menu, Typography, Avatar, message, Modal, Button } from "antd";
 import {
   HomeOutlined,
   TeamOutlined,
@@ -10,6 +10,7 @@ import {
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAppContext } from "../../provider/StoreProvider";
 
 const { Sider } = Layout;
 const { Title, Text } = Typography;
@@ -21,16 +22,6 @@ const menuConfig = [
     label: "Bảng Thống Kê",
     path: "",
   },
-  // {
-  //   key: "sub1",
-  //   icon: <TeamOutlined />,
-  //   title: "Thông Tin",
-  //   items: [
-
-  //     { key: "3", label: "Thông Tin Nhà Cung Cấp", path: "suppliers" },
-  //     { key: "4", label: "Ghi Nợ Khách Hàng", path: "dept" },
-  //   ],
-  // },
   {
     key: "sub2",
     icon: <ContactsOutlined />,
@@ -41,16 +32,16 @@ const menuConfig = [
       { key: "4", label: "Quản Lý Đơn Hàng", path: "order-management" },
     ],
   },
-  {
-    key: "sub3",
-    icon: <BarChartOutlined />,
-    title: "An Ninh & Cảnh Báo",
-    items: [
-      { key: "7", label: "An Ninh", path: "security" },
-      { key: "8", label: "Cảnh Báo", path: "warning" },
-      { key: "9", label: "Xem Lại Camera", path: "record" },
-    ],
-  },
+  // {
+  //   key: "sub3",
+  //   icon: <BarChartOutlined />,
+  //   title: "An Ninh & Cảnh Báo",
+  //   items: [
+  //     { key: "7", label: "An Ninh", path: "security" },
+  //     { key: "8", label: "Cảnh Báo", path: "warning" },
+  //     { key: "9", label: "Xem Lại Camera", path: "record" },
+  //   ],
+  // },
 ];
 
 const Sidebar: React.FC = () => {
@@ -60,6 +51,8 @@ const Sidebar: React.FC = () => {
   const [openKeys, setOpenKeys] = useState<string[]>([]);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+
+  const { state, dispatch } = useAppContext();
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -143,16 +136,16 @@ const Sidebar: React.FC = () => {
         <div className="flex justify-center mb-4">
           <Avatar
             size={collapsed ? 48 : 80}
-            src="/path/to/user-image.png"
+            src={state?.user?.avatar}
             icon={<UserOutlined />}
           />
         </div>
         {!collapsed && (
           <div className="text-center mb-4">
             <Text strong className="text-white text-lg">
-              Ed Roh
+              {state?.user?.name}
             </Text>
-            <Text className="text-green-400 block">VP Fancy Admin</Text>
+            <Text className="text-green-400 block">LapTech Admin Page</Text>
           </div>
         )}
       </div>

@@ -73,9 +73,15 @@ export const getOrderDetails = async (id: string) => {
   }
 };
 
-export const getMyOrders = async () => {
+export const getMyOrders = async (page:number, limit: number,access_token:string) => {
   try{
-    const res: response = await baseURL.get(`/order/my-orders`);
+    const res: response = await baseURL.get(`/order/my-orders?page=${page}&limit=${limit}`,
+    {
+      headers: {
+        authorization: `Bearer ${access_token}`,
+      },
+    }
+    );
   return res; // Assuming you want to return the data from the response
   }catch(err){
     console.log(err);

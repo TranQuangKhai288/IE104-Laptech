@@ -70,7 +70,7 @@ const Cart: React.FC = () => {
           <div className="border-b pb-6 mb-6">
             <p className="flex justify-between text-gray-700">
               <span>Tổng sản phẩm:</span>
-              <span>{state?.cart?.products.length}</span>
+              <span>{state?.cart?.products.length || 0} </span>
             </p>
             <p className="flex justify-between text-gray-700">
               <span>Tổng cộng:</span>
@@ -82,7 +82,7 @@ const Cart: React.FC = () => {
                   lineHeight: "30px",
                 }}
               >
-                {state?.cart?.totalPrice.toLocaleString("vi-VN")} VND
+                {state?.cart?.totalPrice.toLocaleString("vi-VN") || 0} VND
               </span>
             </p>
           </div>

@@ -13,10 +13,14 @@ import * as OrderService from "../apis/OrderService";
 import useDebounce from "../customeHooks/useDebounce";
 import orderColumns from "../columnConfig/orderColumns";
 import { Order } from "../interfaces/Order";
+import { useAppContext } from "../provider/StoreProvider";
+
 const { Title } = Typography;
 
 const UserOrdered: React.FC = () => {
   const [orders, setOrders] = useState([] as Order[]);
+  const [loading, setLoading] = useState(false);
+  const { state } = useAppContext();
   //pagination
   const [pagination, setPagination] = useState({
     current: 1,
@@ -24,6 +28,7 @@ const UserOrdered: React.FC = () => {
     totalPages: 0,
     count: 0,
   });
+  console.log(orders, "orders");
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -31,16 +36,19 @@ const UserOrdered: React.FC = () => {
 
   const fetchOrders = async (page = 1, pageSize = 5, search = "") => {
     try {
-      const res = await OrderService.getOrders(
+      if (!state.user?.access_token) return;
+      setLoading(true);
+      const res = await OrderService.getMyOrders(
         page,
         pageSize,
-        "",
-        "",
-        "",
-        search,
-        ""
+        state.user?.access_token || ""
       );
+      setLoading(false);
       console.log("res", res);
+      if (!res) {
+        console.log("Failed to fetch orders");
+        return;
+      }
       setOrders(res.data.orders);
       setPagination({
         current: page,
@@ -55,7 +63,7 @@ const UserOrdered: React.FC = () => {
 
   useEffect(() => {
     fetchOrders(1, pagination.pageSize, debouncedSearchTerm);
-  }, [debouncedSearchTerm]);
+  }, [debouncedSearchTerm, state.user?.access_token]);
 
   return (
     <div className="">
@@ -68,6 +76,7 @@ const UserOrdered: React.FC = () => {
       <Table
         dataSource={orders}
         columns={orderColumns}
+        loading={loading}
         pagination={{
           current: pagination.current,
           pageSize: pagination.pageSize,

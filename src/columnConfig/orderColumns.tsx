@@ -276,7 +276,7 @@ const orderColumns: ColumnsType<Order> = [
   },
 
   {
-    title: "Status",
+    title: "Trạng thái đơn hàng",
     dataIndex: "status",
     key: "status",
     width: 50,

@@ -19,7 +19,7 @@ const CartItem: React.FC<CartItemProps> = ({
       <img
         src={item?.productId?.images[0]}
         alt={item?.productId?.name}
-        className="w-20 h-20 object-cover mr-12 "
+        className="w-40 h-40 object-contain mr-12 "
       />
       <div className="flex-grow">
         <h3 className="text-lg font-semibold mb-2">{item.productId.name}</h3>

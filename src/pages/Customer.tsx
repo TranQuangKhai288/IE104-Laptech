@@ -20,30 +20,21 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 
+import * as UserService from "../apis/UserService";
+import { useAppContext } from "../provider/StoreProvider";
 const { Title } = Typography;
 
 // Mock data (same as your existing data)
-const mockDataUser = [
-  {
-    name: "John Doe",
-    avatar: "https://via.placeholder.com/150",
-    phone: "123-456-7890",
-    email: "john@example.com",
-    access: "admin",
-  },
-  {
-    name: "Jane Smith",
-    avatar: "https://via.placeholder.com/150",
-    phone: "098-765-4321",
-    email: "jane@example.com",
-    access: "manager",
-  },
-  // Add more data as needed...
-];
 
 const Customer: React.FC = () => {
+  const { state } = useAppContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [users, setUsers] = useState(mockDataUser); // State để lưu dữ liệu sản phẩm
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 10,
+    // total: 0,
+  });
+  const [users, setUsers] = useState([]); // State để lưu dữ liệu sản phẩm
   const [form] = Form.useForm();
   const columns = [
     {
@@ -69,29 +60,29 @@ const Customer: React.FC = () => {
           </p>
           <p>
             <strong>Địa chỉ: </strong>
-            {record.address}
+            {record.address || "Chưa cập nhật"}
           </p>
           <p>
             <strong>Số điện thoại: </strong>
-            {record.phone}
+            {record.phone || "Chưa cập nhật"}
           </p>
         </div>
       ),
     },
     {
-      title: "Access Level",
-      dataIndex: "access",
-      key: "access",
-      render: (access: string) => {
+      title: "Role",
+      dataIndex: "isAdmin",
+      key: "",
+      render: (isAdmin: boolean) => {
         let color = "";
         let icon = null;
 
-        switch (access) {
-          case "admin":
+        switch (isAdmin) {
+          case true:
             color = "green";
             icon = <UserOutlined className="text-3xl" />;
             break;
-          case "manager":
+          case false:
             color = "blue";
             icon = <SafetyCertificateOutlined className="text-3xl" />;
             break;
@@ -107,12 +98,36 @@ const Customer: React.FC = () => {
             className="flex w-full h-20 items-center justify-center gap-2 w-24 mx-auto"
           >
             {icon}
-            <span className="capitalize text-base">{access}</span>
+            <span className="capitalize text-base">
+              {isAdmin ? "Admin" : "User"}
+            </span>
           </Tag>
         );
       },
     },
   ];
+
+  const fetchUsers = async () => {
+    try {
+      if (state.user !== null) {
+        const res = await UserService.getAllUsers(
+          pagination.current,
+          pagination.pageSize,
+          state?.user?.access_token || ""
+        );
+
+        if (res?.status === "OK") {
+          setUsers(res.data);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchUsers();
+  }, [pagination, state.user]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -128,21 +143,20 @@ const Customer: React.FC = () => {
       ...values,
       status: values.stock > 0 ? "Còn hàng" : "Hết hàng",
     };
-    setUsers([...users, newUser]);
+    // setUsers([...users, newUser]);
     setIsModalOpen(false);
   };
-
   console.log(users, "users");
 
   return (
     <div>
       {/* Header */}
       <div className="mb-6">
-        <Title level={2}>DANH SÁCH THÔNG TIN KHÁCH HÀNG</Title>
+        <Title level={2}>DANH SÁCH THÔNG TIN NGƯỜI DÙNG</Title>
       </div>
       {/* Data Table */}
       <div className="overflow-auto rounded-md shadow-md">
-        <div className="flex items-center justify-end mb-4">
+        {/* <div className="flex items-center justify-end mb-4">
           <Button
             type="primary"
             icon={<PlusOutlined style={{ fontSize: 28 }} />}
@@ -161,7 +175,7 @@ const Customer: React.FC = () => {
           >
             Thêm khách hàng bằng file Excel
           </Button>
-        </div>
+        </div> */}
         <Table
           dataSource={users}
           columns={columns}
