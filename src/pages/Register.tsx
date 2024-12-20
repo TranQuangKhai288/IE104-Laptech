@@ -70,16 +70,16 @@ const Register: React.FC = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email))
       newErrors.email = "Email không hợp lệ.";
-    // if (
-    //   formData.password.length < 8 ||
-    //   !/[A-Z]/.test(formData.password) ||
-    //   !/[a-z]/.test(formData.password) ||
-    //   !/\d/.test(formData.password) ||
-    //   !/[@$!%*?&#]/.test(formData.password)
-    // ) {
-    //   newErrors.password =
-    //     "Mật khẩu phải ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.";
-    // }
+    if (
+      formData.password.length < 8 ||
+      !/[A-Z]/.test(formData.password) ||
+      !/[a-z]/.test(formData.password) ||
+      !/\d/.test(formData.password) ||
+      !/[@$!%*?&#]/.test(formData.password)
+    ) {
+      newErrors.password =
+        "Mật khẩu phải ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.";
+    }
     if (formData.password !== formData.confirmPassword)
       newErrors.confirmPassword = "Mật khẩu không khớp.";
 
