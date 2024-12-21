@@ -1,9 +1,8 @@
-
-
 // src/routes.ts
 const routes = {
   home: "/",
   login: "/login",
+  forgotPass: "/forgotPass",
   register: "/register",
   productDetail: "/product-details/:id", // Route cố định cho trang chi tiết sản phẩm
   productWithType: "/product/:type", // Route động cho các loại sản phẩm
@@ -21,7 +20,6 @@ const routes = {
   ordered: "/ordered",
   profile: "/profile",
   checkout: "/checkout",
-  
 };
 
 export default routes;

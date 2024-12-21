@@ -10,6 +10,7 @@ import CustomerDept from "../pages/CustomerrDept";
 import Warning from "../pages/Warning";
 import RecordCamera from "../pages/RecordCamera";
 import Checkout from "../pages/Checkout";
+import ForgotPass from "../pages/ForgotPass";
 
 import NotFoundPage from "../pages/NotFoundPage";
 import Nothing from "../layouts/Nothing";
@@ -34,6 +35,12 @@ const routes = [
   {
     path: config.routes.login,
     component: Login,
+    layout: Nothing,
+  },
+
+  {
+    path: config.routes.forgotPass,
+    component: ForgotPass,
     layout: Nothing,
   },
 
