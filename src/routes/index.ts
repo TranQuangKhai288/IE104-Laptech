@@ -20,6 +20,7 @@ import OrderManagement from "../pages/OrderManagement";
 import ProductWithType from "../pages/ProductWithType";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
+import ForgotPass from "../pages/ForgotPass";
 import Register from "../pages/Register";
 import ProductDetailPage from "../pages/ProductDetail";
 import UserOrdered from "../pages/UserOrdered";
@@ -34,6 +35,12 @@ const routes = [
   {
     path: config.routes.login,
     component: Login,
+    layout: Nothing,
+  },
+
+  {
+    path: config.routes.forgotPass,
+    component: ForgotPass,
     layout: Nothing,
   },
 

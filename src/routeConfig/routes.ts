@@ -1,5 +1,3 @@
-
-
 // src/routes.ts
 const routes = {
   home: "/",
@@ -21,7 +19,7 @@ const routes = {
   ordered: "/ordered",
   profile: "/profile",
   checkout: "/checkout",
-  
+  forgotPass: "/forgotPass",
 };
 
 export default routes;
