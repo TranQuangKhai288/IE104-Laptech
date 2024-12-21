@@ -79,7 +79,7 @@ const Login: React.FC = () => {
       />
       <div className="absolute w-full max-w-md mt-32 p-6 bg-transparent rounded shadow-md z-20">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
-          Login
+          Đăng nhập
         </h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
@@ -93,7 +93,7 @@ const Login: React.FC = () => {
             />
           </div>
           <div>
-            <label className="block text-gray-600">Password</label>
+            <label className="block text-gray-600">Mật khẩu</label>
             <input
               type="password"
               value={password}
@@ -102,14 +102,25 @@ const Login: React.FC = () => {
               required
             />
           </div>
+
+          <div className="flex justify-end items-center" style={{ margin: 2 }}>
+            <a
+              href="/forgot-password"
+              className="text-blue-500 hover:underline "
+            >
+              Quên mật khẩu?
+            </a>
+          </div>
+
           <button
             type="submit"
-            className={`w-full py-2 mt-4 font-semibold text-white bg-blue-500 rounded-md ${
+            className={`w-full py-2 font-semibold text-white bg-blue-500 rounded-md ${
               isSubmitting
                 ? "cursor-not-allowed bg-blue-300"
                 : "hover:bg-blue-600"
             }`}
             disabled={isSubmitting}
+            style={{ margin: 0 }}
           >
             {isSubmitting ? "Đang xử lý..." : "Đăng nhập"}
           </button>

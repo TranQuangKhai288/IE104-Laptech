@@ -2,7 +2,7 @@
 const routes = {
   home: "/",
   login: "/login",
-  forgotPass: "/forgotPass",
+  forgotPassword: "/forgot-password",
   register: "/register",
   productDetail: "/product-details/:id", // Route cố định cho trang chi tiết sản phẩm
   productWithType: "/product/:type", // Route động cho các loại sản phẩm

@@ -103,10 +103,10 @@ const Register: React.FC = () => {
       const response = await UserService.registerUser(formData);
       if (response.status === "OK") {
         notification.success({
-          message: "Đăng ký thành công",
-          description: "Tài khoản của bạn đã được tạo thành công.",
+          message: "Gửi xác nhận thành công",
+          description: "Hãy vào email của bạn để xác nhận tài khoản",
         });
-        dispatch({ type: "SET_USER", payload: response.data });
+        // dispatch({ type: "SET_USER", payload: response.data });
         setTimeout(() => navigate("/login"), 1000);
       } else {
         notification.error({
