@@ -56,7 +56,7 @@ const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
         <hr className="my-4 border-b-1 border-gray-300" />
         {/* Specifications */}
         <div className="text-sm text-gray-500 overflow-hidden flex-grow">
-          {product.specifications.map((part, index) => (
+          {product.specifications.slice(0, 5).map((part, index) => (
             <div key={index}>
               {part.type}: {part.title}
             </div>
