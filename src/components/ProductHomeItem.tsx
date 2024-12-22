@@ -8,7 +8,7 @@ const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
   const navigate = useNavigate();
   return (
     <div
-      className="p-4 rounded-lg bg-white shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-white block cursor-pointer flex flex-col justify-between h-full"
+      className="p-4 rounded-lg bg-white shadow-md transition ease-in-out hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-white cursor-pointer flex flex-col justify-between"
       onClick={() => {
         navigate(`/product-details/${product._id}`);
       }}
@@ -55,7 +55,7 @@ const ProductHomeItem: React.FC<{ product: Product }> = ({ product }) => {
         </div>
         <hr className="my-4 border-b-1 border-gray-300" />
         {/* Specifications */}
-        <div className="text-sm text-gray-500 h-32 overflow-hidden flex-grow">
+        <div className="text-sm text-gray-500 overflow-hidden flex-grow">
           {product.specifications.map((part, index) => (
             <div key={index}>
               {part.type}: {part.title}
