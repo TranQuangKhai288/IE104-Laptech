@@ -69,10 +69,12 @@ export const getAllUsers = async (
   return res; // Assuming you want to return the data from the response
 };
 
-export const forgotPassword = async (data: { email: string }) => {
+export const forgotPassword = async ( email: string): Promise<response> => {
   try {
-    const response = await axios.post("/api/forgot-password", data);
-    return response.data;
+    const response:response = await baseURL.post("/user/forgot-password", {
+      email: email,
+    });
+    return response;
   } catch (error) {
     throw error;
   }

@@ -11,15 +11,18 @@ const ForgotPassword: React.FC = () => {
 
     try {
       setIsSubmitting(true);
-      const response = await UserService.forgotPassword({ email });
+      const response = await UserService.forgotPassword(email);
       console.log("Response forgot password", response);
 
       if (response.status === "OK") {
         notification.success({
           message: "Yêu cầu thành công",
-          description:
-            "Hướng dẫn đặt lại mật khẩu đã được gửi tới email của bạn.",
+          description: "Mật khẩu mới đã được gửi đến email của bạn.",
         });
+        //navigate to login page
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
         setIsSubmitting(false);
       } else {
         notification.error({

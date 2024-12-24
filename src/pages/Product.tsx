@@ -7,6 +7,7 @@ import {
   Upload,
   message,
   notification,
+  Modal,
 } from "antd";
 import { PlusOutlined, FileExcelTwoTone } from "@ant-design/icons";
 import { set } from "firebase/database";
@@ -26,7 +27,7 @@ type Product = {
   price: string;
   stock: number;
   status: "Còn hàng" | "Hết hàng";
-  image: string;
+  images: string[];
 };
 
 const ProductManagement: React.FC = () => {
@@ -113,25 +114,148 @@ const ProductManagement: React.FC = () => {
   };
 
   const handleUploadExcel = (file: any) => {
+    const validateCategory = (category: string) => {
+      return ["Laptop", "Pc", "Phone", "Accessory", "Tablet", "Other"].includes(
+        category
+      );
+    };
+
+    const validateSubCategory = (category: string, subCategory: string) => {
+      if (category !== "Laptop") return true;
+      return [
+        "Gaming",
+        "Office",
+        "Ultrabook",
+        "2-in-1",
+        "Workstation",
+        "Budget",
+        "Student",
+        "Business",
+      ].includes(subCategory);
+    };
+
+    const validateSpecType = (type: string) => {
+      return [
+        "CPU",
+        "RAM",
+        "Storage",
+        "Display",
+        "Battery",
+        "Camera",
+        "OS",
+        "GPU",
+        "Connectivity",
+        "Ports",
+        "Audio",
+      ].includes(type);
+    };
     const reader = new FileReader();
-    reader.onload = (e: any) => {
+    reader.onload = async (e: any) => {
       const data = new Uint8Array(e.target.result);
       const workbook = XLSX.read(data, { type: "array" });
       const worksheet = workbook.Sheets[workbook.SheetNames[0]];
       const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
-      const newProducts: Product[] = jsonData.map((product: any) => ({
-        id: (products?.length + 1).toString(),
-        name: product["Tên sản phẩm"],
+      // Convert Excel data to match your schema
+      const formattedProducts: any = jsonData.map((product: any) => ({
+        name: product["Tên sản phẩm"] || "Unnamed Product",
+        description: product["Mô tả"] || "",
         category: product["Phân loại"],
-        price: product["Đơn giá"],
-        stock: product["Số lượng"],
-        status: product["Số lượng"] > 0 ? "Còn hàng" : "Hết hàng",
-        image: product["Hình ảnh"] || "https://via.placeholder.com/150",
+        subCategory: product["Loại"] || null,
+        brand: product["Thương hiệu"],
+        price: product["Đơn giá"] || 0,
+        starting_price: product["Giá khởi điểm"] || null,
+        stock: product["Số lượng"] || 0,
+        images: product["Images"]
+          ? product["Images"].split(",").map((url: string) => url.trim())
+          : [],
+        colors: product["Colors"]
+          ? product["Colors"].split(";").map((color: string) => {
+              const [title, hex] = color.split("|");
+              return { title: title.trim(), hex: hex.trim() };
+            })
+          : [],
+        specifications: product["Specifications"]
+          ? product["Specifications"].split(";").map((spec: string) => {
+              const [type, title, description] = spec.split("|");
+              if (!validateSpecType(type.trim())) {
+                throw new Error(
+                  `Invalid specification type "${type}" for product ${product["Tên sản phẩm"]}`
+                );
+              }
+              return {
+                type: type.trim(),
+                title: title.trim(),
+                description: description.trim(),
+              };
+            })
+          : [],
+        gift_value: product["GiftValue"] || "",
+        averageRating: product["AverageRating"] || 0,
+        isFeatured: product["IsFeatured"] || false,
       }));
 
-      // setProducts([...products, ...newProducts]);
-      message.success("Thêm sản phẩm thành công!");
+      console.log("Formatted products:", formattedProducts);
+      setProducts(formattedProducts);
+      try {
+        const resbulk = await ProductService.createManyProducts(
+          formattedProducts
+        );
+
+        const thanhCong: any[] = [];
+        const trungLap: any[] = [];
+
+        Array.isArray(resbulk?.data) &&
+          resbulk?.data.forEach((result: any, index: number) => {
+            if (
+              typeof result === "string" &&
+              result.includes("already exists")
+            ) {
+              trungLap.push({
+                product: formattedProducts[index],
+                index,
+              });
+            } else {
+              thanhCong.push(result);
+            }
+          });
+
+        // Thông báo sản phẩm thành công
+        if (thanhCong.length > 0) {
+          message.success(`Đã thêm thành công ${thanhCong.length} sản phẩm`);
+        }
+
+        // Nếu có sản phẩm trùng, hiển thị modal
+        if (trungLap.length > 0) {
+          Modal.confirm({
+            title: "Phát hiện sản phẩm trùng lặp",
+            content: (
+              <div>
+                <p>Các sản phẩm sau đã tồn tại trong hệ thống:</p>
+                <ul>
+                  {trungLap.map((item, idx) => (
+                    <li key={idx}>
+                      {item.product.name} ({item.product.brand})
+                    </li>
+                  ))}
+                </ul>
+                <p>Bạn có muốn bỏ qua các sản phẩm trùng lặp?</p>
+              </div>
+            ),
+            okText: "Bỏ qua sản phẩm trùng",
+            cancelText: "Hủy",
+            onOk() {
+              //modal off and refect data
+              fetchProducts();
+            },
+          });
+        } else {
+          fetchProducts();
+        }
+      } catch (error) {
+        console.error(error);
+        message.error("Thêm sản phẩm thất bại!");
+      }
     };
 
     reader.readAsArrayBuffer(file);
@@ -231,7 +355,7 @@ const ProductManagement: React.FC = () => {
             <p className="mx-4">hoặc</p>
 
             <Upload
-              accept=".xlsx, .xls"
+              accept=".xlsx, .xls .csv"
               showUploadList={false}
               beforeUpload={handleUploadExcel}
             >

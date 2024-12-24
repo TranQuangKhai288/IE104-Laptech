@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ProductHomeItem from "../components/ProductHomeItem";
 import { Product } from "../interfaces/Product";
 import * as ProductService from "../apis/ProductService";
+import { Spin } from "antd";
 
 const ProductWithType: React.FC = () => {
   const { type } = useParams<{ type: string }>();
@@ -103,7 +104,15 @@ const ProductWithType: React.FC = () => {
   return products?.length === 0 ? (
     <div>
       <div className="text-3xl font-bold mb-4">{title}</div>
-      <div className="text-center text-xl">Không có sản phẩm nào</div>
+      <div className="text-center text-xl">
+        {isLoading ? (
+          <>
+            <Spin size="large" tip="Đang tải..." />
+          </>
+        ) : (
+          "Không có sản phẩm nào"
+        )}
+      </div>
     </div>
   ) : (
     <div>
