@@ -21,6 +21,11 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
 
   const handleAddToCart = () => {
     setIsLoading(true);
+    if (!state.user?._id) {
+      setIsLoading(false);
+      window.location.href =
+        "/login?redirect=/product-details/6764e02f0265c6d6dd2f4273";
+    }
     dispatch({
       type: "ADD_PRODUCT_TO_CART",
       payload: { productId: data, quantity: 1 },
@@ -153,12 +158,12 @@ const ProductOverview: React.FC<customProps> = ({ data }) => {
                   </>
                 )}
               </button>
-              <button
+              {/* <button
                 className="flex-1 p-2 bg-[#f93966] text-white rounded-lg h-full"
                 disabled={isLoading}
               >
                 <p>MUA NGAY!</p>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

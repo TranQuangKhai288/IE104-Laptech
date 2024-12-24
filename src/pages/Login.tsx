@@ -8,7 +8,8 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const redirect = window.location.search;
+  console.log("redirect", redirect);
   const { state, dispatch } = useAppContext();
   const navigate = useNavigate();
 
@@ -41,9 +42,14 @@ const Login: React.FC = () => {
             navigate("/admin");
           }, 1000);
         } else {
-          setTimeout(() => {
-            navigate("/");
-          }, 1000);
+          if (redirect) {
+            const redirectUrl = redirect.split("=")[1];
+            navigate(redirectUrl);
+          } else {
+            setTimeout(() => {
+              navigate("/");
+            }, 1000);
+          }
         }
       } else {
         notification.error({
