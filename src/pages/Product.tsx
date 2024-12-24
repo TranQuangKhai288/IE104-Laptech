@@ -9,7 +9,11 @@ import {
   notification,
   Modal,
 } from "antd";
-import { PlusOutlined, FileExcelTwoTone } from "@ant-design/icons";
+import {
+  PlusOutlined,
+  FileExcelTwoTone,
+  DownloadOutlined,
+} from "@ant-design/icons";
 import { set } from "firebase/database";
 
 import * as XLSX from "xlsx"; // Import thư viện xlsx
@@ -167,18 +171,18 @@ const ProductManagement: React.FC = () => {
         starting_price: product["Giá khởi điểm"] || null,
         stock: product["Số lượng"] || 0,
         images: product["Images"]
-          ? product["Images"].split(",").map((url: string) => url.trim())
+          ? product["Images"].split(",").map((url: string) => url?.trim())
           : [],
         colors: product["Colors"]
           ? product["Colors"].split(";").map((color: string) => {
               const [title, hex] = color.split("|");
-              return { title: title.trim(), hex: hex.trim() };
+              return { title: title?.trim(), hex: hex?.trim() };
             })
           : [],
         specifications: product["Specifications"]
           ? product["Specifications"].split(";").map((spec: string) => {
               const [type, title, description] = spec.split("|");
-              if (!validateSpecType(type.trim())) {
+              if (!validateSpecType(type?.trim())) {
                 throw new Error(
                   `Invalid specification type "${type}" for product ${product["Tên sản phẩm"]}`
                 );
@@ -320,6 +324,18 @@ const ProductManagement: React.FC = () => {
     fetchProducts(1, pagination.pageSize, debouncedSearchTerm);
   }, [debouncedSearchTerm]);
 
+  const handleDownload = () => {
+    // Đường dẫn tới file trong thư mục public
+    const fileUrl = `${process.env.PUBLIC_URL}/template/Products.xlsx`;
+    // Tạo link ẩn để tải file
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = "Products.xlsx"; // Tên file tải về
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="">
       {/* Header */}
@@ -367,6 +383,15 @@ const ProductManagement: React.FC = () => {
                 Thêm sản phẩm bằng file Excel
               </Button>
             </Upload>
+
+            <Button
+              type="primary"
+              icon={<DownloadOutlined style={{ fontSize: 28 }} />}
+              className="bg-blue-600 h-10 ml-4"
+              onClick={handleDownload}
+            >
+              Tải mẫu Excel
+            </Button>
           </div>
         </div>
 
